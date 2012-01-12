@@ -42,8 +42,7 @@ G_DEFINE_TYPE (IndicatorPrinters, indicator_printers, INDICATOR_OBJECT_TYPE)
 
 struct _IndicatorPrintersPrivate
 {
-    GtkImage *image;
-    gchar *accessible_desc;
+    IndicatorObjectEntry entry;
 };
 
 
@@ -51,65 +50,17 @@ static void
 dispose (GObject *object)
 {
     IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (object);
-    g_clear_object (&priv->image);
+    g_clear_object (&priv->entry.menu);
+    g_clear_object (&priv->entry.image);
     G_OBJECT_CLASS (indicator_printers_parent_class)->dispose (object);
 }
 
 
-static void
-finalize (GObject *object)
-{
-    IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (object);
-    g_free (priv->accessible_desc);
-    G_OBJECT_CLASS (indicator_printers_parent_class)->finalize (object);
-}
-
-
-static GtkLabel *
-get_label (IndicatorObject *io)
-{
-    return NULL;
-}
-
-
-static GtkImage *
-get_image (IndicatorObject *io)
+static GList *
+get_entries (IndicatorObject *io)
 {
     IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (io);
-
-    if (!priv->image) {
-        priv->image = indicator_image_helper ("printer-symbolic");
-        g_object_ref_sink (priv->image);
-    }
-
-    gtk_widget_show (GTK_WIDGET (priv->image));
-    return priv->image;
-}
-
-
-static GtkMenu *
-get_menu (IndicatorObject *io)
-{
-    DbusmenuGtkMenu *menu = dbusmenu_gtkmenu_new(INDICATOR_PRINTERS_DBUS_NAME,
-                                                 INDICATOR_PRINTERS_DBUS_OBJECT_PATH);
-    return GTK_MENU(menu);
-}
-
-
-static const gchar *
-get_accessible_desc (IndicatorObject * io)
-{
-    IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (io);
-    if (!priv->accessible_desc)
-        priv->accessible_desc = g_strdup ("Printers");
-    return priv->accessible_desc;
-}
-
-
-static const gchar *
-get_name_hint (IndicatorObject *io)
-{
-    return PACKAGE_NAME;
+    return g_list_append (NULL, &priv->entry);
 }
 
 
@@ -122,13 +73,8 @@ indicator_printers_class_init (IndicatorPrintersClass *klass)
     g_type_class_add_private (klass, sizeof (IndicatorPrintersPrivate));
 
     object_class->dispose = dispose;
-    object_class->finalize = finalize;
 
-    io_class->get_label = get_label;
-    io_class->get_image = get_image;
-    io_class->get_menu = get_menu;
-    io_class->get_accessible_desc = get_accessible_desc;
-    io_class->get_name_hint = get_name_hint;
+    io_class->get_entries = get_entries;
 }
 
 
@@ -136,8 +82,19 @@ static void
 indicator_printers_init (IndicatorPrinters *io)
 {
     IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (io);
+    DbusmenuGtkMenu *menu;
+    GtkImage *image;
 
-    priv->accessible_desc = NULL;
+    menu = dbusmenu_gtkmenu_new(INDICATOR_PRINTERS_DBUS_NAME,
+                                INDICATOR_PRINTERS_DBUS_OBJECT_PATH);
+
+    image = indicator_image_helper ("printer-symbolic");
+    gtk_widget_show (GTK_WIDGET (image));
+
+    priv->entry.name_hint = PACKAGE_NAME;
+    priv->entry.accessible_desc = "Printers";
+    priv->entry.menu = GTK_MENU (menu);
+    priv->entry.image = image;
 }
 
 
