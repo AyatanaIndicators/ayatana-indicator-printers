@@ -21,6 +21,8 @@
 #include <gtk/gtk.h>
 #include "dbus-names.h"
 
+#include "indicator-printers-menu.h"
+
 
 static void
 service_shutdown (IndicatorService *service, gpointer user_data)
@@ -30,87 +32,11 @@ service_shutdown (IndicatorService *service, gpointer user_data)
 }
 
 
-static void
-show_system_settings (DbusmenuMenuitem *menuitem,
-                      guint timestamp,
-                      gpointer user_data)
-{
-    GAppInfo *appinfo;
-    GError *err = NULL;
-
-    appinfo = g_app_info_create_from_commandline ("gnome-control-center printing",
-                                                  "gnome-control-center",
-                                                  G_APP_INFO_CREATE_SUPPORTS_STARTUP_NOTIFICATION,
-                                                  &err);
-    if (err) {
-        g_warning ("failed to create application info: %s", err->message);
-        g_error_free (err);
-        return;
-    }
-
-    g_app_info_launch (appinfo, NULL, NULL, &err);
-    if (err) {
-        g_warning ("failed to launch gnome-control-center: %s", err->message);
-        g_error_free (err);
-    }
-
-    g_object_unref (appinfo);
-}
-
-
-static void
-dbusmenu_menuitem_append_separator (DbusmenuMenuitem *item)
-{
-    DbusmenuMenuitem *separator;
-
-    separator = dbusmenu_menuitem_new();
-    dbusmenu_menuitem_property_set(separator,
-                                   "type",
-                                   DBUSMENU_CLIENT_TYPES_SEPARATOR);
-
-    dbusmenu_menuitem_child_append(item, separator);
-    g_object_unref (separator);
-}
-
-
-static void
-dbusmenu_menuitem_append_label (DbusmenuMenuitem *item,
-                                const gchar *text,
-                                GCallback activated,
-                                gpointer user_data)
-{
-    DbusmenuMenuitem *child;
-
-    child = dbusmenu_menuitem_new ();
-    dbusmenu_menuitem_property_set (child, "label", text);
-    g_signal_connect (child, "item-activated", activated, user_data);
-
-    dbusmenu_menuitem_child_append(item, child);
-    g_object_unref (child);
-}
-
-
-static DbusmenuMenuitem *
-create_menu ()
-{
-    DbusmenuMenuitem *root;
-
-    root = dbusmenu_menuitem_new ();
-    dbusmenu_menuitem_append_separator (root);
-    dbusmenu_menuitem_append_label (root,
-                                    "Printer Settings…",
-                                    G_CALLBACK(show_system_settings),
-                                    NULL);
-    return root;
-}
-
-
 int main (int argc, char *argv[])
 {
     IndicatorService *service;
     DbusmenuServer *menuserver;
-    DbusmenuMenuitem *root;
-    GError *err = NULL;
+    IndicatorPrintersMenu *menu;
 
     gtk_init (&argc, &argv);
 
@@ -121,13 +47,15 @@ int main (int argc, char *argv[])
                       G_CALLBACK (service_shutdown),
                       NULL);
 
+    menu = indicator_printers_menu_new ();
+
     menuserver = dbusmenu_server_new (INDICATOR_PRINTERS_DBUS_OBJECT_PATH);
-    root = create_menu ();
-    dbusmenu_server_set_root (menuserver, root);
-    g_object_unref (root);
+    dbusmenu_server_set_root (menuserver,
+                              indicator_printers_menu_get_root (menu));
 
     gtk_main ();
 
+    g_object_unref (menu);
     g_object_unref (menuserver);
     g_object_unref (service);
     return 0;
