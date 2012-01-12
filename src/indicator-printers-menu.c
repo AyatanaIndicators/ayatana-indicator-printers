@@ -4,9 +4,6 @@
 #include <gio/gio.h>
 
 
-#define MENUITEM_PROP_PRINTER "indicator-printers-printer"
-
-
 G_DEFINE_TYPE (IndicatorPrintersMenu, indicator_printers_menu, G_TYPE_OBJECT)
 
 #define PRINTERS_MENU_PRIVATE(o) \
@@ -48,10 +45,9 @@ show_system_settings (DbusmenuMenuitem *menuitem,
 {
     GAppInfo *appinfo;
     GError *err = NULL;
-    const gchar *printer;
+    const gchar *printer = user_data;
     gchar *cmdline;
 
-    printer = dbusmenu_menuitem_property_get (menuitem, MENUITEM_PROP_PRINTER);
     cmdline = g_strdup_printf ("gnome-control-center printing show-printer %s",
                                printer);
 
@@ -89,7 +85,7 @@ add_printer_menuitem (IndicatorPrintersMenu *self,
     g_signal_connect (child,
                       "item-activated",
                       G_CALLBACK (show_system_settings),
-                      NULL);
+                      printer);
 
     dbusmenu_menuitem_child_append(priv->root, child);
     g_object_unref (child);
