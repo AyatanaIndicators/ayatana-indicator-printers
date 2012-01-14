@@ -81,6 +81,7 @@ add_printer_menuitem (IndicatorPrintersMenu *self,
     DbusmenuMenuitem *child;
 
     child = dbusmenu_menuitem_new ();
+    dbusmenu_menuitem_property_set (child, "indicator-icon-name", "printer");
     dbusmenu_menuitem_property_set (child, "indicator-label", printer);
     dbusmenu_menuitem_property_set (child, "indicator-right", "Paused");
     dbusmenu_menuitem_property_set (child, "type", "indicator-item");

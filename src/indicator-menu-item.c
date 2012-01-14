@@ -11,6 +11,7 @@ G_DEFINE_TYPE (IndicatorMenuItem, indicator_menu_item, GTK_TYPE_MENU_ITEM)
 
 struct _IndicatorMenuItemPrivate
 {
+    GtkImage *image;
     GtkWidget *label;
     GtkWidget *right_label;
     gboolean right_is_lozenge;
@@ -19,6 +20,8 @@ struct _IndicatorMenuItemPrivate
 
 enum {
     PROP_0,
+    PROP_ICON,
+    PROP_ICON_NAME,
     PROP_LABEL,
     PROP_RIGHT,
     PROP_RIGHT_IS_LOZENGE,
@@ -99,10 +102,19 @@ indicator_menu_item_get_property (GObject    *object,
                                   GValue     *value,
                                   GParamSpec *pspec)
 {
+    IndicatorMenuItem *self = INDICATOR_MENU_ITEM (object);
     IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (object);
 
     switch (property_id)
     {
+        case PROP_ICON:
+            g_value_set_object (value, indicator_menu_item_get_icon (self));
+            break;
+
+        case PROP_ICON_NAME:
+            g_value_set_string (value, indicator_menu_item_get_icon_name (self));
+            break;
+
         case PROP_LABEL:
             g_value_set_string (value, gtk_label_get_label (GTK_LABEL (priv->label)));
             break;
@@ -131,6 +143,16 @@ indicator_menu_item_set_property (GObject      *object,
 
     switch (property_id)
     {
+        case PROP_ICON:
+            indicator_menu_item_set_icon (INDICATOR_MENU_ITEM (object),
+                                          g_value_get_object (value));
+            break;
+
+        case PROP_ICON_NAME:
+            indicator_menu_item_set_icon_name (INDICATOR_MENU_ITEM (object),
+                                               g_value_get_string (value));
+            break;
+
         case PROP_LABEL:
             indicator_menu_item_set_label (INDICATOR_MENU_ITEM (object),
                                            g_value_get_string (value));
@@ -158,6 +180,7 @@ indicator_menu_item_dispose (GObject *object)
 {
     IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (object);
 
+    g_clear_object (&priv->image);
     g_clear_object (&priv->label);
     g_clear_object (&priv->right_label);
 
@@ -175,6 +198,18 @@ indicator_menu_item_class_init (IndicatorMenuItemClass *klass)
     object_class->get_property = indicator_menu_item_get_property;
     object_class->set_property = indicator_menu_item_set_property;
     object_class->dispose = indicator_menu_item_dispose;
+
+    properties[PROP_ICON] = g_param_spec_object ("icon",
+                                                 "Icon",
+                                                 "Icon for this menu item",
+                                                 GDK_TYPE_PIXBUF,
+                                                 G_PARAM_READWRITE);
+
+    properties[PROP_ICON_NAME] = g_param_spec_string ("icon-name",
+                                                      "Icon name",
+                                                      "Name of the themed icon",
+                                                      "",
+                                                      G_PARAM_READWRITE);
 
     properties[PROP_LABEL] = g_param_spec_string ("label",
                                                   "Label",
@@ -210,6 +245,10 @@ indicator_menu_item_init (IndicatorMenuItem *self)
                           NULL);
 
     hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, spacing);
+
+    priv->image = g_object_new (GTK_TYPE_IMAGE, NULL);
+    g_object_ref_sink (priv->image);
+    gtk_box_pack_start (GTK_BOX (hbox), GTK_WIDGET (priv->image), FALSE, FALSE, 0);
 
     priv->label = g_object_new (GTK_TYPE_LABEL,
                                 "xalign", 0.0,
@@ -263,5 +302,49 @@ indicator_menu_item_set_right (IndicatorMenuItem *self,
     IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
     gtk_label_set_label (GTK_LABEL (priv->right_label), text);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_RIGHT]);
+}
+
+
+GdkPixbuf *
+indicator_menu_item_get_icon (IndicatorMenuItem *self)
+{
+    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    if (gtk_image_get_storage_type (priv->image) == GTK_IMAGE_PIXBUF)
+        return gtk_image_get_pixbuf (priv->image);
+    else
+        return NULL;
+}
+
+
+void
+indicator_menu_item_set_icon (IndicatorMenuItem *self,
+                              GdkPixbuf *icon)
+{
+    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    gtk_image_set_from_pixbuf (priv->image, icon);
+    g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_ICON]);
+}
+
+
+const gchar *
+indicator_menu_item_get_icon_name (IndicatorMenuItem *self)
+{
+    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    const gchar *name = NULL;
+
+    if (gtk_image_get_storage_type (priv->image) == GTK_IMAGE_ICON_NAME)
+        gtk_image_get_icon_name (priv->image, &name, NULL);
+
+    return name;
+}
+
+
+void
+indicator_menu_item_set_icon_name (IndicatorMenuItem *self,
+                                   const gchar *name)
+{
+    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    gtk_image_set_from_icon_name (priv->image, name, GTK_ICON_SIZE_MENU);
+    g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_ICON_NAME]);
 }
 
