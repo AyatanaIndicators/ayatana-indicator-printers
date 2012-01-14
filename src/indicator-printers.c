@@ -160,8 +160,8 @@ indicator_printers_init (IndicatorPrinters *io)
 
     priv->entry.name_hint = PACKAGE_NAME;
     priv->entry.accessible_desc = "Printers";
-    priv->entry.menu = GTK_MENU (menu);
-    priv->entry.image = image;
+    priv->entry.menu = GTK_MENU (g_object_ref_sink (menu));
+    priv->entry.image = g_object_ref_sink (image);
 }
 
 
