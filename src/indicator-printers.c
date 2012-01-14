@@ -112,13 +112,16 @@ new_indicator_item (DbusmenuMenuitem *newitem,
 {
     GtkWidget *menuitem;
     const gchar *text, *right_text;
+    gboolean is_lozenge;
 
     text = dbusmenu_menuitem_property_get (newitem, "indicator-label");
     right_text = dbusmenu_menuitem_property_get (newitem, "indicator-right");
+    is_lozenge = dbusmenu_menuitem_property_get_bool (newitem, "indicator-right-is-lozenge");
 
     menuitem = g_object_new (INDICATOR_TYPE_MENU_ITEM,
                              "label", text,
                              "right", right_text,
+                             "right-is-lozenge", is_lozenge,
                              NULL);
     gtk_widget_show_all (menuitem);
 
