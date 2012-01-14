@@ -48,6 +48,8 @@ IndicatorMenuItem *indicator_menu_item_new (void);
 void indicator_menu_item_set_right (IndicatorMenuItem *self, const gchar *text);
 void indicator_menu_item_set_label (IndicatorMenuItem *self, const gchar *text);
 
+gboolean indicator_menu_item_get_right_is_lozenge (IndicatorMenuItem *self);
+void indicator_menu_item_set_right_is_lozenge (IndicatorMenuItem *self, gboolean is_lozenge);
 const gchar * indicator_menu_item_get_icon_name (IndicatorMenuItem *self);
 void indicator_menu_item_set_icon (IndicatorMenuItem *self, GdkPixbuf *icon);
 GdkPixbuf * indicator_menu_item_get_icon (IndicatorMenuItem *self);

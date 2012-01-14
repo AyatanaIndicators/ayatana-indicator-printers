@@ -139,8 +139,6 @@ indicator_menu_item_set_property (GObject      *object,
                                   const GValue *value,
                                   GParamSpec   *pspec)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (object);
-
     switch (property_id)
     {
         case PROP_ICON:
@@ -164,8 +162,8 @@ indicator_menu_item_set_property (GObject      *object,
             break;
 
         case PROP_RIGHT_IS_LOZENGE:
-            priv->right_is_lozenge = g_value_get_boolean (value);
-            gtk_widget_queue_draw (priv->right_label);
+            indicator_menu_item_set_right_is_lozenge (INDICATOR_MENU_ITEM (object),
+                                                      g_value_get_boolean (value));
             break;
 
 
@@ -302,6 +300,25 @@ indicator_menu_item_set_right (IndicatorMenuItem *self,
     IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
     gtk_label_set_label (GTK_LABEL (priv->right_label), text);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_RIGHT]);
+}
+
+
+gboolean
+indicator_menu_item_get_right_is_lozenge (IndicatorMenuItem *self)
+{
+    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    return priv->right_is_lozenge;
+}
+
+
+void
+indicator_menu_item_set_right_is_lozenge (IndicatorMenuItem *self,
+                                          gboolean is_lozenge)
+{
+    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    priv->right_is_lozenge = is_lozenge;
+    gtk_widget_queue_draw (priv->right_label);
+    g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_RIGHT_IS_LOZENGE]);
 }
 
 
