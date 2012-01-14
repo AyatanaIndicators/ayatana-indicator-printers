@@ -283,6 +283,14 @@ indicator_menu_item_new (void)
 }
 
 
+const gchar *
+indicator_menu_item_get_label (IndicatorMenuItem *self)
+{
+    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    return gtk_label_get_label (GTK_LABEL (priv->label));
+}
+
+
 void
 indicator_menu_item_set_label (IndicatorMenuItem *self,
                                const gchar *text)
@@ -290,6 +298,14 @@ indicator_menu_item_set_label (IndicatorMenuItem *self,
     IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
     gtk_label_set_label (GTK_LABEL (priv->label), text);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_LABEL]);
+}
+
+
+const gchar *
+indicator_menu_item_get_right (IndicatorMenuItem *self)
+{
+    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    return gtk_label_get_label (GTK_LABEL (priv->right_label));
 }
 
 

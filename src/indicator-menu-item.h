@@ -45,8 +45,11 @@ struct _IndicatorMenuItemClass
 GType indicator_menu_item_get_type (void) G_GNUC_CONST;
 
 IndicatorMenuItem *indicator_menu_item_new (void);
-void indicator_menu_item_set_right (IndicatorMenuItem *self, const gchar *text);
+
+const gchar * indicator_menu_item_get_label (IndicatorMenuItem *self);
 void indicator_menu_item_set_label (IndicatorMenuItem *self, const gchar *text);
+const gchar * indicator_menu_item_get_right (IndicatorMenuItem *self);
+void indicator_menu_item_set_right (IndicatorMenuItem *self, const gchar *text);
 
 gboolean indicator_menu_item_get_right_is_lozenge (IndicatorMenuItem *self);
 void indicator_menu_item_set_right_is_lozenge (IndicatorMenuItem *self, gboolean is_lozenge);
