@@ -23,6 +23,6 @@ src/.libs/
 src/Makefile
 src/Makefile.in
 src/indicator-printers-service
-src/libprintersmenu.la
-src/libprintersmenu_la-indicator-printers.lo
+src/*.la
+src/*.lo
 

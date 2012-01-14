@@ -81,11 +81,15 @@ add_printer_menuitem (IndicatorPrintersMenu *self,
     DbusmenuMenuitem *child;
 
     child = dbusmenu_menuitem_new ();
-    dbusmenu_menuitem_property_set (child, "label", printer);
-    g_signal_connect (child,
-                      "item-activated",
-                      G_CALLBACK (show_system_settings),
-                      printer);
+    dbusmenu_menuitem_property_set (child, "indicator-label", printer);
+    dbusmenu_menuitem_property_set (child, "indicator-right", "Paused");
+    dbusmenu_menuitem_property_set (child, "type", "indicator-item");
+    g_signal_connect_data (child,
+                           "item-activated",
+                           G_CALLBACK (show_system_settings),
+                           g_strdup (printer),
+                           (GClosureNotify) g_free,
+                           0);
 
     dbusmenu_menuitem_child_append(priv->root, child);
     g_object_unref (child);

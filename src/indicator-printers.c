@@ -19,6 +19,7 @@
 #include "config.h"
 
 #include "indicator-printers.h"
+#include "indicator-menu-item.h"
 #include "dbus-names.h"
 
 #include <gtk/gtk.h>
@@ -78,15 +79,78 @@ indicator_printers_class_init (IndicatorPrintersClass *klass)
 }
 
 
+static gboolean
+is_string_property (const gchar *name,
+                    const gchar *prop,
+                    GVariant *value)
+{
+    return !g_strcmp0 (name, prop) &&
+           g_variant_is_of_type (value, G_VARIANT_TYPE_STRING);
+}
+
+
+static void
+indicator_prop_change_cb (DbusmenuMenuitem *mi,
+                          gchar *prop,
+                          GVariant *value,
+                          gpointer user_data)
+{
+    IndicatorMenuItem *menuitem = user_data;
+
+    if (is_string_property (prop, "indicator-label", value))
+        indicator_menu_item_set_label (menuitem, g_variant_get_string (value, NULL));
+    else if (is_string_property (prop, "indicator-right", value))
+        indicator_menu_item_set_right (menuitem, g_variant_get_string (value, NULL));
+}
+
+
+static gboolean
+new_indicator_item (DbusmenuMenuitem *newitem,
+                    DbusmenuMenuitem *parent,
+                    DbusmenuClient *client,
+                    gpointer user_data)
+{
+    GtkWidget *menuitem;
+    const gchar *text, *right_text;
+
+    text = dbusmenu_menuitem_property_get (newitem, "indicator-label");
+    right_text = dbusmenu_menuitem_property_get (newitem, "indicator-right");
+
+    menuitem = g_object_new (INDICATOR_TYPE_MENU_ITEM,
+                             "label", text,
+                             "right", right_text,
+                             NULL);
+    gtk_widget_show_all (menuitem);
+
+    dbusmenu_gtkclient_newitem_base(DBUSMENU_GTKCLIENT(client),
+                                    newitem,
+                                    GTK_MENU_ITEM (menuitem),
+                                    parent);
+
+    g_signal_connect(G_OBJECT(newitem),
+                     "property-changed",
+                     G_CALLBACK(indicator_prop_change_cb),
+                     menuitem);
+
+    return TRUE;
+}
+
+
 static void
 indicator_printers_init (IndicatorPrinters *io)
 {
     IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (io);
     DbusmenuGtkMenu *menu;
+    DbusmenuClient *client;
     GtkImage *image;
 
     menu = dbusmenu_gtkmenu_new(INDICATOR_PRINTERS_DBUS_NAME,
                                 INDICATOR_PRINTERS_DBUS_OBJECT_PATH);
+
+    client = DBUSMENU_CLIENT (dbusmenu_gtkmenu_get_client (menu));
+    dbusmenu_client_add_type_handler(client,
+                                     "indicator-item",
+                                     new_indicator_item);
 
     image = indicator_image_helper ("printer-symbolic");
     gtk_widget_show (GTK_WIDGET (image));
