@@ -48,7 +48,7 @@ show_system_settings (DbusmenuMenuitem *menuitem,
     const gchar *printer = user_data;
     gchar *cmdline;
 
-    cmdline = g_strdup_printf ("gnome-control-center printing show-printer %s",
+    cmdline = g_strdup_printf ("gnome-control-center printers show-printer %s",
                                printer);
 
     appinfo = g_app_info_create_from_commandline (cmdline,
