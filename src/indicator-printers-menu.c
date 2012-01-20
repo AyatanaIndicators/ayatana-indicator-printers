@@ -21,7 +21,7 @@ dispose (GObject *object)
 {
     IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (object);
 
-    g_clear_object (priv->root);
+    g_clear_object (&priv->root);
 
     G_OBJECT_CLASS (indicator_printers_menu_parent_class)->dispose (object);
 }
