@@ -22,6 +22,14 @@ PKG_CHECK_MODULES(SERVICE, gtk+-3.0 >= 3.0
                            indicator3-0.4 >= 0.2
                            dbusmenu-glib-0.4 >= 0.2)
 
+AC_PATH_PROG(CUPS_CONFIG, cups-config, no)
+if test "x$CUPS_CONFIG" = "xno"; then
+    AC_MSG_ERROR([could not find cups-config])
+fi
+AC_CHECK_HEADER(cups/cups.h,,AC_MSG_ERROR([could not find cups.h]))
+SERVICE_CFLAGS+=`$CUPS_CONFIG --cflags`
+SERVICE_LIBS+=`$CUPS_CONFIG --libs`
+
 INDICATORDIR=`$PKG_CONFIG --variable=indicatordir indicator3-0.4`
 INDICATORICONSDIR=`$PKG_CONFIG --variable=iconsdir indicator3-0.4`
 

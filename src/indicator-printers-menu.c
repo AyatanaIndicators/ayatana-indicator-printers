@@ -2,6 +2,7 @@
 #include "indicator-printers-menu.h"
 
 #include <gio/gio.h>
+#include <cups/cups.h>
 
 
 G_DEFINE_TYPE (IndicatorPrintersMenu, indicator_printers_menu, G_TYPE_OBJECT)
@@ -13,6 +14,7 @@ G_DEFINE_TYPE (IndicatorPrintersMenu, indicator_printers_menu, G_TYPE_OBJECT)
 struct _IndicatorPrintersMenuPrivate
 {
     DbusmenuMenuitem *root;
+    GHashTable *printers;    /* printer name -> dbusmenuitem */
 };
 
 
@@ -20,6 +22,11 @@ static void
 dispose (GObject *object)
 {
     IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (object);
+
+    if (priv->printers) {
+        g_hash_table_unref (priv->printers);
+        priv->printers = NULL;
+    }
 
     g_clear_object (&priv->root);
 
@@ -72,28 +79,42 @@ show_system_settings (DbusmenuMenuitem *menuitem,
     g_object_unref (appinfo);
 }
 
-
 static void
 add_printer_menuitem (IndicatorPrintersMenu *self,
-                      const gchar *printer)
+                      const char *printer,
+                      int state,
+                      int njobs)
 {
     IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
-    DbusmenuMenuitem *child;
+    DbusmenuMenuitem *item;
 
-    child = dbusmenu_menuitem_new ();
-    dbusmenu_menuitem_property_set (child, "indicator-icon-name", "printer");
-    dbusmenu_menuitem_property_set (child, "indicator-label", printer);
-    dbusmenu_menuitem_property_set (child, "indicator-right", "Paused");
-    dbusmenu_menuitem_property_set (child, "type", "indicator-item");
-    g_signal_connect_data (child,
-                           "item-activated",
+    item = dbusmenu_menuitem_new ();
+    dbusmenu_menuitem_property_set (item, "type", "indicator-item");
+    dbusmenu_menuitem_property_set (item, "indicator-icon-name", "printer");
+    dbusmenu_menuitem_property_set (item, "indicator-label", printer);
+    dbusmenu_menuitem_property_set_bool (item, "visible", TRUE);
+
+    switch (state) {
+        case IPP_PRINTER_STOPPED:
+            dbusmenu_menuitem_property_set (item, "indicator-right", "Paused");
+            dbusmenu_menuitem_property_set_bool (item, "indicator-right-is-lozenge", FALSE);
+            break;
+
+        case IPP_PRINTER_PROCESSING: {
+            gchar *jobstr = g_strdup_printf ("%d", njobs);
+            dbusmenu_menuitem_property_set (item, "indicator-right", jobstr);
+            dbusmenu_menuitem_property_set_bool (item, "indicator-right-is-lozenge", TRUE);
+            g_free (jobstr);
+            break;
+        }
+    }
+
+    g_signal_connect_data (item, "item-activated",
                            G_CALLBACK (show_system_settings),
-                           g_strdup (printer),
-                           (GClosureNotify) g_free,
-                           0);
+                           g_strdup (printer), (GClosureNotify) g_free, 0);
 
-    dbusmenu_menuitem_child_append(priv->root, child);
-    g_object_unref (child);
+    dbusmenu_menuitem_child_append(priv->root, item);
+    g_hash_table_insert (priv->printers, g_strdup (printer), item);
 }
 
 
@@ -101,10 +122,31 @@ static void
 indicator_printers_menu_init (IndicatorPrintersMenu *self)
 {
     IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
+    int ndests, njobs, i, state;
+    cups_dest_t *dests;
+    cups_job_t *jobs;
 
     priv->root = dbusmenu_menuitem_new ();
-    add_printer_menuitem (self, "canon-mono-duplex");
-    add_printer_menuitem (self, "kitchen");
+
+    priv->printers = g_hash_table_new_full (g_str_hash,
+                                            g_str_equal,
+                                            g_free,
+                                            g_object_unref);
+
+    /* create initial menu items */
+    ndests = cupsGetDests (&dests);
+    for (i = 0; i < ndests; i++) {
+        njobs = cupsGetJobs (&jobs, dests[i].name, 1, CUPS_WHICHJOBS_ACTIVE);
+        state = atoi (cupsGetOption ("printer-state",
+                                     dests[i].num_options,
+                                     dests[i].options));
+
+        if (njobs > 0)
+            add_printer_menuitem (self, dests[i].name, state, njobs);
+
+        cupsFreeJobs (njobs, jobs);
+    }
+    cupsFreeDests (ndests, dests);
 }
 
 
