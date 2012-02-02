@@ -112,6 +112,7 @@ update_printer_menuitem (IndicatorPrintersMenu *self,
         item = dbusmenu_menuitem_new ();
         dbusmenu_menuitem_property_set (item, "type", "indicator-item");
         dbusmenu_menuitem_property_set (item, "indicator-icon-name", "printer");
+        dbusmenu_menuitem_property_set (item, "indicator-label", printer);
         g_signal_connect_data (item, "item-activated",
                                G_CALLBACK (show_system_settings),
                                g_strdup (printer), (GClosureNotify) g_free, 0);
