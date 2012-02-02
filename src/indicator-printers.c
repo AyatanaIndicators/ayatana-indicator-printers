@@ -127,24 +127,13 @@ g_variant_get_image (GVariant *value)
 }
 
 
-
 static gboolean
-is_string_property (const gchar *name,
-                    const gchar *prop,
-                    GVariant *value)
+properties_match (const gchar *name,
+                  const gchar *prop,
+                  GVariant *value,
+                  const GVariantType *type)
 {
-    return !g_strcmp0 (name, prop) &&
-           g_variant_is_of_type (value, G_VARIANT_TYPE_STRING);
-}
-
-
-static gboolean
-is_image_property (const gchar *name,
-                   const gchar *prop,
-                   GVariant *value)
-{
-    return !g_strcmp0 (name, prop) &&
-           g_variant_is_of_type (value, G_VARIANT_TYPE_STRING);
+    return !g_strcmp0 (name, prop) && g_variant_is_of_type (value, type);
 }
 
 
@@ -156,17 +145,25 @@ indicator_prop_change_cb (DbusmenuMenuitem *mi,
 {
     IndicatorMenuItem *menuitem = user_data;
 
-    if (is_string_property (prop, "indicator-label", value))
+    g_print (": %s\n", prop);
+
+    if (properties_match (prop, "indicator-label", value, G_VARIANT_TYPE_STRING))
         indicator_menu_item_set_label (menuitem, g_variant_get_string (value, NULL));
-    else if (is_string_property (prop, "indicator-right", value))
+
+    else if (properties_match (prop, "indicator-right", value, G_VARIANT_TYPE_STRING))
         indicator_menu_item_set_right (menuitem, g_variant_get_string (value, NULL));
-    else if (is_string_property (prop, "indicator-icon-name", value))
+
+    else if (properties_match (prop, "indicator-icon-name", value, G_VARIANT_TYPE_STRING))
         indicator_menu_item_set_icon_name (menuitem, g_variant_get_string (value, NULL));
-    else if (is_image_property (prop, "indicator-icon", value)) {
+
+    else if (properties_match (prop, "indicator-icon", value, G_VARIANT_TYPE_STRING)) {
         GdkPixbuf *pb = g_variant_get_image (value);
         indicator_menu_item_set_icon (menuitem, pb);
         g_object_unref (pb);
     }
+
+    else if (properties_match (prop, "visible", value, G_VARIANT_TYPE_BOOLEAN))
+        gtk_widget_set_visible (GTK_WIDGET (menuitem), g_variant_get_boolean (value));
 }
 
 
@@ -179,19 +176,21 @@ new_indicator_item (DbusmenuMenuitem *newitem,
     GtkWidget *menuitem;
     const gchar *icon_name, *text, *right_text;
     GVariant *icon;
-    gboolean is_lozenge;
+    gboolean is_lozenge, visible;
 
     icon_name = dbusmenu_menuitem_property_get (newitem, "indicator-icon-name");
     icon = dbusmenu_menuitem_property_get_variant (newitem, "indicator-icon");
     text = dbusmenu_menuitem_property_get (newitem, "indicator-label");
     right_text = dbusmenu_menuitem_property_get (newitem, "indicator-right");
     is_lozenge = dbusmenu_menuitem_property_get_bool (newitem, "indicator-right-is-lozenge");
+    visible = dbusmenu_menuitem_property_get_bool (newitem, "visible");
 
     menuitem = g_object_new (INDICATOR_TYPE_MENU_ITEM,
                              "icon-name", icon_name,
                              "label", text,
                              "right", right_text,
                              "right-is-lozenge", is_lozenge,
+                             "visible", visible,
                              NULL);
     if (icon) {
         GdkPixbuf *pb = g_variant_get_image (icon);
