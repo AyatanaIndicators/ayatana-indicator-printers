@@ -4,8 +4,6 @@
 #include <gio/gio.h>
 #include <cups/cups.h>
 
-#include "cups-notifier.h"
-
 
 G_DEFINE_TYPE (IndicatorPrintersMenu, indicator_printers_menu, G_TYPE_OBJECT)
 
@@ -19,6 +17,15 @@ struct _IndicatorPrintersMenuPrivate
     GHashTable *printers;    /* printer name -> dbusmenuitem */
     CupsNotifier *cups_notifier;
 };
+
+
+enum {
+    PROP_0,
+    PROP_CUPS_NOTIFIER,
+    NUM_PROPERTIES
+};
+
+GParamSpec *properties[NUM_PROPERTIES];
 
 
 static void
@@ -38,6 +45,46 @@ dispose (GObject *object)
 }
 
 
+void
+set_property (GObject        *object,
+              guint           property_id,
+              const GValue   *value,
+              GParamSpec     *pspec)
+{
+    IndicatorPrintersMenu *self = INDICATOR_PRINTERS_MENU (object);
+
+    switch (property_id) {
+        case PROP_CUPS_NOTIFIER:
+            indicator_printers_menu_set_cups_notifier (self,
+                                                       g_value_get_object (value));
+            break;
+
+        default:
+            G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+    }
+}
+
+
+void
+get_property (GObject        *object,
+              guint           property_id,
+              GValue         *value,
+              GParamSpec     *pspec)
+{
+    IndicatorPrintersMenu *self = INDICATOR_PRINTERS_MENU (object);
+
+    switch (property_id) {
+        case PROP_CUPS_NOTIFIER:
+            g_value_set_object (value,
+                                indicator_printers_menu_get_cups_notifier (self));
+            break;
+
+        default:
+            G_OBJECT_WARN_INVALID_PROPERTY_ID (object, property_id, pspec);
+    }
+}
+
+
 static void
 indicator_printers_menu_class_init (IndicatorPrintersMenuClass *klass)
 {
@@ -46,6 +93,16 @@ indicator_printers_menu_class_init (IndicatorPrintersMenuClass *klass)
     g_type_class_add_private (klass, sizeof (IndicatorPrintersMenuPrivate));
 
     object_class->dispose = dispose;
+    object_class->get_property = get_property;
+    object_class->set_property = set_property;
+
+    properties[PROP_CUPS_NOTIFIER] = g_param_spec_object ("cups-notifier",
+                                                          "Cups Notifier",
+                                                          "A cups notifier object",
+                                                          CUPS_TYPE_NOTIFIER,
+                                                          G_PARAM_READWRITE);
+
+    g_object_class_install_properties (object_class, NUM_PROPERTIES, properties);
 }
 
 
@@ -194,7 +251,6 @@ indicator_printers_menu_init (IndicatorPrintersMenu *self)
     IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
     int ndests, i;
     cups_dest_t *dests;
-    GError *error = NULL;
 
     priv->root = dbusmenu_menuitem_new ();
 
@@ -202,27 +258,6 @@ indicator_printers_menu_init (IndicatorPrintersMenu *self)
                                             g_str_equal,
                                             g_free,
                                             g_object_unref);
-
-    priv->cups_notifier = cups_notifier_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
-                                                                0,
-                                                                NULL,
-                                                                "/org/cups/cupsd/Notifier",
-                                                                NULL,
-                                                                &error);
-    if (error) {
-        g_warning ("Error creating cups notify handler: %s", error->message);
-        g_clear_error (&error);
-    }
-    else {
-        g_signal_connect (priv->cups_notifier, "job-created",
-                          G_CALLBACK (update_job), self);
-        g_signal_connect (priv->cups_notifier, "job-state",
-                          G_CALLBACK (update_job), self);
-        g_signal_connect (priv->cups_notifier, "job-completed",
-                          G_CALLBACK (update_job), self);
-        g_signal_connect (priv->cups_notifier, "printer-state-changed",
-                          G_CALLBACK (on_printer_state_changed), self);
-    }
 
     /* create initial menu items */
     ndests = cupsGetDests (&dests);
@@ -251,5 +286,40 @@ indicator_printers_menu_get_root (IndicatorPrintersMenu *self)
 {
     IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
     return priv->root;
+}
+
+
+CupsNotifier *
+indicator_printers_menu_get_cups_notifier (IndicatorPrintersMenu *self)
+{
+    IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
+    return priv->cups_notifier;
+}
+
+
+void
+indicator_printers_menu_set_cups_notifier (IndicatorPrintersMenu *self,
+                                           CupsNotifier *cups_notifier)
+{
+    IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
+
+    if (priv->cups_notifier) {
+        g_object_disconnect (priv->cups_notifier,
+                             "any-signal", update_job, self,
+                             "any-signal", on_printer_state_changed, self,
+                             NULL);
+        g_object_unref (priv->cups_notifier);
+    }
+
+    priv->cups_notifier = cups_notifier;
+
+    if (priv->cups_notifier) {
+        g_object_connect (priv->cups_notifier,
+                          "signal::job-created", update_job, self,
+                          "signal::job-state", update_job, self,
+                          "signal::job-completed", update_job, self,
+                          "signal::printer-state-changed", on_printer_state_changed, self,
+                          NULL);
+    }
 }
 

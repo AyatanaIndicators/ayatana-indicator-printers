@@ -4,6 +4,8 @@
 #include <glib-object.h>
 #include <libdbusmenu-glib/dbusmenu-glib.h>
 
+#include "cups-notifier.h"
+
 G_BEGIN_DECLS
 
 #define INDICATOR_TYPE_PRINTERS_MENU indicator_printers_menu_get_type()
@@ -46,6 +48,9 @@ GType indicator_printers_menu_get_type (void) G_GNUC_CONST;
 
 IndicatorPrintersMenu *indicator_printers_menu_new (void);
 DbusmenuMenuitem * indicator_printers_menu_get_root (IndicatorPrintersMenu *menu);
+CupsNotifier * indicator_printers_menu_get_cups_notifier (IndicatorPrintersMenu *self);
+void indicator_printers_menu_set_cups_notifier (IndicatorPrintersMenu *self,
+                                                CupsNotifier *cups_notifier);
 
 G_END_DECLS
 

@@ -21,6 +21,7 @@
 #include <gtk/gtk.h>
 #include "dbus-names.h"
 
+#include "cups-notifier.h"
 #include "indicator-printers-menu.h"
 
 
@@ -36,7 +37,9 @@ int main (int argc, char *argv[])
 {
     IndicatorService *service;
     DbusmenuServer *menuserver;
+    CupsNotifier *cups_notifier;
     IndicatorPrintersMenu *menu;
+    GError *error = NULL;
 
     gtk_init (&argc, &argv);
 
@@ -47,7 +50,22 @@ int main (int argc, char *argv[])
                       G_CALLBACK (service_shutdown),
                       NULL);
 
-    menu = indicator_printers_menu_new ();
+    cups_notifier = cups_notifier_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
+                                                          0,
+                                                          NULL,
+                                                          CUPS_DBUS_PATH,
+                                                          NULL,
+                                                          &error);
+    if (error) {
+        g_warning ("Error creating cups notify handler: %s", error->message);
+        g_error_free (error);
+        g_object_unref (service);
+        return 1;
+    }
+
+    menu = g_object_new (INDICATOR_TYPE_PRINTERS_MENU,
+                         "cups-notifier", cups_notifier,
+                         NULL);
 
     menuserver = dbusmenu_server_new (INDICATOR_PRINTERS_DBUS_OBJECT_PATH);
     dbusmenu_server_set_root (menuserver,
@@ -57,6 +75,7 @@ int main (int argc, char *argv[])
 
     g_object_unref (menu);
     g_object_unref (menuserver);
+    g_object_unref (cups_notifier);
     g_object_unref (service);
     return 0;
 }
