@@ -25,4 +25,5 @@ src/Makefile.in
 src/indicator-printers-service
 src/*.la
 src/*.lo
+src/cups-notifier.[ch]
 
