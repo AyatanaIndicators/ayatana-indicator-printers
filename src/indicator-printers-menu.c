@@ -1,7 +1,7 @@
 
 #include "indicator-printers-menu.h"
 
-#include <gio/gio.h>
+#include "show-printer-settings.h"
 #include <cups/cups.h>
 
 
@@ -121,33 +121,8 @@ show_system_settings (DbusmenuMenuitem *menuitem,
                       guint timestamp,
                       gpointer user_data)
 {
-    GAppInfo *appinfo;
-    GError *err = NULL;
     const gchar *printer = user_data;
-    gchar *cmdline;
-
-    cmdline = g_strdup_printf ("gnome-control-center printers show-printer %s",
-                               printer);
-
-    appinfo = g_app_info_create_from_commandline (cmdline,
-                                                  "gnome-control-center",
-                                                  G_APP_INFO_CREATE_SUPPORTS_STARTUP_NOTIFICATION,
-                                                  &err);
-    g_free (cmdline);
-
-    if (err) {
-        g_warning ("failed to create application info: %s", err->message);
-        g_error_free (err);
-        return;
-    }
-
-    g_app_info_launch (appinfo, NULL, NULL, &err);
-    if (err) {
-        g_warning ("failed to launch gnome-control-center: %s", err->message);
-        g_error_free (err);
-    }
-
-    g_object_unref (appinfo);
+    show_printer_settings (printer);
 }
 
 
