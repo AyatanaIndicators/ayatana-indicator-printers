@@ -27,8 +27,8 @@
 #include <libindicator/indicator.h>
 #include <libindicator/indicator-image-helper.h>
 
-#include <libdbusmenu-gtk3/menu.h>
-#include <libdbusmenu-gtk3/menuitem.h>
+#include <libdbusmenu-gtk/menu.h>
+#include <libdbusmenu-gtk/menuitem.h>
 
 
 INDICATOR_SET_VERSION
