@@ -52,6 +52,7 @@ typedef struct _IndicatorPrintersPrivate IndicatorPrintersPrivate;
 struct _IndicatorPrinters
 {
   IndicatorObject parent;
+  IndicatorPrintersPrivate *priv;
 };
 
 struct _IndicatorPrintersClass

@@ -6,8 +6,6 @@
 
 G_DEFINE_TYPE (IndicatorMenuItem, indicator_menu_item, GTK_TYPE_MENU_ITEM)
 
-#define MENU_ITEM_PRIVATE(o) \
-  (G_TYPE_INSTANCE_GET_PRIVATE ((o), INDICATOR_TYPE_MENU_ITEM, IndicatorMenuItemPrivate))
 
 struct _IndicatorMenuItemPrivate
 {
@@ -103,7 +101,6 @@ indicator_menu_item_get_property (GObject    *object,
                                   GParamSpec *pspec)
 {
     IndicatorMenuItem *self = INDICATOR_MENU_ITEM (object);
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (object);
 
     switch (property_id)
     {
@@ -116,15 +113,15 @@ indicator_menu_item_get_property (GObject    *object,
             break;
 
         case PROP_LABEL:
-            g_value_set_string (value, gtk_label_get_label (GTK_LABEL (priv->label)));
+            g_value_set_string (value, gtk_label_get_label (GTK_LABEL (self->priv->label)));
             break;
 
         case PROP_RIGHT:
-            g_value_set_string (value, gtk_label_get_label (GTK_LABEL (priv->right_label)));
+            g_value_set_string (value, gtk_label_get_label (GTK_LABEL (self->priv->right_label)));
             break;
 
         case PROP_RIGHT_IS_LOZENGE:
-            g_value_set_boolean (value, priv->right_is_lozenge);
+            g_value_set_boolean (value, self->priv->right_is_lozenge);
             break;
 
         default:
@@ -176,11 +173,11 @@ indicator_menu_item_set_property (GObject      *object,
 static void
 indicator_menu_item_dispose (GObject *object)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (object);
+    IndicatorMenuItem *self = INDICATOR_MENU_ITEM (object);
 
-    g_clear_object (&priv->image);
-    g_clear_object (&priv->label);
-    g_clear_object (&priv->right_label);
+    g_clear_object (&self->priv->image);
+    g_clear_object (&self->priv->label);
+    g_clear_object (&self->priv->right_label);
 
     G_OBJECT_CLASS (indicator_menu_item_parent_class)->dispose (object);
 }
@@ -234,9 +231,14 @@ indicator_menu_item_class_init (IndicatorMenuItemClass *klass)
 static void
 indicator_menu_item_init (IndicatorMenuItem *self)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
+    IndicatorMenuItemPrivate *priv;
     gint spacing;
     GtkWidget *hbox;
+
+    priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
+                                        INDICATOR_TYPE_MENU_ITEM,
+                                        IndicatorMenuItemPrivate);
+    self->priv = priv;
 
     gtk_widget_style_get (GTK_WIDGET (self),
                           "toggle-spacing", &spacing,
@@ -286,8 +288,7 @@ indicator_menu_item_new (void)
 const gchar *
 indicator_menu_item_get_label (IndicatorMenuItem *self)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    return gtk_label_get_label (GTK_LABEL (priv->label));
+    return gtk_label_get_label (GTK_LABEL (self->priv->label));
 }
 
 
@@ -295,8 +296,7 @@ void
 indicator_menu_item_set_label (IndicatorMenuItem *self,
                                const gchar *text)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    gtk_label_set_label (GTK_LABEL (priv->label), text);
+    gtk_label_set_label (GTK_LABEL (self->priv->label), text);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_LABEL]);
 }
 
@@ -304,8 +304,7 @@ indicator_menu_item_set_label (IndicatorMenuItem *self,
 const gchar *
 indicator_menu_item_get_right (IndicatorMenuItem *self)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    return gtk_label_get_label (GTK_LABEL (priv->right_label));
+    return gtk_label_get_label (GTK_LABEL (self->priv->right_label));
 }
 
 
@@ -313,8 +312,7 @@ void
 indicator_menu_item_set_right (IndicatorMenuItem *self,
                                const gchar *text)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    gtk_label_set_label (GTK_LABEL (priv->right_label), text);
+    gtk_label_set_label (GTK_LABEL (self->priv->right_label), text);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_RIGHT]);
 }
 
@@ -322,8 +320,7 @@ indicator_menu_item_set_right (IndicatorMenuItem *self,
 gboolean
 indicator_menu_item_get_right_is_lozenge (IndicatorMenuItem *self)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    return priv->right_is_lozenge;
+    return self->priv->right_is_lozenge;
 }
 
 
@@ -331,9 +328,8 @@ void
 indicator_menu_item_set_right_is_lozenge (IndicatorMenuItem *self,
                                           gboolean is_lozenge)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    priv->right_is_lozenge = is_lozenge;
-    gtk_widget_queue_draw (priv->right_label);
+    self->priv->right_is_lozenge = is_lozenge;
+    gtk_widget_queue_draw (self->priv->right_label);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_RIGHT_IS_LOZENGE]);
 }
 
@@ -341,9 +337,8 @@ indicator_menu_item_set_right_is_lozenge (IndicatorMenuItem *self,
 GdkPixbuf *
 indicator_menu_item_get_icon (IndicatorMenuItem *self)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    if (gtk_image_get_storage_type (priv->image) == GTK_IMAGE_PIXBUF)
-        return gtk_image_get_pixbuf (priv->image);
+    if (gtk_image_get_storage_type (self->priv->image) == GTK_IMAGE_PIXBUF)
+        return gtk_image_get_pixbuf (self->priv->image);
     else
         return NULL;
 }
@@ -353,8 +348,7 @@ void
 indicator_menu_item_set_icon (IndicatorMenuItem *self,
                               GdkPixbuf *icon)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    gtk_image_set_from_pixbuf (priv->image, icon);
+    gtk_image_set_from_pixbuf (self->priv->image, icon);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_ICON]);
 }
 
@@ -362,11 +356,10 @@ indicator_menu_item_set_icon (IndicatorMenuItem *self,
 const gchar *
 indicator_menu_item_get_icon_name (IndicatorMenuItem *self)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
     const gchar *name = NULL;
 
-    if (gtk_image_get_storage_type (priv->image) == GTK_IMAGE_ICON_NAME)
-        gtk_image_get_icon_name (priv->image, &name, NULL);
+    if (gtk_image_get_storage_type (self->priv->image) == GTK_IMAGE_ICON_NAME)
+        gtk_image_get_icon_name (self->priv->image, &name, NULL);
 
     return name;
 }
@@ -376,8 +369,7 @@ void
 indicator_menu_item_set_icon_name (IndicatorMenuItem *self,
                                    const gchar *name)
 {
-    IndicatorMenuItemPrivate *priv = MENU_ITEM_PRIVATE (self);
-    gtk_image_set_from_icon_name (priv->image, name, GTK_ICON_SIZE_MENU);
+    gtk_image_set_from_icon_name (self->priv->image, name, GTK_ICON_SIZE_MENU);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_ICON_NAME]);
 }
 

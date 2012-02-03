@@ -37,6 +37,7 @@ typedef struct _IndicatorPrintersMenuPrivate IndicatorPrintersMenuPrivate;
 struct _IndicatorPrintersMenu
 {
   GObject parent;
+  IndicatorPrintersMenuPrivate *priv;
 };
 
 struct _IndicatorPrintersMenuClass

@@ -37,9 +37,6 @@ INDICATOR_SET_TYPE(INDICATOR_PRINTERS_TYPE)
 
 G_DEFINE_TYPE (IndicatorPrinters, indicator_printers, INDICATOR_OBJECT_TYPE)
 
-#define INDICATOR_PRINTERS_GET_PRIVATE(o) \
-  (G_TYPE_INSTANCE_GET_PRIVATE ((o), INDICATOR_PRINTERS_TYPE, IndicatorPrintersPrivate))
-
 
 struct _IndicatorPrintersPrivate
 {
@@ -50,9 +47,9 @@ struct _IndicatorPrintersPrivate
 static void
 dispose (GObject *object)
 {
-    IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (object);
-    g_clear_object (&priv->entry.menu);
-    g_clear_object (&priv->entry.image);
+    IndicatorPrinters *self = INDICATOR_PRINTERS (object);
+    g_clear_object (&self->priv->entry.menu);
+    g_clear_object (&self->priv->entry.image);
     G_OBJECT_CLASS (indicator_printers_parent_class)->dispose (object);
 }
 
@@ -60,8 +57,8 @@ dispose (GObject *object)
 static GList *
 get_entries (IndicatorObject *io)
 {
-    IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (io);
-    return g_list_append (NULL, &priv->entry);
+    IndicatorPrinters *self = INDICATOR_PRINTERS (io);
+    return g_list_append (NULL, &self->priv->entry);
 }
 
 
@@ -214,12 +211,17 @@ new_indicator_item (DbusmenuMenuitem *newitem,
 
 
 static void
-indicator_printers_init (IndicatorPrinters *io)
+indicator_printers_init (IndicatorPrinters *self)
 {
-    IndicatorPrintersPrivate *priv = INDICATOR_PRINTERS_GET_PRIVATE (io);
+    IndicatorPrintersPrivate *priv;
     DbusmenuGtkMenu *menu;
     DbusmenuClient *client;
     GtkImage *image;
+
+    priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
+                                        INDICATOR_PRINTERS_TYPE,
+                                        IndicatorPrintersPrivate);
+    self->priv = priv;
 
     menu = dbusmenu_gtkmenu_new(INDICATOR_PRINTERS_DBUS_NAME,
                                 INDICATOR_PRINTERS_DBUS_OBJECT_PATH);

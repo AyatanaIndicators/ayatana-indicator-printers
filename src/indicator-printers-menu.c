@@ -7,9 +7,6 @@
 
 G_DEFINE_TYPE (IndicatorPrintersMenu, indicator_printers_menu, G_TYPE_OBJECT)
 
-#define PRINTERS_MENU_PRIVATE(o) \
-  (G_TYPE_INSTANCE_GET_PRIVATE ((o), INDICATOR_TYPE_PRINTERS_MENU, IndicatorPrintersMenuPrivate))
-
 
 struct _IndicatorPrintersMenuPrivate
 {
@@ -31,15 +28,15 @@ GParamSpec *properties[NUM_PROPERTIES];
 static void
 dispose (GObject *object)
 {
-    IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (object);
+    IndicatorPrintersMenu *self = INDICATOR_PRINTERS_MENU (object);
 
-    if (priv->printers) {
-        g_hash_table_unref (priv->printers);
-        priv->printers = NULL;
+    if (self->priv->printers) {
+        g_hash_table_unref (self->priv->printers);
+        self->priv->printers = NULL;
     }
 
-    g_clear_object (&priv->root);
-    g_clear_object (&priv->cups_notifier);
+    g_clear_object (&self->priv->root);
+    g_clear_object (&self->priv->cups_notifier);
 
     G_OBJECT_CLASS (indicator_printers_menu_parent_class)->dispose (object);
 }
@@ -160,10 +157,9 @@ update_printer_menuitem (IndicatorPrintersMenu *self,
                          int state,
                          int njobs)
 {
-    IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
     DbusmenuMenuitem *item;
 
-    item = g_hash_table_lookup (priv->printers, printer);
+    item = g_hash_table_lookup (self->priv->printers, printer);
 
     if (!item) {
         item = dbusmenu_menuitem_new ();
@@ -174,8 +170,8 @@ update_printer_menuitem (IndicatorPrintersMenu *self,
                                G_CALLBACK (show_system_settings),
                                g_strdup (printer), (GClosureNotify) g_free, 0);
 
-        dbusmenu_menuitem_child_append(priv->root, item);
-        g_hash_table_insert (priv->printers, g_strdup (printer), item);
+        dbusmenu_menuitem_child_append(self->priv->root, item);
+        g_hash_table_insert (self->priv->printers, g_strdup (printer), item);
     }
 
     if (njobs == 0) {
@@ -248,16 +244,19 @@ on_printer_state_changed (CupsNotifier *object,
 static void
 indicator_printers_menu_init (IndicatorPrintersMenu *self)
 {
-    IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
     int ndests, i;
     cups_dest_t *dests;
 
-    priv->root = dbusmenu_menuitem_new ();
+    self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
+                                              INDICATOR_TYPE_PRINTERS_MENU,
+                                              IndicatorPrintersMenuPrivate);
 
-    priv->printers = g_hash_table_new_full (g_str_hash,
-                                            g_str_equal,
-                                            g_free,
-                                            g_object_unref);
+    self->priv->root = dbusmenu_menuitem_new ();
+
+    self->priv->printers = g_hash_table_new_full (g_str_hash,
+                                                  g_str_equal,
+                                                  g_free,
+                                                  g_object_unref);
 
     /* create initial menu items */
     ndests = cupsGetDests (&dests);
@@ -284,16 +283,14 @@ indicator_printers_menu_new (void)
 DbusmenuMenuitem *
 indicator_printers_menu_get_root (IndicatorPrintersMenu *self)
 {
-    IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
-    return priv->root;
+    return self->priv->root;
 }
 
 
 CupsNotifier *
 indicator_printers_menu_get_cups_notifier (IndicatorPrintersMenu *self)
 {
-    IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
-    return priv->cups_notifier;
+    return self->priv->cups_notifier;
 }
 
 
@@ -301,20 +298,18 @@ void
 indicator_printers_menu_set_cups_notifier (IndicatorPrintersMenu *self,
                                            CupsNotifier *cups_notifier)
 {
-    IndicatorPrintersMenuPrivate *priv = PRINTERS_MENU_PRIVATE (self);
-
-    if (priv->cups_notifier) {
-        g_object_disconnect (priv->cups_notifier,
+    if (self->priv->cups_notifier) {
+        g_object_disconnect (self->priv->cups_notifier,
                              "any-signal", update_job, self,
                              "any-signal", on_printer_state_changed, self,
                              NULL);
-        g_object_unref (priv->cups_notifier);
+        g_object_unref (self->priv->cups_notifier);
     }
 
-    priv->cups_notifier = cups_notifier;
+    self->priv->cups_notifier = cups_notifier;
 
-    if (priv->cups_notifier) {
-        g_object_connect (priv->cups_notifier,
+    if (self->priv->cups_notifier) {
+        g_object_connect (self->priv->cups_notifier,
                           "signal::job-created", update_job, self,
                           "signal::job-state", update_job, self,
                           "signal::job-completed", update_job, self,

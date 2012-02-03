@@ -35,6 +35,7 @@ typedef struct _IndicatorMenuItemPrivate IndicatorMenuItemPrivate;
 struct _IndicatorMenuItem
 {
     GtkMenuItem parent;
+    IndicatorMenuItemPrivate *priv;
 };
 
 struct _IndicatorMenuItemClass
