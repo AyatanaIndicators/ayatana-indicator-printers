@@ -303,12 +303,11 @@ indicator_printers_menu_set_cups_notifier (IndicatorPrintersMenu *self,
                              "any-signal", update_job, self,
                              "any-signal", on_printer_state_changed, self,
                              NULL);
-        g_object_unref (self->priv->cups_notifier);
+        g_clear_object (&self->priv->cups_notifier);
     }
 
-    self->priv->cups_notifier = cups_notifier;
-
-    if (self->priv->cups_notifier) {
+    if (cups_notifier) {
+        self->priv->cups_notifier = g_object_ref (cups_notifier);
         g_object_connect (self->priv->cups_notifier,
                           "signal::job-created", update_job, self,
                           "signal::job-state", update_job, self,
