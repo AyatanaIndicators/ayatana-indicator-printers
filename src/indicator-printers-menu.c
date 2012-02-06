@@ -1,7 +1,6 @@
 
 #include "indicator-printers-menu.h"
 
-#include "show-printer-settings.h"
 #include <cups/cups.h>
 
 
@@ -117,12 +116,37 @@ get_number_of_active_jobs (const gchar *printer)
 
 
 static void
-show_system_settings (DbusmenuMenuitem *menuitem,
-                      guint timestamp,
-                      gpointer user_data)
+spawn_command_line_async_f (const gchar *fmt,
+                            ...)
+{
+    va_list args;
+    gchar *cmdline;
+    GError *err = NULL;
+
+    va_start (args, fmt);
+    cmdline = g_strdup_vprintf (fmt, args);
+    va_end (args);
+
+    g_spawn_command_line_async (cmdline, &err);
+    if (err) {
+        g_warning ("Couldn't execute command `%s`: %s",
+                   cmdline, err->message);
+        g_error_free (err);
+    }
+
+    g_free (cmdline);
+}
+
+
+static void
+on_printer_item_activated (DbusmenuMenuitem *menuitem,
+                           guint timestamp,
+                           gpointer user_data)
 {
     const gchar *printer = user_data;
-    show_printer_settings (printer);
+
+    spawn_command_line_async_f ("gnome-control-center printers show-printer %s",
+                                printer);
 }
 
 
@@ -142,7 +166,7 @@ update_printer_menuitem (IndicatorPrintersMenu *self,
         dbusmenu_menuitem_property_set (item, "indicator-icon-name", "printer");
         dbusmenu_menuitem_property_set (item, "indicator-label", printer);
         g_signal_connect_data (item, "item-activated",
-                               G_CALLBACK (show_system_settings),
+                               G_CALLBACK (on_printer_item_activated),
                                g_strdup (printer), (GClosureNotify) g_free, 0);
 
         dbusmenu_menuitem_child_append(self->priv->root, item);
