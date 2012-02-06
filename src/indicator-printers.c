@@ -142,8 +142,6 @@ indicator_prop_change_cb (DbusmenuMenuitem *mi,
 {
     IndicatorMenuItem *menuitem = user_data;
 
-    g_print (": %s\n", prop);
-
     if (properties_match (prop, "indicator-label", value, G_VARIANT_TYPE_STRING))
         indicator_menu_item_set_label (menuitem, g_variant_get_string (value, NULL));
 
