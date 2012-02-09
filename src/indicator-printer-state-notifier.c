@@ -162,8 +162,8 @@ on_printer_state_changed (CupsNotifier *object,
     cupsFreeJobs (njobs, jobs);
 
     /* don't show any events if the current user does not have jobs queued on
-     * that printer */
-    if (njobs == 0)
+     * that printer or this printer is unknown to CUPS */
+    if (njobs <= 0)
         return;
 
     state_reasons = g_strsplit (printer_state_reasons, " ", 0);

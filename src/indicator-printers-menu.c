@@ -102,19 +102,6 @@ indicator_printers_menu_class_init (IndicatorPrintersMenuClass *klass)
 }
 
 
-static int
-get_number_of_active_jobs (const gchar *printer)
-{
-    int njobs;
-    cups_job_t *jobs;
-
-    njobs = cupsGetJobs (&jobs, printer, 1, CUPS_WHICHJOBS_ACTIVE);
-    cupsFreeJobs (njobs, jobs);
-
-    return njobs;
-}
-
-
 static void
 spawn_command_line_async_f (const gchar *fmt,
                             ...)
@@ -153,10 +140,19 @@ on_printer_item_activated (DbusmenuMenuitem *menuitem,
 static void
 update_printer_menuitem (IndicatorPrintersMenu *self,
                          const char *printer,
-                         int state,
-                         int njobs)
+                         int state)
 {
     DbusmenuMenuitem *item;
+    int njobs;
+    cups_job_t *jobs;
+
+    njobs = cupsGetJobs (&jobs, printer, 1, CUPS_WHICHJOBS_ACTIVE);
+    cupsFreeJobs (njobs, jobs);
+
+    if (njobs < 0) {
+        g_warning ("printer '%s' does not exist\n", printer);
+        return;
+    }
 
     item = g_hash_table_lookup (self->priv->printers, printer);
 
@@ -214,10 +210,7 @@ update_job (CupsNotifier *cups_notifier,
 {
     IndicatorPrintersMenu *self = INDICATOR_PRINTERS_MENU (user_data);
 
-    update_printer_menuitem (self,
-                             printer_name,
-                             printer_state,
-                             get_number_of_active_jobs (printer_name));
+    update_printer_menuitem (self, printer_name, printer_state);
 }
 
 
@@ -233,10 +226,7 @@ on_printer_state_changed (CupsNotifier *object,
 {
     IndicatorPrintersMenu *self = INDICATOR_PRINTERS_MENU (user_data);
 
-    update_printer_menuitem (self,
-                             printer_name,
-                             printer_state,
-                             get_number_of_active_jobs (printer_name));
+    update_printer_menuitem (self, printer_name, printer_state);
 }
 
 
@@ -263,10 +253,7 @@ indicator_printers_menu_init (IndicatorPrintersMenu *self)
         int state = atoi (cupsGetOption ("printer-state",
                                          dests[i].num_options,
                                          dests[i].options));
-        update_printer_menuitem (self,
-                                 dests[i].name,
-                                 state,
-                                 get_number_of_active_jobs (dests[i].name));
+        update_printer_menuitem (self, dests[i].name, state);
     }
     cupsFreeDests (ndests, dests);
 }
