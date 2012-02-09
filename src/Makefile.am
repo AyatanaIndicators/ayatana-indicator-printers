@@ -27,7 +27,6 @@ $(cups_notifier_sources): org.cups.cupsd.Notifier.xml
 libexec_PROGRAMS = indicator-printers-service
 indicator_printers_service_SOURCES = \
 	indicator-printers-service.c \
-	indicator-printers-service.h \
 	indicator-printers-menu.c \
 	indicator-printers-menu.h \
 	indicator-printer-state-notifier.c \
