@@ -23,6 +23,7 @@
 
 #include "cups-notifier.h"
 #include "indicator-printers-menu.h"
+#include "indicator-printer-state-notifier.h"
 
 
 static void
@@ -39,6 +40,7 @@ int main (int argc, char *argv[])
     DbusmenuServer *menuserver;
     CupsNotifier *cups_notifier;
     IndicatorPrintersMenu *menu;
+    IndicatorPrinterStateNotifier *state_notifier;
     GError *error = NULL;
 
     gtk_init (&argc, &argv);
@@ -71,10 +73,15 @@ int main (int argc, char *argv[])
     dbusmenu_server_set_root (menuserver,
                               indicator_printers_menu_get_root (menu));
 
+    state_notifier = g_object_new (INDICATOR_TYPE_PRINTER_STATE_NOTIFIER,
+                                   "cups-notifier", cups_notifier,
+                                   NULL);
+
     gtk_main ();
 
     g_object_unref (menu);
     g_object_unref (menuserver);
+    g_object_unref (state_notifier);
     g_object_unref (cups_notifier);
     g_object_unref (service);
     return 0;

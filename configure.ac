@@ -14,6 +14,7 @@ AC_CONFIG_HEADER(config.h)
 AC_CONFIG_FILES([
     Makefile
     src/Makefile
+    test/Makefile
 ])
 
 PKG_CHECK_MODULES(APPLET, gtk+-3.0 >= 3.0
