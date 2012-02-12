@@ -20,6 +20,8 @@
 
 #include <cups/cups.h>
 
+#include "spawn-printer-settings.h"
+
 
 G_DEFINE_TYPE (IndicatorPrintersMenu, indicator_printers_menu, G_TYPE_OBJECT)
 
@@ -120,37 +122,12 @@ indicator_printers_menu_class_init (IndicatorPrintersMenuClass *klass)
 
 
 static void
-spawn_command_line_async_f (const gchar *fmt,
-                            ...)
-{
-    va_list args;
-    gchar *cmdline;
-    GError *err = NULL;
-
-    va_start (args, fmt);
-    cmdline = g_strdup_vprintf (fmt, args);
-    va_end (args);
-
-    g_spawn_command_line_async (cmdline, &err);
-    if (err) {
-        g_warning ("Couldn't execute command `%s`: %s",
-                   cmdline, err->message);
-        g_error_free (err);
-    }
-
-    g_free (cmdline);
-}
-
-
-static void
 on_printer_item_activated (DbusmenuMenuitem *menuitem,
                            guint timestamp,
                            gpointer user_data)
 {
     const gchar *printer = user_data;
-
-    spawn_command_line_async_f ("gnome-control-center printers show-printer %s",
-                                printer);
+    spawn_printer_settings_with_args ("show-printer %s", printer);
 }
 
 

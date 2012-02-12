@@ -31,6 +31,8 @@ indicator_printers_service_SOURCES = \
 	indicator-printers-menu.h \
 	indicator-printer-state-notifier.c \
 	indicator-printer-state-notifier.h \
+	spawn-printer-settings.c \
+	spawn-printer-settings.h \
 	$(cups_notifier_sources)
 
 indicator_printers_service_CPPFLAGS = $(SERVICE_CFLAGS)

@@ -24,6 +24,7 @@
 #include <stdarg.h>
 
 #include "cups-notifier.h"
+#include "spawn-printer-settings.h"
 
 
 #define RESPONSE_SHOW_SYSTEM_SETTINGS 1
@@ -153,7 +154,8 @@ show_alert_box (const gchar *printer,
                                      GTK_RESPONSE_OK);
     gtk_widget_show_all (dialog);
 
-    gtk_dialog_run (GTK_DIALOG (dialog));
+    if (gtk_dialog_run (GTK_DIALOG (dialog)) == RESPONSE_SHOW_SYSTEM_SETTINGS)
+        spawn_printer_settings_with_args ("show-printer %s", printer);
 
     gtk_widget_destroy (dialog);
 }
