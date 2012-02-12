@@ -81,29 +81,40 @@ detail_label_draw (GtkWidget *widget,
     GtkAllocation allocation;
     double x, y, w, h;
     GdkRGBA color;
-    PangoLayout * layout;
+    PangoLayout *layout;
+    PangoRectangle layout_extents;
     gboolean is_lozenge = *(gboolean *)data;
+    gint font_size = gtk_widget_get_font_size (widget);
+
+    /* let the label handle the drawing if it's not a lozenge */
+    if (!is_lozenge)
+        return FALSE;
+
+    layout = gtk_label_get_layout (GTK_LABEL(widget));
+    pango_layout_get_extents (layout, NULL, &layout_extents);
+    pango_extents_to_pixels (&layout_extents, NULL);
 
     gtk_widget_get_allocation (widget, &allocation);
-    x = 0;
-    y = 0;
+    x = -font_size / 2.0;
+    y = 1;
     w = allocation.width;
-    h = allocation.height;
+    h = MIN (allocation.height, layout_extents.height + 4);
+
+    if (layout_extents.width == 0)
+        return TRUE;
 
     gtk_style_context_get_color (gtk_widget_get_style_context (widget),
                                  gtk_widget_get_state_flags (widget),
                                  &color);
     gdk_cairo_set_source_rgba (cr, &color);
 
-    if (is_lozenge) {
-        gint font_size = gtk_widget_get_font_size (widget);
-        cairo_set_line_width (cr, 1.0);
-        cairo_set_fill_rule (cr, CAIRO_FILL_RULE_EVEN_ODD);
-        cairo_lozenge (cr, x - font_size / 2.0, y, w + font_size, h);
-    }
+    cairo_set_line_width (cr, 1.0);
+    cairo_set_fill_rule (cr, CAIRO_FILL_RULE_EVEN_ODD);
+    cairo_lozenge (cr, x - font_size / 2.0, y, w + font_size, h);
 
-    layout = gtk_label_get_layout (GTK_LABEL(widget));
-    cairo_move_to (cr, x, y);
+    x += (w - layout_extents.width) / 2.0;
+    y += (h - layout_extents.height) / 2.0;
+    cairo_move_to (cr, floor (x), floor (y));
     pango_cairo_layout_path (cr, layout);
     cairo_fill (cr);
 
@@ -275,6 +286,7 @@ indicator_menu_item_init (IndicatorMenuItem *self)
 
     priv->right_label = g_object_new (GTK_TYPE_LABEL,
                                       "xalign", 1.0,
+                                      "width-chars", 2,
                                       NULL);
     gtk_style_context_add_class (gtk_widget_get_style_context (priv->right_label),
                                  "accelerator");
