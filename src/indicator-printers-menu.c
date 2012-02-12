@@ -211,6 +211,23 @@ update_printer_menuitem (IndicatorPrintersMenu *self,
 
 
 static void
+update_all_printer_menuitems (IndicatorPrintersMenu *self)
+{
+    int ndests, i;
+    cups_dest_t *dests;
+
+    ndests = cupsGetDests (&dests);
+    for (i = 0; i < ndests; i++) {
+        int state = atoi (cupsGetOption ("printer-state",
+                                         dests[i].num_options,
+                                         dests[i].options));
+        update_printer_menuitem (self, dests[i].name, state);
+    }
+    cupsFreeDests (ndests, dests);
+}
+
+
+static void
 update_job (CupsNotifier *cups_notifier,
             const gchar *text,
             const gchar *printer_uri,
@@ -227,7 +244,14 @@ update_job (CupsNotifier *cups_notifier,
 {
     IndicatorPrintersMenu *self = INDICATOR_PRINTERS_MENU (user_data);
 
-    update_printer_menuitem (self, printer_name, printer_state);
+    /* CUPS doesn't send the printer's name for these events.  Update all menu
+     * items as a temporary workaround */
+    if (job_state == IPP_JOB_CANCELLED ||
+        job_state == IPP_JOB_ABORTED ||
+        job_state == IPP_JOB_COMPLETED)
+        update_all_printer_menuitems (self);
+    else
+        update_printer_menuitem (self, printer_name, printer_state);
 }
 
 
@@ -250,9 +274,6 @@ on_printer_state_changed (CupsNotifier *object,
 static void
 indicator_printers_menu_init (IndicatorPrintersMenu *self)
 {
-    int ndests, i;
-    cups_dest_t *dests;
-
     self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
                                               INDICATOR_TYPE_PRINTERS_MENU,
                                               IndicatorPrintersMenuPrivate);
@@ -266,14 +287,7 @@ indicator_printers_menu_init (IndicatorPrintersMenu *self)
                                                   g_object_unref);
 
     /* create initial menu items */
-    ndests = cupsGetDests (&dests);
-    for (i = 0; i < ndests; i++) {
-        int state = atoi (cupsGetOption ("printer-state",
-                                         dests[i].num_options,
-                                         dests[i].options));
-        update_printer_menuitem (self, dests[i].name, state);
-    }
-    cupsFreeDests (ndests, dests);
+    update_all_printer_menuitems (self);
 }
 
 
