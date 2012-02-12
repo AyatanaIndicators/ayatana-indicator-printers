@@ -138,6 +138,25 @@ on_printer_item_activated (DbusmenuMenuitem *menuitem,
 
 
 static void
+update_indicator_visibility (IndicatorPrintersMenu *self)
+{
+    GList *it;
+    gboolean is_visible = FALSE;
+
+    for (it = dbusmenu_menuitem_get_children (self->priv->root);
+         it;
+         it = g_list_next (it))
+    {
+        DbusmenuMenuitem *child = it->data;
+        if ((is_visible = dbusmenu_menuitem_property_get_bool (child, "visible")))
+            break;
+    }
+
+    dbusmenu_menuitem_property_set_bool (self->priv->root, "visible", is_visible);
+}
+
+
+static void
 update_printer_menuitem (IndicatorPrintersMenu *self,
                          const char *printer,
                          int state)
@@ -171,9 +190,13 @@ update_printer_menuitem (IndicatorPrintersMenu *self,
 
     if (njobs == 0) {
         dbusmenu_menuitem_property_set_bool (item, "visible", FALSE);
+        update_indicator_visibility (self);
         return;
     }
 
+    /* there are jobs for this printer. Make sure the indicator and the menu
+     * item for that printer are shown */
+    dbusmenu_menuitem_property_set_bool (self->priv->root, "visible", TRUE);
     dbusmenu_menuitem_property_set_bool (item, "visible", TRUE);
 
     switch (state) {
@@ -241,6 +264,7 @@ indicator_printers_menu_init (IndicatorPrintersMenu *self)
                                               IndicatorPrintersMenuPrivate);
 
     self->priv->root = dbusmenu_menuitem_new ();
+    dbusmenu_menuitem_property_set_bool (self->priv->root, "visible", FALSE);
 
     self->priv->printers = g_hash_table_new_full (g_str_hash,
                                                   g_str_equal,

@@ -162,6 +162,19 @@ indicator_prop_change_cb (DbusmenuMenuitem *mi,
 }
 
 
+static void
+root_property_changed (DbusmenuMenuitem *mi,
+                       gchar *prop,
+                       GVariant *value,
+                       gpointer user_data)
+{
+    IndicatorObject *io = user_data;
+
+    if (properties_match (prop, "visible", value, G_VARIANT_TYPE_BOOLEAN))
+        indicator_object_set_visible (io, g_variant_get_boolean (value));
+}
+
+
 static gboolean
 new_indicator_item (DbusmenuMenuitem *newitem,
                     DbusmenuMenuitem *parent,
@@ -209,6 +222,26 @@ new_indicator_item (DbusmenuMenuitem *newitem,
 
 
 static void
+root_changed (DbusmenuClient *client,
+              DbusmenuMenuitem *newroot,
+              gpointer user_data)
+{
+    IndicatorPrinters *indicator = user_data;
+    gboolean is_visible;
+
+    if (newroot) {
+        is_visible = dbusmenu_menuitem_property_get_bool (newroot, "visible");
+        g_signal_connect (newroot, "property-changed",
+                          G_CALLBACK (root_property_changed), indicator);
+    }
+    else
+        is_visible = FALSE;
+
+    indicator_object_set_visible (INDICATOR_OBJECT (indicator), is_visible);
+}
+
+
+static void
 indicator_printers_init (IndicatorPrinters *self)
 {
     IndicatorPrintersPrivate *priv;
@@ -228,6 +261,7 @@ indicator_printers_init (IndicatorPrinters *self)
     dbusmenu_client_add_type_handler(client,
                                      "indicator-item",
                                      new_indicator_item);
+    g_signal_connect (client, "root-changed", G_CALLBACK (root_changed), self);
 
     image = indicator_image_helper ("printer-symbolic");
     gtk_widget_show (GTK_WIDGET (image));
@@ -236,6 +270,8 @@ indicator_printers_init (IndicatorPrinters *self)
     priv->entry.accessible_desc = "Printers";
     priv->entry.menu = GTK_MENU (g_object_ref_sink (menu));
     priv->entry.image = g_object_ref_sink (image);
+
+    indicator_object_set_visible (INDICATOR_OBJECT (self), FALSE);
 }
 
 
