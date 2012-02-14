@@ -5,7 +5,8 @@ libprintersmenu_la_SOURCES = \
 	indicator-printers.c \
 	indicator-printers.h \
 	indicator-menu-item.c \
-	indicator-menu-item.h
+	indicator-menu-item.h \
+	dbus-names.h
 
 libprintersmenu_la_CPPFLAGS = $(APPLET_CFLAGS)
 libprintersmenu_la_LIBADD = $(APPLET_LIBS) -lm
@@ -16,7 +17,7 @@ cups_notifier_sources = \
 	cups-notifier.c \
 	cups-notifier.h
 
-$(cups_notifier_sources): org.cups.cupsd.Notifier.xml
+$(cups_notifier_sources): $(top_srcdir)/src/org.cups.cupsd.Notifier.xml
 	gdbus-codegen \
 	    --interface-prefix org.cups.cupsd \
 	    --c-namespace Cups \
@@ -33,6 +34,7 @@ indicator_printers_service_SOURCES = \
 	indicator-printer-state-notifier.h \
 	spawn-printer-settings.c \
 	spawn-printer-settings.h \
+	dbus-names.h \
 	$(cups_notifier_sources)
 
 indicator_printers_service_CPPFLAGS = $(SERVICE_CFLAGS)
