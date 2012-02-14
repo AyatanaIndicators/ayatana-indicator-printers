@@ -1,5 +1,5 @@
 
-bin_PROGRAMS = mock-cups-notifier
+noinst_PROGRAMS = mock-cups-notifier
 DISTCLEANFILES = mock-cups-notifier
 
 mock_cups_notifier_SOURCES = \
