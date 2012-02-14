@@ -14,6 +14,7 @@ AC_CONFIG_HEADER(config.h)
 AC_CONFIG_FILES([
     Makefile
     src/Makefile
+    data/Makefile
     test/Makefile
 ])
 
@@ -35,8 +36,11 @@ SERVICE_LIBS+=`$CUPS_CONFIG --libs`
 INDICATORDIR=`$PKG_CONFIG --variable=indicatordir indicator3-0.4`
 INDICATORICONSDIR=`$PKG_CONFIG --variable=iconsdir indicator3-0.4`
 
+DBUSSERVICEDIR=`$PKG_CONFIG --variable=session_bus_services_dir dbus-1`
+
 AC_SUBST(INDICATORDIR)
 AC_SUBST(INDICATORICONDIR)
+AC_SUBST(DBUSSERVICEDIR)
 
 AC_SUBST(AM_CFLAGS, "-Wall")
 
