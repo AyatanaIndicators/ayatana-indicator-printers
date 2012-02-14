@@ -8,7 +8,7 @@ libprintersmenu_la_SOURCES = \
 	indicator-menu-item.h
 
 libprintersmenu_la_CPPFLAGS = $(APPLET_CFLAGS)
-libprintersmenu_la_LIBADD = $(APPLET_LIBS)
+libprintersmenu_la_LIBADD = $(APPLET_LIBS) -lm
 libprintersmenu_la_LDFLAGS = -module -avoid-version
 
 
