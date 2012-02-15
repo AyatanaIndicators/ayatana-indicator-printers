@@ -155,7 +155,7 @@ show_alert_box (const gchar *printer,
     gtk_widget_show_all (dialog);
 
     if (gtk_dialog_run (GTK_DIALOG (dialog)) == RESPONSE_SHOW_SYSTEM_SETTINGS)
-        spawn_printer_settings_with_args ("show-printer %s", printer);
+        spawn_printer_settings ();
 
     gtk_widget_destroy (dialog);
 }

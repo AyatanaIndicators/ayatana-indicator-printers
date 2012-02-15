@@ -15,7 +15,7 @@ spawn_printer_settings_with_args (const gchar *fmt,
     GString *cmdline;
     GError *err = NULL;
 
-    cmdline = g_string_new ("gnome-control-center printers ");
+    cmdline = g_string_new ("system-config-printer ");
 
     if (fmt) {
         va_list args;

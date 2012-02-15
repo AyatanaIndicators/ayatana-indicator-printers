@@ -127,7 +127,7 @@ on_printer_item_activated (DbusmenuMenuitem *menuitem,
                            gpointer user_data)
 {
     const gchar *printer = user_data;
-    spawn_printer_settings_with_args ("show-printer %s", printer);
+    spawn_printer_settings_with_args ("--show-jobs %s", printer);
 }
 
 
