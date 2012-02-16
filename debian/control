@@ -15,6 +15,7 @@ Build-Depends: debhelper (>= 8),
                libcups2-dev
 Standards-Version: 3.9.2
 Homepage: https://launchpad.net/indicator-printers
+Vcs-Bzr: https://code.launchpad.net/~ubuntu-desktop/indicator-printers/ubuntu
 
 Package: indicator-printers
 Architecture: any
