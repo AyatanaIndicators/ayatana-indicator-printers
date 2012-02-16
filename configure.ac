@@ -40,14 +40,34 @@ AC_CHECK_HEADER(cups/cups.h,,AC_MSG_ERROR([could not find cups.h]))
 SERVICE_CFLAGS+=`$CUPS_CONFIG --cflags`
 SERVICE_LIBS+=`$CUPS_CONFIG --libs`
 
-INDICATORDIR=`$PKG_CONFIG --variable=indicatordir indicator3-0.4`
-INDICATORICONSDIR=`$PKG_CONFIG --variable=iconsdir indicator3-0.4`
 
-DBUSSERVICEDIR=`$PKG_CONFIG --variable=session_bus_services_dir dbus-1`
+with_localinstall="no"
+AC_ARG_ENABLE(localinstall, AS_HELP_STRING([--enable-localinstall],
+                                           [install all files locally (for distcheck)]),
+              with_localinstall=$enableval,
+              with_localinstall=no)
 
+if test "x$with_localinstall" = "xyes"; then
+	INDICATORDIR="${libdir}/indicators/2/"
+	INDICATORICONSDIR="${datadir}/libindicate/icons/"
+else
+	INDICATORDIR=`$PKG_CONFIG --variable=indicatordir indicator3-0.4`
+	INDICATORICONSDIR=`$PKG_CONFIG --variable=iconsdir indicator3-0.4`
+fi
 AC_SUBST(INDICATORDIR)
-AC_SUBST(INDICATORICONDIR)
+AC_SUBST(INDICATORICONSDIR)
+
+###########################
+# DBus Service Info
+###########################
+
+if test "x$with_localinstall" = "xyes"; then
+	DBUSSERVICEDIR="${datadir}/dbus-1/services/"
+else
+	DBUSSERVICEDIR=`$PKG_CONFIG --variable=session_bus_services_dir dbus-1`
+fi
 AC_SUBST(DBUSSERVICEDIR)
+
 
 AC_SUBST(AM_CFLAGS, "-Wall")
 
