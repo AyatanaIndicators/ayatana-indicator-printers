@@ -17,7 +17,7 @@ cups_notifier_sources = \
 	cups-notifier.c \
 	cups-notifier.h
 
-$(cups_notifier_sources): $(top_srcdir)/src/org.cups.cupsd.Notifier.xml
+$(cups_notifier_sources): org.cups.cupsd.Notifier.xml
 	gdbus-codegen \
 	    --interface-prefix org.cups.cupsd \
 	    --c-namespace Cups \
@@ -34,13 +34,15 @@ indicator_printers_service_SOURCES = \
 	indicator-printer-state-notifier.h \
 	spawn-printer-settings.c \
 	spawn-printer-settings.h \
-	dbus-names.h \
-	$(cups_notifier_sources)
+	dbus-names.h
+
+nodist_indicator_printers_service_SOURCES = $(cups_notifier_sources)
 
 indicator_printers_service_CPPFLAGS = $(SERVICE_CFLAGS)
 indicator_printers_service_LDADD = $(SERVICE_LIBS)
 
 
 BUILT_SOURCES = $(cups_notifier_sources)
+CLEANFILES= $(BUILT_SOURCES)
 EXTRA_DIST = org.cups.cupsd.Notifier.xml
 
