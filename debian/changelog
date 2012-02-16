@@ -1,3 +1,15 @@
+indicator-printers (0.1.1-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release.
+    - prepare for i18n
+    - make sure CUPS' dbus notification is on while the service is running
+    - fix build system to enable out-of-tree builds
+
+  * debian/control
+    - bump libindicator dependency 0.3.91
+
+ -- Lars Uebernickel <lars@lars-laptop>  Thu, 16 Feb 2012 21:15:27 +0100
+
 indicator-printers (0.1-0ubuntu2) precise; urgency=low
 
   * debian/control:

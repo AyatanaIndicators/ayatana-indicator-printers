@@ -1,0 +1,6 @@
+[encoding: UTF-8]
+src/indicator-menu-item.c
+src/indicator-printers.c
+src/indicator-printers-menu.c
+src/indicator-printers-service.c
+src/indicator-printer-state-notifier.c
