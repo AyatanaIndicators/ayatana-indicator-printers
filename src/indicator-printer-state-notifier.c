@@ -18,6 +18,7 @@
 
 #include "indicator-printer-state-notifier.h"
 
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <cups/cups.h>
 #include <string.h>
@@ -125,13 +126,13 @@ show_alert_box (const gchar *printer,
     primary_text = g_strdup_printf (reason, printer);
 
     if (njobs == 1)
-        fmt = "You have %d job queued to print on this printer.";
+        fmt = _("You have %d job queued to print on this printer.");
     else
-        fmt = "You have %d jobs queued to print on this printer.";
+        fmt = _("You have %d jobs queued to print on this printer.");
     secondary_text = g_strdup_printf (fmt, njobs);
 
     dialog = g_object_new (GTK_TYPE_MESSAGE_DIALOG,
-                           "title", "Printing Problem",
+                           "title", _("Printing Problem"),
                            "icon-name", "printer",
                            "image", image,
                            "text", primary_text,
@@ -147,7 +148,7 @@ show_alert_box (const gchar *printer,
     g_free (secondary_text);
 
     gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-                            "_Settings…", RESPONSE_SHOW_SYSTEM_SETTINGS,
+                            _("_Settings…"), RESPONSE_SHOW_SYSTEM_SETTINGS,
                             GTK_STOCK_OK, GTK_RESPONSE_OK,
                             NULL);
     gtk_dialog_set_default_response (GTK_DIALOG (dialog),
@@ -313,14 +314,14 @@ indicator_printer_state_notifier_init (IndicatorPrinterStateNotifier *self)
 
     priv->printer_alerts = g_hash_table_new (g_str_hash, g_str_equal);
     g_hash_table_insert_many ( priv->printer_alerts,
-                               "media-low", "The printer “%s” is low on paper.",
-                               "media-empty", "The printer “%s” is out of paper.",
-                               "toner-low", "The printer “%s” is low on toner.",
-                               "toner-empty", "The printer “%s” is out of toner.",
-                               "cover-open", "A cover is open on the printer “%s”.",
-                               "door-open", "A door is open on the printer “%s”.",
-                               "cups-missing-filter", "The printer “%s” can’t be used, because required software is missing.",
-                               "offline", "The printer “%s” is currently off-line.",
+                               "media-low", _("The printer “%s” is low on paper."),
+                               "media-empty", _("The printer “%s” is out of paper."),
+                               "toner-low", _("The printer “%s” is low on toner."),
+                               "toner-empty", _("The printer “%s” is out of toner."),
+                               "cover-open", _("A cover is open on the printer “%s”."),
+                               "door-open", _("A door is open on the printer “%s”."),
+                               "cups-missing-filter", _("The printer “%s” can’t be used, because required software is missing."),
+                               "offline", _("The printer “%s” is currently off-line."),
                                NULL);
 }
 

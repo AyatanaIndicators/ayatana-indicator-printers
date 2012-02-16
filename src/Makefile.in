@@ -42,7 +42,7 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
-mkinstalldirs = $(install_sh) -d
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
@@ -90,14 +90,15 @@ libprintersmenu_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(libprintersmenu_la_LDFLAGS) \
 	$(LDFLAGS) -o $@
 PROGRAMS = $(libexec_PROGRAMS)
-am__objects_1 = indicator_printers_service-cups-notifier.$(OBJEXT)
 am_indicator_printers_service_OBJECTS = indicator_printers_service-indicator-printers-service.$(OBJEXT) \
 	indicator_printers_service-indicator-printers-menu.$(OBJEXT) \
 	indicator_printers_service-indicator-printer-state-notifier.$(OBJEXT) \
-	indicator_printers_service-spawn-printer-settings.$(OBJEXT) \
-	$(am__objects_1)
+	indicator_printers_service-spawn-printer-settings.$(OBJEXT)
+am__objects_1 = indicator_printers_service-cups-notifier.$(OBJEXT)
+nodist_indicator_printers_service_OBJECTS = $(am__objects_1)
 indicator_printers_service_OBJECTS =  \
-	$(am_indicator_printers_service_OBJECTS)
+	$(am_indicator_printers_service_OBJECTS) \
+	$(nodist_indicator_printers_service_OBJECTS)
 indicator_printers_service_DEPENDENCIES = $(am__DEPENDENCIES_1)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -126,13 +127,15 @@ AM_V_GEN = $(am__v_GEN_@AM_V@)
 am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
 am__v_GEN_0 = @echo "  GEN   " $@;
 SOURCES = $(libprintersmenu_la_SOURCES) \
-	$(indicator_printers_service_SOURCES)
+	$(indicator_printers_service_SOURCES) \
+	$(nodist_indicator_printers_service_SOURCES)
 DIST_SOURCES = $(libprintersmenu_la_SOURCES) \
 	$(indicator_printers_service_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
+ALL_LINGUAS = @ALL_LINGUAS@
 AMTAR = @AMTAR@
 AM_CFLAGS = @AM_CFLAGS@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
@@ -143,6 +146,8 @@ AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
+CATALOGS = @CATALOGS@
+CATOBJEXT = @CATOBJEXT@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
@@ -150,6 +155,7 @@ CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CUPS_CONFIG = @CUPS_CONFIG@
 CYGPATH_W = @CYGPATH_W@
+DATADIRNAME = @DATADIRNAME@
 DBUSSERVICEDIR = @DBUSSERVICEDIR@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
@@ -162,14 +168,27 @@ ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 FGREP = @FGREP@
+GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
+GMOFILES = @GMOFILES@
+GMSGFMT = @GMSGFMT@
 GREP = @GREP@
 INDICATORDIR = @INDICATORDIR@
-INDICATORICONDIR = @INDICATORICONDIR@
+INDICATORICONSDIR = @INDICATORICONSDIR@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+INSTOBJEXT = @INSTOBJEXT@
+INTLLIBS = @INTLLIBS@
+INTLTOOL_EXTRACT = @INTLTOOL_EXTRACT@
+INTLTOOL_MERGE = @INTLTOOL_MERGE@
+INTLTOOL_PERL = @INTLTOOL_PERL@
+INTLTOOL_UPDATE = @INTLTOOL_UPDATE@
+INTLTOOL_V_MERGE = @INTLTOOL_V_MERGE@
+INTLTOOL_V_MERGE_OPTIONS = @INTLTOOL_V_MERGE_OPTIONS@
+INTLTOOL__v_MERGE_ = @INTLTOOL__v_MERGE_@
+INTLTOOL__v_MERGE_0 = @INTLTOOL__v_MERGE_0@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
@@ -181,6 +200,10 @@ LTLIBOBJS = @LTLIBOBJS@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
+MKINSTALLDIRS = @MKINSTALLDIRS@
+MSGFMT = @MSGFMT@
+MSGFMT_OPTS = @MSGFMT_OPTS@
+MSGMERGE = @MSGMERGE@
 NM = @NM@
 NMEDIT = @NMEDIT@
 OBJDUMP = @OBJDUMP@
@@ -198,6 +221,10 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
 PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
+POFILES = @POFILES@
+POSUB = @POSUB@
+PO_IN_DATADIR_FALSE = @PO_IN_DATADIR_FALSE@
+PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
 RANLIB = @RANLIB@
 SED = @SED@
 SERVICE_CFLAGS = @SERVICE_CFLAGS@
@@ -205,7 +232,9 @@ SERVICE_LIBS = @SERVICE_LIBS@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
+USE_NLS = @USE_NLS@
 VERSION = @VERSION@
+XGETTEXT = @XGETTEXT@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -239,6 +268,8 @@ htmldir = @htmldir@
 includedir = @includedir@
 infodir = @infodir@
 install_sh = @install_sh@
+intltool__v_merge_options_ = @intltool__v_merge_options_@
+intltool__v_merge_options_0 = @intltool__v_merge_options_0@
 libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
@@ -282,12 +313,13 @@ indicator_printers_service_SOURCES = \
 	indicator-printer-state-notifier.h \
 	spawn-printer-settings.c \
 	spawn-printer-settings.h \
-	dbus-names.h \
-	$(cups_notifier_sources)
+	dbus-names.h
 
+nodist_indicator_printers_service_SOURCES = $(cups_notifier_sources)
 indicator_printers_service_CPPFLAGS = $(SERVICE_CFLAGS)
 indicator_printers_service_LDADD = $(SERVICE_LIBS)
 BUILT_SOURCES = $(cups_notifier_sources)
+CLEANFILES = $(BUILT_SOURCES)
 EXTRA_DIST = org.cups.cupsd.Notifier.xml
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -642,6 +674,7 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
@@ -742,7 +775,7 @@ uninstall-am: uninstall-libexecPROGRAMS \
 	uninstall-libexecPROGRAMS uninstall-printersmenulibLTLIBRARIES
 
 
-$(cups_notifier_sources): $(top_srcdir)/src/org.cups.cupsd.Notifier.xml
+$(cups_notifier_sources): org.cups.cupsd.Notifier.xml
 	gdbus-codegen \
 	    --interface-prefix org.cups.cupsd \
 	    --c-namespace Cups \
