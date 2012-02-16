@@ -34,13 +34,15 @@ indicator_printers_service_SOURCES = \
 	indicator-printer-state-notifier.h \
 	spawn-printer-settings.c \
 	spawn-printer-settings.h \
-	dbus-names.h \
-	$(cups_notifier_sources)
+	dbus-names.h
+
+nodist_indicator_printers_service_SOURCES = $(cups_notifier_sources)
 
 indicator_printers_service_CPPFLAGS = $(SERVICE_CFLAGS)
 indicator_printers_service_LDADD = $(SERVICE_LIBS)
 
 
 BUILT_SOURCES = $(cups_notifier_sources)
+CLEANFILES= $(BUILT_SOURCES)
 EXTRA_DIST = org.cups.cupsd.Notifier.xml
 

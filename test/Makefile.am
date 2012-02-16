@@ -14,8 +14,9 @@ $(cups_notifier_sources): $(top_srcdir)/src/org.cups.cupsd.Notifier.xml
 	    $^
 
 mock_cups_notifier_SOURCES = \
-	mock-cups-notifier.c \
-	$(cups_notifier_sources)
+	mock-cups-notifier.c
+
+nodist_mock_cups_notifier_SOURCES = $(cups_notifier_sources)
 
 mock_cups_notifier_CPPFLAGS = \
 	$(SERVICE_CFLAGS) \
@@ -24,4 +25,5 @@ mock_cups_notifier_CPPFLAGS = \
 mock_cups_notifier_LDADD = $(SERVICE_LIBS)
 
 BUILT_SOURCES = $(cups_notifier_sources)
+CLEANFILES = $(BUILT_SOURCES)
 
