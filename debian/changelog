@@ -1,3 +1,11 @@
+indicator-printers (0.1-0ubuntu2) precise; urgency=low
+
+  * debian/control:
+    - Flesh out description a tad more
+    - Recommend system-config-printer-gnome
+
+ -- Michael Terry <mterry@ubuntu.com>  Wed, 15 Feb 2012 10:21:08 -0500
+
 indicator-printers (0.1-0ubuntu1) precise; urgency=low
 
   * Sponsored to Ubuntu, thanks Lars!

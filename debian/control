@@ -21,6 +21,10 @@ Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
          cups (>= 1.5)
-Recommends: unity | indicator-renderer         
-Description: An indicator which shows active print jobs.
- This package provides an indicator which shows active print jobs.
+Recommends: unity | indicator-renderer,
+            system-config-printer-gnome
+Description: indicator showing active print jobs
+ This indicator is designed to let you view and control active print jobs.
+ .
+ It requires some way to be hosted into a panel.  Either Unity or an indicator
+ plugin for your desktop environment.
