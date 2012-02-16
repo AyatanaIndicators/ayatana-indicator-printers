@@ -1,4 +1,4 @@
-indicator-printers (0.1.1-0ubuntu1) UNRELEASED; urgency=low
+indicator-printers (0.1.1-0ubuntu1) precise; urgency=low
 
   * New upstream release.
     - prepare for i18n
@@ -8,7 +8,7 @@ indicator-printers (0.1.1-0ubuntu1) UNRELEASED; urgency=low
   * debian/control
     - bump libindicator dependency 0.3.91
 
- -- Lars Uebernickel <lars@lars-laptop>  Thu, 16 Feb 2012 21:15:27 +0100
+ -- Lars Uebernickel <lars.uebernickel@ubuntu.com>  Thu, 16 Feb 2012 21:19:35 +0100
 
 indicator-printers (0.1-0ubuntu2) precise; urgency=low
 
