@@ -10,12 +10,19 @@ AC_PROG_LIBTOOL
 AM_PROG_CC_C_O
 AM_SILENT_RULES([yes])
 
+IT_PROG_INTLTOOL([0.35.0])
+GETTEXT_PACKAGE=indicator-printers
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [gettext package])
+AM_GLIB_GNU_GETTEXT
+
 AC_CONFIG_HEADER(config.h)
 AC_CONFIG_FILES([
     Makefile
     src/Makefile
     data/Makefile
     test/Makefile
+    po/Makefile.in
 ])
 
 PKG_CHECK_MODULES(APPLET, gtk+-3.0 >= 3.0

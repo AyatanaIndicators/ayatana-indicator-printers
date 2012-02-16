@@ -1,3 +1,3 @@
 
-SUBDIRS = src data test
+SUBDIRS = src data test po
 
