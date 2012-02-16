@@ -1,0 +1,16 @@
+indicator-printers (0.1-0ubuntu1) precise; urgency=low
+
+  * Sponsored to Ubuntu, thanks Lars!
+  * debian/control:
+    - recommends "unity | indicator-renderer", indicators are not that 
+      useful without a renderer      
+    - slightly improve the description
+  * debian/copyright:
+    - updated to the current format
+  * debian/rules:
+    - comment DEB_BUILDDIR to workaround a out of srcdir build issue
+
+  [ Lars Uebernickel ]
+  * Initial release.
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 15 Feb 2012 15:08:11 +0100
