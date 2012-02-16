@@ -17,7 +17,7 @@ cups_notifier_sources = \
 	cups-notifier.c \
 	cups-notifier.h
 
-$(cups_notifier_sources): $(top_srcdir)/src/org.cups.cupsd.Notifier.xml
+$(cups_notifier_sources): org.cups.cupsd.Notifier.xml
 	gdbus-codegen \
 	    --interface-prefix org.cups.cupsd \
 	    --c-namespace Cups \
