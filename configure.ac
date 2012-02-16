@@ -1,5 +1,5 @@
 
-AC_INIT(indicator-printers, 0.1)
+AC_INIT(indicator-printers, 0.1.1)
 
 AC_PREREQ(2.53)
 AM_INIT_AUTOMAKE([])
