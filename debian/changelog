@@ -1,4 +1,4 @@
-indicator-printers (0.0-0ubuntu1) precise; urgency=low
+indicator-printers (0.1-0ubuntu1) precise; urgency=low
 
   * Sponsored to Ubuntu, thanks Lars!
   * debian/control:

@@ -42,4 +42,5 @@ indicator_printers_service_LDADD = $(SERVICE_LIBS)
 
 
 BUILT_SOURCES = $(cups_notifier_sources)
+EXTRA_DIST = org.cups.cupsd.Notifier.xml
 
