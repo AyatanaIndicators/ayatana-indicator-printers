@@ -26,6 +26,7 @@
 
 #include <libindicator/indicator.h>
 #include <libindicator/indicator-image-helper.h>
+#include <libindicator/indicator-service-manager.h>
 
 #include <libdbusmenu-gtk/menu.h>
 #include <libdbusmenu-gtk/menuitem.h>
@@ -40,6 +41,7 @@ G_DEFINE_TYPE (IndicatorPrinters, indicator_printers, INDICATOR_OBJECT_TYPE)
 
 struct _IndicatorPrintersPrivate
 {
+    IndicatorServiceManager *service;
     IndicatorObjectEntry entry;
 };
 
@@ -48,6 +50,7 @@ static void
 dispose (GObject *object)
 {
     IndicatorPrinters *self = INDICATOR_PRINTERS (object);
+    g_clear_object (&self->priv->service);
     g_clear_object (&self->priv->entry.menu);
     g_clear_object (&self->priv->entry.image);
     G_OBJECT_CLASS (indicator_printers_parent_class)->dispose (object);
@@ -73,6 +76,18 @@ indicator_printers_class_init (IndicatorPrintersClass *klass)
     object_class->dispose = dispose;
 
     io_class->get_entries = get_entries;
+}
+
+
+static void
+connection_changed (IndicatorServiceManager *service,
+                    gboolean connected,
+                    gpointer user_data)
+{
+    IndicatorPrinters *self = INDICATOR_PRINTERS (user_data);
+
+    if (!connected)
+        indicator_object_set_visible (INDICATOR_OBJECT (self), FALSE);
 }
 
 
@@ -253,6 +268,11 @@ indicator_printers_init (IndicatorPrinters *self)
                                         INDICATOR_PRINTERS_TYPE,
                                         IndicatorPrintersPrivate);
     self->priv = priv;
+
+    priv->service = indicator_service_manager_new_version (INDICATOR_PRINTERS_DBUS_NAME,
+                                                           INDICATOR_PRINTERS_DBUS_VERSION);
+    g_signal_connect (priv->service, "connection-change",
+                      G_CALLBACK (connection_changed), self);
 
     menu = dbusmenu_gtkmenu_new(INDICATOR_PRINTERS_DBUS_NAME,
                                 INDICATOR_PRINTERS_DBUS_OBJECT_PATH);
