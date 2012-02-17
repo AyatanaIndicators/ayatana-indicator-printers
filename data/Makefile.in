@@ -239,7 +239,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 dbus_servicesdir = $(DBUSSERVICEDIR)
 dbus_services_DATA = indicator-printers.service
-EXTRA_DIST = indicator-printers.service
+EXTRA_DIST = indicator-printers.service.in
 CLEANFILES = $(dbus_services_DATA)
 all: all-am
 
