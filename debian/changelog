@@ -1,3 +1,11 @@
+indicator-printers (0.1.3-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release.
+    - generate dbus service file with the correct path
+    - use IndicatorServiceManager to manage the lifecycle of the service
+
+ -- Lars Uebernickel <lars.uebernickel@ubuntu.com>  Fri, 17 Feb 2012 19:26:57 +0100
+
 indicator-printers (0.1.1-0ubuntu1) precise; urgency=low
 
   * New upstream release.
