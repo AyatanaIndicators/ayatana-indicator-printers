@@ -120,16 +120,14 @@ show_alert_box (const gchar *printer,
     GtkWidget *image;
     gchar *primary_text;
     gchar *secondary_text;
-    const gchar *fmt;
 
     image = gtk_image_new_from_icon_name ("printer", GTK_ICON_SIZE_DIALOG);
     primary_text = g_strdup_printf (reason, printer);
 
-    if (njobs == 1)
-        fmt = _("You have %d job queued to print on this printer.");
-    else
-        fmt = _("You have %d jobs queued to print on this printer.");
-    secondary_text = g_strdup_printf (fmt, njobs);
+    secondary_text = g_strdup_printf (ngettext(
+                   "You have %d job queued to print on this printer.", 
+                   "You have %d jobs queued to print on this printer.", njobs),
+                   njobs);
 
     dialog = g_object_new (GTK_TYPE_MESSAGE_DIALOG,
                            "title", _("Printing Problem"),
