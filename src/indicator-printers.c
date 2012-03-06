@@ -22,6 +22,7 @@
 #include "indicator-menu-item.h"
 #include "dbus-names.h"
 
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
 #include <libindicator/indicator.h>
@@ -287,7 +288,7 @@ indicator_printers_init (IndicatorPrinters *self)
     gtk_widget_show (GTK_WIDGET (image));
 
     priv->entry.name_hint = PACKAGE_NAME;
-    priv->entry.accessible_desc = "Printers";
+    priv->entry.accessible_desc = _("Printers");
     priv->entry.menu = GTK_MENU (g_object_ref_sink (menu));
     priv->entry.image = g_object_ref_sink (image);
 

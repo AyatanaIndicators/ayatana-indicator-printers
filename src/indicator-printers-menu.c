@@ -18,6 +18,8 @@
 
 #include "indicator-printers-menu.h"
 
+#include <glib/gi18n.h>
+
 #include <cups/cups.h>
 
 #include "spawn-printer-settings.h"
@@ -195,7 +197,7 @@ update_printer_menuitem (IndicatorPrintersMenu *self,
 
     switch (state) {
         case IPP_PRINTER_STOPPED:
-            dbusmenu_menuitem_property_set (item, "indicator-right", "Paused");
+            dbusmenu_menuitem_property_set (item, "indicator-right", _("Paused"));
             dbusmenu_menuitem_property_set_bool (item, "indicator-right-is-lozenge", FALSE);
             break;
 
