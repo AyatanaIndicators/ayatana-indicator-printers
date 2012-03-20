@@ -26,6 +26,8 @@
 #include "indicator-printers-menu.h"
 #include "indicator-printer-state-notifier.h"
 
+#define NOTIFY_LEASE_DURATION (15 * 60)
+
 
 static int
 create_subscription ()
@@ -43,7 +45,7 @@ create_subscription ()
     ippAddString (req, IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
                   "notify-recipient-uri", NULL, "dbus://");
     ippAddInteger (req, IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
-                   "notify-lease-duration", 0);
+                   "notify-lease-duration", NOTIFY_LEASE_DURATION);
 
     resp = cupsDoRequest (CUPS_HTTP_DEFAULT, req, "/");
     if (!resp || cupsLastError() != IPP_OK) {
@@ -61,6 +63,46 @@ create_subscription ()
 
     ippDelete (resp);
     return id;
+}
+
+
+static gboolean
+renew_subscription (int id)
+{
+    ipp_t *req;
+    ipp_t *resp;
+
+    req = ippNewRequest (IPP_RENEW_SUBSCRIPTION);
+    ippAddInteger (req, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                   "notify-subscription-id", id);
+    ippAddString (req, IPP_TAG_OPERATION, IPP_TAG_URI,
+                  "printer-uri", NULL, "/");
+    ippAddString (req, IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
+                  "notify-recipient-uri", NULL, "dbus://");
+    ippAddInteger (req, IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
+                   "notify-lease-duration", NOTIFY_LEASE_DURATION);
+
+    resp = cupsDoRequest (CUPS_HTTP_DEFAULT, req, "/");
+    if (!resp || cupsLastError() != IPP_OK) {
+        g_warning ("Error renewing CUPS subscription %d: %s\n",
+                   id, cupsLastErrorString ());
+        return FALSE;
+    }
+
+    ippDelete (resp);
+    return TRUE;
+}
+
+
+static gboolean
+renew_subscription_timeout (gpointer userdata)
+{
+    int *subscription_id = userdata;
+
+    if (*subscription_id <= 0 || !renew_subscription (*subscription_id))
+        *subscription_id = create_subscription ();
+
+    return TRUE;
 }
 
 
@@ -115,6 +157,9 @@ int main (int argc, char *argv[])
     gtk_init (&argc, &argv);
 
     subscription_id = create_subscription ();
+    g_timeout_add_seconds (NOTIFY_LEASE_DURATION - 60,
+                           renew_subscription_timeout,
+                           &subscription_id);
 
     service = indicator_service_new_version (INDICATOR_PRINTERS_DBUS_NAME,
                                              INDICATOR_PRINTERS_DBUS_VERSION);
