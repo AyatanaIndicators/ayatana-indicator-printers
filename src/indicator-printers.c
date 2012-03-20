@@ -175,6 +175,9 @@ indicator_prop_change_cb (DbusmenuMenuitem *mi,
 
     else if (properties_match (prop, "visible", value, G_VARIANT_TYPE_BOOLEAN))
         gtk_widget_set_visible (GTK_WIDGET (menuitem), g_variant_get_boolean (value));
+
+    else if (properties_match (prop, "indicator-right-is-lozenge", value, G_VARIANT_TYPE_BOOLEAN))
+        indicator_menu_item_set_right_is_lozenge (menuitem, g_variant_get_boolean (value));
 }
 
 
