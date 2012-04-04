@@ -1,5 +1,5 @@
 
-AC_INIT(indicator-printers, 0.1.5)
+AC_INIT(indicator-printers, 0.1.6)
 
 AC_PREREQ(2.53)
 AM_INIT_AUTOMAKE([])
@@ -9,6 +9,7 @@ AC_PROG_INSTALL
 AC_PROG_LIBTOOL
 AM_PROG_CC_C_O
 AM_SILENT_RULES([yes])
+AC_CONFIG_MACRO_DIR([m4])
 
 IT_PROG_INTLTOOL([0.35.0])
 GETTEXT_PACKAGE=indicator-printers
@@ -68,6 +69,17 @@ else
 fi
 AC_SUBST(DBUSSERVICEDIR)
 
+###########################
+# gcov coverage reporting
+###########################
+
+m4_include([m4/gcov.m4])
+AC_TDD_GCOV
+AM_CONDITIONAL([HAVE_GCOV], [test "x$ac_cv_check_gcov" = xyes])
+AM_CONDITIONAL([HAVE_LCOV], [test "x$ac_cv_check_lcov" = xyes])
+AM_CONDITIONAL([HAVE_GCOVR], [test "x$ac_cv_check_gcovr" = xyes])
+AC_SUBST(COVERAGE_CFLAGS)
+AC_SUBST(COVERAGE_LDFLAGS)
 
 AC_SUBST(AM_CFLAGS, "-Wall")
 
