@@ -39,7 +39,8 @@ libexec_PROGRAMS = indicator-printers-service$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/gcov.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
@@ -87,8 +88,8 @@ am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 libprintersmenu_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(AM_CFLAGS) $(CFLAGS) $(libprintersmenu_la_LDFLAGS) \
-	$(LDFLAGS) -o $@
+	$(libprintersmenu_la_CFLAGS) $(CFLAGS) \
+	$(libprintersmenu_la_LDFLAGS) $(LDFLAGS) -o $@
 PROGRAMS = $(libexec_PROGRAMS)
 am_indicator_printers_service_OBJECTS = indicator_printers_service-indicator-printers-service.$(OBJEXT) \
 	indicator_printers_service-indicator-printers-menu.$(OBJEXT) \
@@ -100,6 +101,10 @@ indicator_printers_service_OBJECTS =  \
 	$(am_indicator_printers_service_OBJECTS) \
 	$(nodist_indicator_printers_service_OBJECTS)
 indicator_printers_service_DEPENDENCIES = $(am__DEPENDENCIES_1)
+indicator_printers_service_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+	$(indicator_printers_service_CFLAGS) $(CFLAGS) \
+	$(indicator_printers_service_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -151,6 +156,8 @@ CATOBJEXT = @CATOBJEXT@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
+COVERAGE_CFLAGS = @COVERAGE_CFLAGS@
+COVERAGE_LDFLAGS = @COVERAGE_LDFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CUPS_CONFIG = @CUPS_CONFIG@
@@ -168,6 +175,8 @@ ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 FGREP = @FGREP@
+GCOVR = @GCOVR@
+GENHTML = @GENHTML@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
@@ -189,6 +198,7 @@ INTLTOOL_V_MERGE = @INTLTOOL_V_MERGE@
 INTLTOOL_V_MERGE_OPTIONS = @INTLTOOL_V_MERGE_OPTIONS@
 INTLTOOL__v_MERGE_ = @INTLTOOL__v_MERGE_@
 INTLTOOL__v_MERGE_0 = @INTLTOOL__v_MERGE_0@
+LCOV = @LCOV@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
@@ -231,6 +241,7 @@ SERVICE_CFLAGS = @SERVICE_CFLAGS@
 SERVICE_LIBS = @SERVICE_LIBS@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
+SHTOOL = @SHTOOL@
 STRIP = @STRIP@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
@@ -299,8 +310,12 @@ libprintersmenu_la_SOURCES = \
 	dbus-names.h
 
 libprintersmenu_la_CPPFLAGS = $(APPLET_CFLAGS)
+libprintersmenu_la_CFLAGS = $(COVERAGE_CFLAGS)
 libprintersmenu_la_LIBADD = $(APPLET_LIBS) -lm
-libprintersmenu_la_LDFLAGS = -module -avoid-version
+libprintersmenu_la_LDFLAGS = \
+	$(COVERAGE_LDFLAGS) \
+	-module -avoid-version
+
 cups_notifier_sources = \
 	cups-notifier.c \
 	cups-notifier.h
@@ -317,7 +332,9 @@ indicator_printers_service_SOURCES = \
 
 nodist_indicator_printers_service_SOURCES = $(cups_notifier_sources)
 indicator_printers_service_CPPFLAGS = $(SERVICE_CFLAGS)
+indicator_printers_service_CFLAGS = $(COVERAGE_CFLAGS)
 indicator_printers_service_LDADD = $(SERVICE_LIBS)
+indicator_printers_service_LDFLAGS = $(COVERAGE_LDFLAGS)
 BUILT_SOURCES = $(cups_notifier_sources)
 CLEANFILES = $(BUILT_SOURCES)
 EXTRA_DIST = org.cups.cupsd.Notifier.xml
@@ -434,7 +451,7 @@ clean-libexecPROGRAMS:
 	rm -f $$list
 indicator-printers-service$(EXEEXT): $(indicator_printers_service_OBJECTS) $(indicator_printers_service_DEPENDENCIES) $(EXTRA_indicator_printers_service_DEPENDENCIES) 
 	@rm -f indicator-printers-service$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(indicator_printers_service_OBJECTS) $(indicator_printers_service_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(indicator_printers_service_LINK) $(indicator_printers_service_OBJECTS) $(indicator_printers_service_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -472,88 +489,88 @@ distclean-compile:
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
 libprintersmenu_la-indicator-printers.lo: indicator-printers.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libprintersmenu_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libprintersmenu_la-indicator-printers.lo -MD -MP -MF $(DEPDIR)/libprintersmenu_la-indicator-printers.Tpo -c -o libprintersmenu_la-indicator-printers.lo `test -f 'indicator-printers.c' || echo '$(srcdir)/'`indicator-printers.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libprintersmenu_la_CPPFLAGS) $(CPPFLAGS) $(libprintersmenu_la_CFLAGS) $(CFLAGS) -MT libprintersmenu_la-indicator-printers.lo -MD -MP -MF $(DEPDIR)/libprintersmenu_la-indicator-printers.Tpo -c -o libprintersmenu_la-indicator-printers.lo `test -f 'indicator-printers.c' || echo '$(srcdir)/'`indicator-printers.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libprintersmenu_la-indicator-printers.Tpo $(DEPDIR)/libprintersmenu_la-indicator-printers.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='indicator-printers.c' object='libprintersmenu_la-indicator-printers.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libprintersmenu_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libprintersmenu_la-indicator-printers.lo `test -f 'indicator-printers.c' || echo '$(srcdir)/'`indicator-printers.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libprintersmenu_la_CPPFLAGS) $(CPPFLAGS) $(libprintersmenu_la_CFLAGS) $(CFLAGS) -c -o libprintersmenu_la-indicator-printers.lo `test -f 'indicator-printers.c' || echo '$(srcdir)/'`indicator-printers.c
 
 libprintersmenu_la-indicator-menu-item.lo: indicator-menu-item.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libprintersmenu_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libprintersmenu_la-indicator-menu-item.lo -MD -MP -MF $(DEPDIR)/libprintersmenu_la-indicator-menu-item.Tpo -c -o libprintersmenu_la-indicator-menu-item.lo `test -f 'indicator-menu-item.c' || echo '$(srcdir)/'`indicator-menu-item.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libprintersmenu_la_CPPFLAGS) $(CPPFLAGS) $(libprintersmenu_la_CFLAGS) $(CFLAGS) -MT libprintersmenu_la-indicator-menu-item.lo -MD -MP -MF $(DEPDIR)/libprintersmenu_la-indicator-menu-item.Tpo -c -o libprintersmenu_la-indicator-menu-item.lo `test -f 'indicator-menu-item.c' || echo '$(srcdir)/'`indicator-menu-item.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libprintersmenu_la-indicator-menu-item.Tpo $(DEPDIR)/libprintersmenu_la-indicator-menu-item.Plo
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='indicator-menu-item.c' object='libprintersmenu_la-indicator-menu-item.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libprintersmenu_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libprintersmenu_la-indicator-menu-item.lo `test -f 'indicator-menu-item.c' || echo '$(srcdir)/'`indicator-menu-item.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libprintersmenu_la_CPPFLAGS) $(CPPFLAGS) $(libprintersmenu_la_CFLAGS) $(CFLAGS) -c -o libprintersmenu_la-indicator-menu-item.lo `test -f 'indicator-menu-item.c' || echo '$(srcdir)/'`indicator-menu-item.c
 
 indicator_printers_service-indicator-printers-service.o: indicator-printers-service.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printers-service.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printers-service.Tpo -c -o indicator_printers_service-indicator-printers-service.o `test -f 'indicator-printers-service.c' || echo '$(srcdir)/'`indicator-printers-service.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printers-service.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printers-service.Tpo -c -o indicator_printers_service-indicator-printers-service.o `test -f 'indicator-printers-service.c' || echo '$(srcdir)/'`indicator-printers-service.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-indicator-printers-service.Tpo $(DEPDIR)/indicator_printers_service-indicator-printers-service.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='indicator-printers-service.c' object='indicator_printers_service-indicator-printers-service.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printers-service.o `test -f 'indicator-printers-service.c' || echo '$(srcdir)/'`indicator-printers-service.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printers-service.o `test -f 'indicator-printers-service.c' || echo '$(srcdir)/'`indicator-printers-service.c
 
 indicator_printers_service-indicator-printers-service.obj: indicator-printers-service.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printers-service.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printers-service.Tpo -c -o indicator_printers_service-indicator-printers-service.obj `if test -f 'indicator-printers-service.c'; then $(CYGPATH_W) 'indicator-printers-service.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printers-service.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printers-service.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printers-service.Tpo -c -o indicator_printers_service-indicator-printers-service.obj `if test -f 'indicator-printers-service.c'; then $(CYGPATH_W) 'indicator-printers-service.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printers-service.c'; fi`
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-indicator-printers-service.Tpo $(DEPDIR)/indicator_printers_service-indicator-printers-service.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='indicator-printers-service.c' object='indicator_printers_service-indicator-printers-service.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printers-service.obj `if test -f 'indicator-printers-service.c'; then $(CYGPATH_W) 'indicator-printers-service.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printers-service.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printers-service.obj `if test -f 'indicator-printers-service.c'; then $(CYGPATH_W) 'indicator-printers-service.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printers-service.c'; fi`
 
 indicator_printers_service-indicator-printers-menu.o: indicator-printers-menu.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printers-menu.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printers-menu.Tpo -c -o indicator_printers_service-indicator-printers-menu.o `test -f 'indicator-printers-menu.c' || echo '$(srcdir)/'`indicator-printers-menu.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printers-menu.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printers-menu.Tpo -c -o indicator_printers_service-indicator-printers-menu.o `test -f 'indicator-printers-menu.c' || echo '$(srcdir)/'`indicator-printers-menu.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-indicator-printers-menu.Tpo $(DEPDIR)/indicator_printers_service-indicator-printers-menu.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='indicator-printers-menu.c' object='indicator_printers_service-indicator-printers-menu.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printers-menu.o `test -f 'indicator-printers-menu.c' || echo '$(srcdir)/'`indicator-printers-menu.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printers-menu.o `test -f 'indicator-printers-menu.c' || echo '$(srcdir)/'`indicator-printers-menu.c
 
 indicator_printers_service-indicator-printers-menu.obj: indicator-printers-menu.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printers-menu.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printers-menu.Tpo -c -o indicator_printers_service-indicator-printers-menu.obj `if test -f 'indicator-printers-menu.c'; then $(CYGPATH_W) 'indicator-printers-menu.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printers-menu.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printers-menu.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printers-menu.Tpo -c -o indicator_printers_service-indicator-printers-menu.obj `if test -f 'indicator-printers-menu.c'; then $(CYGPATH_W) 'indicator-printers-menu.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printers-menu.c'; fi`
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-indicator-printers-menu.Tpo $(DEPDIR)/indicator_printers_service-indicator-printers-menu.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='indicator-printers-menu.c' object='indicator_printers_service-indicator-printers-menu.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printers-menu.obj `if test -f 'indicator-printers-menu.c'; then $(CYGPATH_W) 'indicator-printers-menu.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printers-menu.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printers-menu.obj `if test -f 'indicator-printers-menu.c'; then $(CYGPATH_W) 'indicator-printers-menu.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printers-menu.c'; fi`
 
 indicator_printers_service-indicator-printer-state-notifier.o: indicator-printer-state-notifier.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printer-state-notifier.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printer-state-notifier.Tpo -c -o indicator_printers_service-indicator-printer-state-notifier.o `test -f 'indicator-printer-state-notifier.c' || echo '$(srcdir)/'`indicator-printer-state-notifier.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printer-state-notifier.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printer-state-notifier.Tpo -c -o indicator_printers_service-indicator-printer-state-notifier.o `test -f 'indicator-printer-state-notifier.c' || echo '$(srcdir)/'`indicator-printer-state-notifier.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-indicator-printer-state-notifier.Tpo $(DEPDIR)/indicator_printers_service-indicator-printer-state-notifier.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='indicator-printer-state-notifier.c' object='indicator_printers_service-indicator-printer-state-notifier.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printer-state-notifier.o `test -f 'indicator-printer-state-notifier.c' || echo '$(srcdir)/'`indicator-printer-state-notifier.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printer-state-notifier.o `test -f 'indicator-printer-state-notifier.c' || echo '$(srcdir)/'`indicator-printer-state-notifier.c
 
 indicator_printers_service-indicator-printer-state-notifier.obj: indicator-printer-state-notifier.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printer-state-notifier.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printer-state-notifier.Tpo -c -o indicator_printers_service-indicator-printer-state-notifier.obj `if test -f 'indicator-printer-state-notifier.c'; then $(CYGPATH_W) 'indicator-printer-state-notifier.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printer-state-notifier.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-indicator-printer-state-notifier.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-indicator-printer-state-notifier.Tpo -c -o indicator_printers_service-indicator-printer-state-notifier.obj `if test -f 'indicator-printer-state-notifier.c'; then $(CYGPATH_W) 'indicator-printer-state-notifier.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printer-state-notifier.c'; fi`
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-indicator-printer-state-notifier.Tpo $(DEPDIR)/indicator_printers_service-indicator-printer-state-notifier.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='indicator-printer-state-notifier.c' object='indicator_printers_service-indicator-printer-state-notifier.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printer-state-notifier.obj `if test -f 'indicator-printer-state-notifier.c'; then $(CYGPATH_W) 'indicator-printer-state-notifier.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printer-state-notifier.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-indicator-printer-state-notifier.obj `if test -f 'indicator-printer-state-notifier.c'; then $(CYGPATH_W) 'indicator-printer-state-notifier.c'; else $(CYGPATH_W) '$(srcdir)/indicator-printer-state-notifier.c'; fi`
 
 indicator_printers_service-spawn-printer-settings.o: spawn-printer-settings.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-spawn-printer-settings.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-spawn-printer-settings.Tpo -c -o indicator_printers_service-spawn-printer-settings.o `test -f 'spawn-printer-settings.c' || echo '$(srcdir)/'`spawn-printer-settings.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-spawn-printer-settings.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-spawn-printer-settings.Tpo -c -o indicator_printers_service-spawn-printer-settings.o `test -f 'spawn-printer-settings.c' || echo '$(srcdir)/'`spawn-printer-settings.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-spawn-printer-settings.Tpo $(DEPDIR)/indicator_printers_service-spawn-printer-settings.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spawn-printer-settings.c' object='indicator_printers_service-spawn-printer-settings.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-spawn-printer-settings.o `test -f 'spawn-printer-settings.c' || echo '$(srcdir)/'`spawn-printer-settings.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-spawn-printer-settings.o `test -f 'spawn-printer-settings.c' || echo '$(srcdir)/'`spawn-printer-settings.c
 
 indicator_printers_service-spawn-printer-settings.obj: spawn-printer-settings.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-spawn-printer-settings.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-spawn-printer-settings.Tpo -c -o indicator_printers_service-spawn-printer-settings.obj `if test -f 'spawn-printer-settings.c'; then $(CYGPATH_W) 'spawn-printer-settings.c'; else $(CYGPATH_W) '$(srcdir)/spawn-printer-settings.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-spawn-printer-settings.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-spawn-printer-settings.Tpo -c -o indicator_printers_service-spawn-printer-settings.obj `if test -f 'spawn-printer-settings.c'; then $(CYGPATH_W) 'spawn-printer-settings.c'; else $(CYGPATH_W) '$(srcdir)/spawn-printer-settings.c'; fi`
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-spawn-printer-settings.Tpo $(DEPDIR)/indicator_printers_service-spawn-printer-settings.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='spawn-printer-settings.c' object='indicator_printers_service-spawn-printer-settings.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-spawn-printer-settings.obj `if test -f 'spawn-printer-settings.c'; then $(CYGPATH_W) 'spawn-printer-settings.c'; else $(CYGPATH_W) '$(srcdir)/spawn-printer-settings.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-spawn-printer-settings.obj `if test -f 'spawn-printer-settings.c'; then $(CYGPATH_W) 'spawn-printer-settings.c'; else $(CYGPATH_W) '$(srcdir)/spawn-printer-settings.c'; fi`
 
 indicator_printers_service-cups-notifier.o: cups-notifier.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-cups-notifier.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-cups-notifier.Tpo -c -o indicator_printers_service-cups-notifier.o `test -f 'cups-notifier.c' || echo '$(srcdir)/'`cups-notifier.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-cups-notifier.o -MD -MP -MF $(DEPDIR)/indicator_printers_service-cups-notifier.Tpo -c -o indicator_printers_service-cups-notifier.o `test -f 'cups-notifier.c' || echo '$(srcdir)/'`cups-notifier.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-cups-notifier.Tpo $(DEPDIR)/indicator_printers_service-cups-notifier.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='cups-notifier.c' object='indicator_printers_service-cups-notifier.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-cups-notifier.o `test -f 'cups-notifier.c' || echo '$(srcdir)/'`cups-notifier.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-cups-notifier.o `test -f 'cups-notifier.c' || echo '$(srcdir)/'`cups-notifier.c
 
 indicator_printers_service-cups-notifier.obj: cups-notifier.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT indicator_printers_service-cups-notifier.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-cups-notifier.Tpo -c -o indicator_printers_service-cups-notifier.obj `if test -f 'cups-notifier.c'; then $(CYGPATH_W) 'cups-notifier.c'; else $(CYGPATH_W) '$(srcdir)/cups-notifier.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -MT indicator_printers_service-cups-notifier.obj -MD -MP -MF $(DEPDIR)/indicator_printers_service-cups-notifier.Tpo -c -o indicator_printers_service-cups-notifier.obj `if test -f 'cups-notifier.c'; then $(CYGPATH_W) 'cups-notifier.c'; else $(CYGPATH_W) '$(srcdir)/cups-notifier.c'; fi`
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/indicator_printers_service-cups-notifier.Tpo $(DEPDIR)/indicator_printers_service-cups-notifier.Po
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='cups-notifier.c' object='indicator_printers_service-cups-notifier.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-cups-notifier.obj `if test -f 'cups-notifier.c'; then $(CYGPATH_W) 'cups-notifier.c'; else $(CYGPATH_W) '$(srcdir)/cups-notifier.c'; fi`
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(indicator_printers_service_CPPFLAGS) $(CPPFLAGS) $(indicator_printers_service_CFLAGS) $(CFLAGS) -c -o indicator_printers_service-cups-notifier.obj `if test -f 'cups-notifier.c'; then $(CYGPATH_W) 'cups-notifier.c'; else $(CYGPATH_W) '$(srcdir)/cups-notifier.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
