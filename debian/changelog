@@ -1,3 +1,11 @@
+indicator-printers (0.1.6-0ubuntu2) UNRELEASED; urgency=low
+
+  * debian/control:
+    - Don't recommend Unity; indicators work in GNOME Classic session
+      without Unity being installed
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 31 Aug 2012 20:04:34 -0400
+
 indicator-printers (0.1.6-0ubuntu1) precise; urgency=low
 
   * New upstream release.

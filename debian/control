@@ -22,7 +22,7 @@ Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
          cups (>= 1.5)
-Recommends: unity | indicator-renderer,
+Recommends: indicator-applet (>= 0.2) | indicator-renderer,
             system-config-printer-gnome
 Description: indicator showing active print jobs
  This indicator is designed to let you view and control active print jobs.
