@@ -1,4 +1,4 @@
-indicator-printers (0.1.6-0ubuntu2) UNRELEASED; urgency=low
+indicator-printers (0.1.6-0ubuntu2) quantal; urgency=low
 
   * debian/control:
     - Don't recommend Unity; indicators work in GNOME Classic session
