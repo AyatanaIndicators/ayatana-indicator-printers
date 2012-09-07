@@ -1,9 +1,9 @@
-indicator-printers (0.1.6-0ubuntu3) UNRELEASED; urgency=low
+indicator-printers (0.1.6-0ubuntu3) quantal; urgency=low
 
   * Cherry-pick a fix in trunk for FTBFS (cups changed its API):
     - Don't access CUPS' ipp_attribute_t directly. Thanks Larsu
 
- -- Didier Roche <didrocks@ubuntu.com>  Fri, 07 Sep 2012 17:03:18 +0200
+ -- Didier Roche <didrocks@ubuntu.com>  Fri, 07 Sep 2012 17:07:36 +0200
 
 indicator-printers (0.1.6-0ubuntu2) quantal; urgency=low
 
