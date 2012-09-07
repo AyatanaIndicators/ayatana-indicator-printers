@@ -56,7 +56,7 @@ create_subscription ()
 
     attr = ippFindAttribute (resp, "notify-subscription-id", IPP_TAG_INTEGER);
     if (attr)
-        id = attr->values[0].integer;
+        id = ippGetInteger (attr, 0);
     else
         g_warning ("ipp-create-printer-subscription response doesn't contain "
                    "subscription id.\n");
