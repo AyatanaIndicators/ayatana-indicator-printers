@@ -3,6 +3,10 @@ indicator-printers (0.1.6-0ubuntu4) UNRELEASED; urgency=low
   * debian/control:
     - Bump debhelper Build-Depends to (>= 9).
     - Update style to be consistent with other indicators.
+  * debian/rules:
+    - Migrate from cdbs to using the dh sequencer.
+    - Override dh_autoreconf to call autogen.sh.
+    - Add and export DPKG_GENSYMBOLS_CHECK_LEVEL = 4.
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Nov 2012 11:34:17 -0500
 
