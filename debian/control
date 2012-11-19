@@ -3,7 +3,7 @@ Section: gnome
 Priority: extra
 Maintainer: Ubuntu Desktop Team <ubuntu-desktop@lists.ubuntu.com>
 XSBC-Original-Maintainer: Lars Uebernickel <lars.uebernickel@canonical.com>
-Build-Depends: debhelper (>= 8),
+Build-Depends: debhelper (>= 9),
                cdbs (>= 0.4.41),
                autotools-dev,
                dh-autoreconf,
@@ -12,7 +12,7 @@ Build-Depends: debhelper (>= 8),
                libdbusmenu-glib-dev (>= 0.5.90),
                libdbusmenu-gtk3-dev (>= 0.5.90),
                libindicator3-dev (>= 0.3.91),
-               libcups2-dev
+               libcups2-dev,
 Standards-Version: 3.9.2
 Homepage: https://launchpad.net/indicator-printers
 Vcs-Bzr: https://code.launchpad.net/~ubuntu-desktop/indicator-printers/ubuntu
@@ -21,9 +21,9 @@ Package: indicator-printers
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         cups (>= 1.5)
+         cups (>= 1.5),
 Recommends: indicator-applet (>= 0.2) | indicator-renderer,
-            system-config-printer-gnome
+            system-config-printer-gnome,
 Description: indicator showing active print jobs
  This indicator is designed to let you view and control active print jobs.
  .

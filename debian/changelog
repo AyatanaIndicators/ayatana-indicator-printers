@@ -1,3 +1,11 @@
+indicator-printers (0.1.6-0ubuntu4) UNRELEASED; urgency=low
+
+  * debian/control:
+    - Bump debhelper Build-Depends to (>= 9).
+    - Update style to be consistent with other indicators.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Nov 2012 11:34:17 -0500
+
 indicator-printers (0.1.6-0ubuntu3) quantal; urgency=low
 
   * Cherry-pick a fix in trunk for FTBFS (cups changed its API):
