@@ -3,6 +3,8 @@ indicator-printers (0.1.7-0ubuntu1) UNRELEASED; urgency=low
   * debian/control:
     - Bump debhelper Build-Depends to (>= 9).
     - Update style to be consistent with other indicators.
+    - Drop Build-Depends on cdbs.
+    - Add a Build-Depends on gnome-common.
   * debian/rules:
     - Migrate from cdbs to using the dh sequencer.
     - Override dh_autoreconf to call autogen.sh.
