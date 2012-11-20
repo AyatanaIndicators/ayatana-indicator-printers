@@ -6,6 +6,7 @@ indicator-printers (0.1.7-0ubuntu1) UNRELEASED; urgency=low
     - Drop Build-Depends on cdbs.
     - Add a Build-Depends on gnome-common.
     - Update Vcs-Bzr, Vcs-Browser and add a notice to uploaders.
+    - Add python to Build-Depends for gdbus-codegen.
   * debian/rules:
     - Migrate from cdbs to using the dh sequencer.
     - Override dh_autoreconf to call autogen.sh.
