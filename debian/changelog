@@ -11,6 +11,8 @@ indicator-printers (0.1.7-0ubuntu1) UNRELEASED; urgency=low
     - Migrate from cdbs to using the dh sequencer.
     - Override dh_autoreconf to call autogen.sh.
     - Add and export DPKG_GENSYMBOLS_CHECK_LEVEL = 4.
+    - Override dh_auto_configure to properly pass --disable-static to
+      configure.
   * debian/compat: bump compat level to 9.
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Nov 2012 11:34:17 -0500
