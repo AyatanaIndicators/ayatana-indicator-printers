@@ -15,7 +15,11 @@ Build-Depends: debhelper (>= 9),
                libcups2-dev,
 Standards-Version: 3.9.2
 Homepage: https://launchpad.net/indicator-printers
-Vcs-Bzr: https://code.launchpad.net/~ubuntu-desktop/indicator-printers/ubuntu
+# If you aren't a member of ~indicator-applet-developers but need to upload
+# packaging changes, just go ahead.  ~indicator-applet-developers will notice
+# and sync up the code again.
+Vcs-Bzr: https://code.launchpad.net/~indicator-applet-developers/indicator-printers/trunk.13.04
+Vcs-Browser: https://bazaar.launchpad.net/~indicator-applet-developers/indicator-printers/trunk.13.04/files
 
 Package: indicator-printers
 Architecture: any

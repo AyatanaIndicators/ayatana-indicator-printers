@@ -5,6 +5,7 @@ indicator-printers (0.1.7-0ubuntu1) UNRELEASED; urgency=low
     - Update style to be consistent with other indicators.
     - Drop Build-Depends on cdbs.
     - Add a Build-Depends on gnome-common.
+    - Update Vcs-Bzr, Vcs-Browser and add a notice to uploaders.
   * debian/rules:
     - Migrate from cdbs to using the dh sequencer.
     - Override dh_autoreconf to call autogen.sh.
