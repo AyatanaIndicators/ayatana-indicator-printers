@@ -1,5 +1,6 @@
 indicator-printers (0.1.7-0ubuntu1) UNRELEASED; urgency=low
 
+  [ Mathieu Trudel-Lapierre ]
   * debian/control:
     - Bump debhelper Build-Depends to (>= 9).
     - Update style to be consistent with other indicators.
@@ -14,6 +15,9 @@ indicator-printers (0.1.7-0ubuntu1) UNRELEASED; urgency=low
     - Override dh_auto_configure to properly pass --disable-static to
       configure.
   * debian/compat: bump compat level to 9.
+
+  [ Didier Roche ]
+  * Automatic snapshot from revision 63 (bootstrap)
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Nov 2012 11:34:17 -0500
 
