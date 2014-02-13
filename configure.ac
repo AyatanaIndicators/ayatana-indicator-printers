@@ -11,10 +11,23 @@ AM_PROG_CC_C_O
 AM_SILENT_RULES([yes])
 AC_CONFIG_MACRO_DIR([m4])
 
+AC_DEFUN([AC_DEFINE_PATH], [
+	test "x$prefix" = xNONE && prefix="$ac_default_prefix"
+	test "x$exec_prefix" = xNONE && exec_prefix='${prefix}'
+	ac_define_path=`eval echo [$]$2`
+	ac_define_path=`eval echo [$]ac_define_path`
+	$1="$ac_define_path"
+	AC_SUBST($1)
+	ifelse($3, ,
+		AC_DEFINE_UNQUOTED($1, "$ac_define_path"),
+		AC_DEFINE_UNQUOTED($1, "$ac_define_path", $3))
+])
+
 IT_PROG_INTLTOOL([0.35.0])
 GETTEXT_PACKAGE=indicator-printers
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [gettext package])
+AC_DEFINE_PATH(GNOMELOCALEDIR, "${datadir}/locale", [locale directory])
 AM_GLIB_GNU_GETTEXT
 
 AC_CONFIG_HEADER(config.h)
