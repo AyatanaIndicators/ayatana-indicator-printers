@@ -21,6 +21,7 @@
 #include <gtk/gtk.h>
 #include <cups/cups.h>
 #include "dbus-names.h"
+#include "config.h"
 
 #include "cups-notifier.h"
 #include "indicator-printers-menu.h"
@@ -146,6 +147,12 @@ service_shutdown (IndicatorService *service, gpointer user_data)
 
 int main (int argc, char *argv[])
 {
+    /* Init i18n */
+    setlocale (LC_ALL, "");
+    bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+    bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+    textdomain (GETTEXT_PACKAGE);
+
     IndicatorService *service;
     DbusmenuServer *menuserver;
     CupsNotifier *cups_notifier;
