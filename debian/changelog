@@ -1,3 +1,13 @@
+indicator-printers (0.1.7+14.04.20140213-0ubuntu1) trusty; urgency=low
+
+  [ Gabor Kelemen ]
+  * Add proper i18n support. Fixes LP:1279605. (LP: #1279605)
+
+  [ Ubuntu daily release ]
+  * Automatic snapshot from revision 66
+
+ -- Ubuntu daily release <ps-jenkins@lists.canonical.com>  Thu, 13 Feb 2014 18:06:03 +0000
+
 indicator-printers (0.1.7daily13.03.01-0ubuntu1) raring; urgency=low
 
   [ Mathieu Trudel-Lapierre ]
