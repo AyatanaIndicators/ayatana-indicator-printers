@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=com.canonical.indicator.printers
-Exec=@libexecdir@/indicator-printers-service
