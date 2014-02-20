@@ -132,19 +132,6 @@ cancel_subscription (int id)
     ippDelete (resp);
 }
 
-
-static void
-service_shutdown (IndicatorService *service, gpointer user_data)
-{
-    int subscription_id = GPOINTER_TO_INT (user_data);
-
-    g_debug("Shutting down indicator-printers-service");
-
-    cancel_subscription (subscription_id);
-    gtk_main_quit ();
-}
-
-
 int main (int argc, char *argv[])
 {
     /* Init i18n */
@@ -153,7 +140,6 @@ int main (int argc, char *argv[])
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
 
-    IndicatorService *service;
     DbusmenuServer *menuserver;
     CupsNotifier *cups_notifier;
     IndicatorPrintersMenu *menu;
@@ -168,13 +154,6 @@ int main (int argc, char *argv[])
                            renew_subscription_timeout,
                            &subscription_id);
 
-    service = indicator_service_new_version (INDICATOR_PRINTERS_DBUS_NAME,
-                                             INDICATOR_PRINTERS_DBUS_VERSION);
-    g_signal_connect (service,
-                      "shutdown",
-                      G_CALLBACK (service_shutdown),
-                      GINT_TO_POINTER (subscription_id));
-
     cups_notifier = cups_notifier_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
                                                           0,
                                                           NULL,
@@ -184,7 +163,6 @@ int main (int argc, char *argv[])
     if (error) {
         g_warning ("Error creating cups notify handler: %s", error->message);
         g_error_free (error);
-        g_object_unref (service);
         return 1;
     }
 
@@ -206,7 +184,6 @@ int main (int argc, char *argv[])
     g_object_unref (menuserver);
     g_object_unref (state_notifier);
     g_object_unref (cups_notifier);
-    g_object_unref (service);
     return 0;
 }
 
