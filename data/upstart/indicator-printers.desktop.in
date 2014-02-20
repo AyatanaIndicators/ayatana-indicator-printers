@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Indicator Power
-Exec=@pkglibexecdir@/indicator-power-service
+Name=Indicator Printers
+Exec=@pkglibexecdir@/indicator-printers-service
 OnlyShowIn=Unity;
 NoDisplay=true
 StartupNotify=false

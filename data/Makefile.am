@@ -3,7 +3,7 @@ BUILT_SOURCES=
 CLEANFILES=
 EXTRA_DIST=
 
-#SUBDIRS = upstart
+SUBDIRS = upstart
 
 #
 # the upstart job file

@@ -1,4 +1,4 @@
-description "Indicator Power Service"
+description "Indicator Printers Service"
 
 start on indicator-services-start
 stop on desktop-end or indicator-services-end
@@ -6,4 +6,4 @@ stop on desktop-end or indicator-services-end
 respawn
 respawn limit 2 10
 
-exec @pkglibexecdir@/indicator-power-service
+exec @pkglibexecdir@/indicator-printers-service
