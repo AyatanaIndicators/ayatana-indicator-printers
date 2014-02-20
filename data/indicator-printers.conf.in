@@ -1,6 +1,9 @@
 description "Indicator Printers Service"
 
-start on indicator-services-start
+# NOTE: Limiting only to Unity 7 right now as it's still using
+# dbusmenu.  That can be lifted after it is ported to GMenu
+
+start on indicator-services-start and xsession SESSION=ubuntu
 stop on desktop-end or indicator-services-end
 
 respawn
