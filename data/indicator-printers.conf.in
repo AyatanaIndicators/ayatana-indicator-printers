@@ -1,0 +1,12 @@
+description "Indicator Printers Service"
+
+# NOTE: Limiting only to Unity 7 right now as it's still using
+# dbusmenu.  That can be lifted after it is ported to GMenu
+
+start on indicator-services-start and xsession SESSION=ubuntu
+stop on desktop-end or indicator-services-end
+
+respawn
+respawn limit 2 10
+
+exec @pkglibexecdir@/indicator-printers-service

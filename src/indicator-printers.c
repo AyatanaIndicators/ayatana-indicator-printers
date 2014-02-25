@@ -24,10 +24,10 @@
 
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
+#include <gio/gio.h>
 
 #include <libindicator/indicator.h>
 #include <libindicator/indicator-image-helper.h>
-#include <libindicator/indicator-service-manager.h>
 
 #include <libdbusmenu-gtk/menu.h>
 #include <libdbusmenu-gtk/menuitem.h>
@@ -42,8 +42,8 @@ G_DEFINE_TYPE (IndicatorPrinters, indicator_printers, INDICATOR_OBJECT_TYPE)
 
 struct _IndicatorPrintersPrivate
 {
-    IndicatorServiceManager *service;
     IndicatorObjectEntry entry;
+    guint name_watch;
 };
 
 
@@ -51,7 +51,10 @@ static void
 dispose (GObject *object)
 {
     IndicatorPrinters *self = INDICATOR_PRINTERS (object);
-    g_clear_object (&self->priv->service);
+    if (self->priv->name_watch != 0) {
+        g_bus_unwatch_name(self->priv->name_watch);
+        self->priv->name_watch = 0;
+    }
     g_clear_object (&self->priv->entry.menu);
     g_clear_object (&self->priv->entry.image);
     G_OBJECT_CLASS (indicator_printers_parent_class)->dispose (object);
@@ -81,14 +84,13 @@ indicator_printers_class_init (IndicatorPrintersClass *klass)
 
 
 static void
-connection_changed (IndicatorServiceManager *service,
-                    gboolean connected,
+name_vanished (GDBusConnection * con,
+                    const gchar * name,
                     gpointer user_data)
 {
     IndicatorPrinters *self = INDICATOR_PRINTERS (user_data);
 
-    if (!connected)
-        indicator_object_set_visible (INDICATOR_OBJECT (self), FALSE);
+    indicator_object_set_visible (INDICATOR_OBJECT (self), FALSE);
 }
 
 
@@ -273,10 +275,12 @@ indicator_printers_init (IndicatorPrinters *self)
                                         IndicatorPrintersPrivate);
     self->priv = priv;
 
-    priv->service = indicator_service_manager_new_version (INDICATOR_PRINTERS_DBUS_NAME,
-                                                           INDICATOR_PRINTERS_DBUS_VERSION);
-    g_signal_connect (priv->service, "connection-change",
-                      G_CALLBACK (connection_changed), self);
+    priv->name_watch = g_bus_watch_name(G_BUS_TYPE_SESSION,
+                                        INDICATOR_PRINTERS_DBUS_NAME,
+                                        G_BUS_NAME_WATCHER_FLAGS_NONE,
+                                        NULL, /* appeared */
+                                        name_vanished,
+                                        self, NULL);
 
     menu = dbusmenu_gtkmenu_new(INDICATOR_PRINTERS_DBUS_NAME,
                                 INDICATOR_PRINTERS_DBUS_OBJECT_PATH);
