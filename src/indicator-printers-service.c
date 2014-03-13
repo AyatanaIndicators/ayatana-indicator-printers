@@ -27,7 +27,7 @@
 #include "indicator-printers-menu.h"
 #include "indicator-printer-state-notifier.h"
 
-#define NOTIFY_LEASE_DURATION (15 * 60)
+#define NOTIFY_LEASE_DURATION (24 * 60 * 60)
 
 
 static int
