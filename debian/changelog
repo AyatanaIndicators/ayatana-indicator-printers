@@ -1,3 +1,11 @@
+indicator-printers (0.1.7+14.10.20140527-0ubuntu1) utopic; urgency=low
+
+  [ Lars Uebernickel ]
+  * service: own bus name so that the panel can find it on the bus (LP:
+    #1304434)
+
+ -- Ubuntu daily release <ps-jenkins@lists.canonical.com>  Tue, 27 May 2014 14:06:04 +0000
+
 indicator-printers (0.1.7+14.04.20140313-0ubuntu1) trusty; urgency=low
 
   [ Ted Gould ]
