@@ -132,6 +132,17 @@ cancel_subscription (int id)
     ippDelete (resp);
 }
 
+static void
+name_lost (GDBusConnection *connection,
+           const gchar     *name,
+           gpointer         user_data)
+{
+    int subscription_id = GPOINTER_TO_INT (user_data);
+
+    cancel_subscription (subscription_id);
+    gtk_main_quit ();
+}
+
 int main (int argc, char *argv[])
 {
     /* Init i18n */
@@ -153,6 +164,12 @@ int main (int argc, char *argv[])
     g_timeout_add_seconds (NOTIFY_LEASE_DURATION - 60,
                            renew_subscription_timeout,
                            &subscription_id);
+
+    g_bus_own_name (G_BUS_TYPE_SESSION,
+                    INDICATOR_PRINTERS_DBUS_NAME,
+                    G_BUS_NAME_OWNER_FLAGS_NONE,
+                    NULL, NULL, name_lost,
+                    GINT_TO_POINTER (subscription_id), NULL);
 
     cups_notifier = cups_notifier_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
                                                           0,
