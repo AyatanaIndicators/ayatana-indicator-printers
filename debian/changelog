@@ -1,3 +1,10 @@
+indicator-printers (0.1.7+15.04.20150220-0ubuntu1) vivid; urgency=medium
+
+  [ Lars Uebernickel ]
+  * Remove g_strv_contains()
+
+ -- CI Train Bot <ci-train-bot@canonical.com>  Fri, 20 Feb 2015 10:27:32 +0000
+
 indicator-printers (0.1.7+14.10.20140527-0ubuntu1) utopic; urgency=low
 
   [ Lars Uebernickel ]
