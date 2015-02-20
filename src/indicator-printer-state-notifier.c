@@ -72,24 +72,6 @@ g_hash_table_insert_many (GHashTable *hash_table,
 }
 
 
-static gboolean
-g_strv_contains (gchar **str_array,
-                 gchar *needle)
-{
-    gchar **str;
-
-    if (!str_array)
-        return FALSE;
-
-    for (str = str_array; *str; str++) {
-        if (!strcmp (*str, needle))
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-
 /* returns a list of strings that are in a but not in b; does not copy the
  * strings */
 static GList *
@@ -103,7 +85,7 @@ g_strv_diff (gchar **a,
         return NULL;
 
     for (p = a; *p; p++) {
-        if (!g_strv_contains (b, *p))
+        if (!g_strv_contains ((const gchar * const *) b, *p))
             result = g_list_prepend (result, *p);
     }
 
