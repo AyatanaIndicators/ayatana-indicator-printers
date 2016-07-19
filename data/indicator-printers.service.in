@@ -1,0 +1,7 @@
+[Unit]
+Description=Indicator Printers Service
+PartOf=graphical-session.target
+After=indicators-pre.target
+
+[Service]
+ExecStart=@pkglibexecdir@/indicator-printers-service
