@@ -30,7 +30,7 @@ Depends: ${shlibs:Depends},
          cups (>= 1.5),
          indicator-common,
 Recommends: indicator-applet (>= 0.2) | indicator-renderer,
-            system-config-printer-gnome,
+            system-config-printer,
 Description: indicator showing active print jobs
  This indicator is designed to let you view and control active print jobs.
  .
