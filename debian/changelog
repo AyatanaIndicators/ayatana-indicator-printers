@@ -1,3 +1,9 @@
+indicator-printers (0.1.7+17.04.20170227-0ubuntu1) zesty; urgency=medium
+
+  * Remove old autostart files.
+
+ -- Rodney Dawes <rodney.dawes@canonical.com>  Mon, 27 Feb 2017 15:12:50 +0000
+
 indicator-printers (0.1.7+17.04.20161201-0ubuntu1) zesty; urgency=medium
 
   [ Michael Terry ]
