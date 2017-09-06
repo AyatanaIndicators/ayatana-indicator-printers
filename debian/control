@@ -6,6 +6,7 @@ XSBC-Original-Maintainer: Lars Uebernickel <lars.uebernickel@canonical.com>
 Build-Depends: debhelper (>= 9),
                autotools-dev,
                dh-autoreconf,
+               dh-translations,
                gnome-common,
                python,
                libglib2.0-dev (>= 2.43.2),
@@ -22,6 +23,7 @@ Homepage: https://launchpad.net/indicator-printers
 # and sync up the code again.
 Vcs-Bzr: https://code.launchpad.net/~indicator-applet-developers/indicator-printers/trunk.13.04
 Vcs-Browser: https://bazaar.launchpad.net/~indicator-applet-developers/indicator-printers/trunk.13.04/files
+X-Ubuntu-Use-Langpack: yes
 
 Package: indicator-printers
 Architecture: any

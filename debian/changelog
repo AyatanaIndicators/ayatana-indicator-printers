@@ -1,3 +1,11 @@
+indicator-printers (0.1.7+17.04.20170227-0ubuntu3) artful; urgency=medium
+
+  * debian/control, debian/rules:
+    - use dh-translations
+    - set X-Ubuntu-Use-Langpack: yes
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 06 Sep 2017 15:49:01 +0200
+
 indicator-printers (0.1.7+17.04.20170227-0ubuntu1) zesty; urgency=medium
 
   * Remove old autostart files.
