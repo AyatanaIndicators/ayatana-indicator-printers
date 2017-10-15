@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2017-10-15 19:57+0000\n"
+"PO-Revision-Date: 2017-10-16 20:46+0000\n"
 "Last-Translator: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/ayatana-indicators"
 "/printers-applet/de/>\n"
@@ -47,27 +47,27 @@ msgstr "Ein_stellungen…"
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Im Drucker “%s” geht das Papier zu neige."
+msgstr "Der Drucker “%s” hat nur noch wenig Papier."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "Im Drucker “%s” ist kein Papier mehr vorhanden."
+msgstr "Der Drucker “%s” hat kein Papier mehr."
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "Im Drucker “%s” geht der Toner zur neige."
+msgstr "Der Drucker “%s” hat nur noch wenig Toner."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "Im Drucker “%s” ist kein Toner mehr."
+msgstr "Der Drucker “%s” hat keinen Toner mehr."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Eine Wartungsklappe des Druckers “%s” steht offen."
+msgstr "Eine Abdeckung des Druckers “%s” ist offen."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
@@ -78,8 +78,8 @@ msgstr "Eine Tür des Druckers “%s” ist offen."
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
-"Der Drucker “%s” kann nicht verwendet werden, weil die dafür benötigte "
-"Software fehlt."
+"Der Drucker “%s” kann nicht verwendet werden, weil dafür benötigte Software "
+"fehlt."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
