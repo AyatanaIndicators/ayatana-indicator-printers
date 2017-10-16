@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2017-10-14 01:12+0000\n"
+"PO-Revision-Date: 2017-10-17 12:51+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/ayatana-"
 "indicators/printers-applet/nb/>\n"
@@ -70,7 +70,7 @@ msgstr "Et deksel er åpent på skriveren \"%s\"."
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "En dør er åpen på skriveren \"%s\""
+msgstr "En dør er åpen på skriveren \"%s\"."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
