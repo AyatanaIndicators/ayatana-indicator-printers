@@ -79,4 +79,3 @@ void indicator_menu_item_set_icon_name (IndicatorMenuItem *self, const gchar *na
 G_END_DECLS
 
 #endif
-

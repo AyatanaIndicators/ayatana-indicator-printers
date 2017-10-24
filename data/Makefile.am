@@ -1,4 +1,3 @@
-
 BUILT_SOURCES=
 CLEANFILES=
 EXTRA_DIST=
@@ -8,7 +7,7 @@ EXTRA_DIST=
 #
 
 systemddir = $(SYSTEMD_USERDIR)
-systemd_DATA = indicator-printers.service
+systemd_DATA = ayatana-indicator-printers.service
 systemd_in = $(systemd_DATA:.service=.service.in)
 $(systemd_DATA): $(systemd_in)
 	$(AM_V_GEN) $(SED) -e "s|\@pkglibexecdir\@|$(pkglibexecdir)|" $< > $@
@@ -21,7 +20,7 @@ CLEANFILES += $(systemd_DATA)
 #
 
 upstart_overridedir = $(datadir)/upstart/systemd-session/upstart
-upstart_override_DATA = indicator-printers.override
+upstart_override_DATA = ayatana-indicator-printers.override
 EXTRA_DIST += $(upstart_override_DATA)
 
 #
@@ -29,10 +28,13 @@ EXTRA_DIST += $(upstart_override_DATA)
 #
 
 upstart_jobsdir = $(datadir)/upstart/sessions
-upstart_jobs_DATA = indicator-printers.conf
+upstart_jobs_DATA = ayatana-indicator-printers.conf
 upstart_jobs_in = $(upstart_jobs_DATA:.conf=.conf.in)
 $(upstart_jobs_DATA): $(upstart_jobs_in)
 	$(AM_V_GEN) $(SED) -e "s|\@pkglibexecdir\@|$(pkglibexecdir)|" $< > $@
 BUILT_SOURCES += $(upstart_jobs_DATA)
 CLEANFILES += $(upstart_jobs_DATA)
 EXTRA_DIST += $(upstart_jobs_in)
+
+DISTCLEANFILES = \
+	Makefile.in

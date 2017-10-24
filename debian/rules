@@ -1,5 +1,8 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
 
 CFLAGS += -Wno-error=deprecated-declarations
 LDFLAGS += -Wl,-z,defs -Wl,--as-needed
@@ -7,16 +10,19 @@ LDFLAGS += -Wl,-z,defs -Wl,--as-needed
 export DPKG_GENSYMBOLS_CHECK_LEVEL = 4
 
 %:
-	dh $@ --with autoreconf,translations
-
-override_dh_autoreconf:
-	NOCONFIGURE=1 dh_autoreconf ./autogen.sh
+	dh $@ --without autoreconf
 
 override_dh_auto_configure:
+	NOCONFIGURE=1 ./autogen.sh
 	dh_auto_configure -- \
 		--disable-static
 
 override_dh_install:
-	find debian/indicator-printers -name \*.la -delete
-	find debian/indicator-printers -name \*.a -delete
+	find debian/ayatana-indicator-printers -name \*.la -delete
+	find debian/ayatana-indicator-printers -name \*.a -delete
 	dh_install --fail-missing
+
+override_dh_auto_clean:
+	dh_auto_clean
+	# no clue, why they don't disappear during make distclean...
+	rm -f config.sub config.guess

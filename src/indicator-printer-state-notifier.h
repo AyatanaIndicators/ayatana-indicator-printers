@@ -72,4 +72,3 @@ void indicator_printer_state_notifier_set_cups_notifier (IndicatorPrinterStateNo
 G_END_DECLS
 
 #endif
-

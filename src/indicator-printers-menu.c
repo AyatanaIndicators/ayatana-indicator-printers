@@ -336,4 +336,3 @@ indicator_printers_menu_set_cups_notifier (IndicatorPrintersMenu *self,
                           NULL);
     }
 }
-

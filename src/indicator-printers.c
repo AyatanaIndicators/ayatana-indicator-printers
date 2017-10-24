@@ -26,8 +26,8 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include <libindicator/indicator.h>
-#include <libindicator/indicator-image-helper.h>
+#include <libayatana-indicator/indicator.h>
+#include <libayatana-indicator/indicator-image-helper.h>
 
 #include <libdbusmenu-gtk/menu.h>
 #include <libdbusmenu-gtk/menuitem.h>
@@ -308,4 +308,3 @@ indicator_printers_new (void)
 {
     return g_object_new (INDICATOR_PRINTERS_TYPE, NULL);
 }
-

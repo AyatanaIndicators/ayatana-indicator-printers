@@ -1,10 +1,11 @@
-indicator-printers (0.1.7+17.04.20170227-0ubuntu3) artful; urgency=medium
+ayatana-indicator-printers (0.1.8-0) UNRELEASED; urgency=medium
 
-  * debian/control, debian/rules:
-    - use dh-translations
-    - set X-Ubuntu-Use-Langpack: yes
+  * Forked from Ubuntu's indicator-printers.
 
- -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 06 Sep 2017 15:49:01 +0200
+  * Upstream-provided Debian package for ayatana-greeter-session-broadcast.
+    See upstream ChangeLog for recent changes.
+
+ -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Tue, 24 Oct 2017 18:11:01 +0200
 
 indicator-printers (0.1.7+17.04.20170227-0ubuntu1) zesty; urgency=medium
 

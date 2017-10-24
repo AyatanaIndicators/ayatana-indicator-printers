@@ -401,4 +401,3 @@ indicator_menu_item_set_icon_name (IndicatorMenuItem *self,
     gtk_image_set_from_icon_name (self->priv->image, name, GTK_ICON_SIZE_MENU);
     g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_ICON_NAME]);
 }
-

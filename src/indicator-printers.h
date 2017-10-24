@@ -19,7 +19,7 @@
 #ifndef INDICATOR_PRINTERS_H
 #define INDICATOR_PRINTERS_H
 
-#include <libindicator/indicator-object.h>
+#include <libayatana-indicator/indicator-object.h>
 
 G_BEGIN_DECLS
 

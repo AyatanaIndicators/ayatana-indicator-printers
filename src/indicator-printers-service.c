@@ -16,7 +16,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <libindicator/indicator-service.h>
+#include <libayatana-indicator/indicator-service.h>
 #include <libdbusmenu-glib/dbusmenu-glib.h>
 #include <gtk/gtk.h>
 #include <cups/cups.h>
@@ -203,4 +203,3 @@ int main (int argc, char *argv[])
     g_object_unref (cups_notifier);
     return 0;
 }
-

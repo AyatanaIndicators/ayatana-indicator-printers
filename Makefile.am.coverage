@@ -1,4 +1,3 @@
-
 # Coverage targets
 
 .PHONY: clean-gcno clean-gcda \

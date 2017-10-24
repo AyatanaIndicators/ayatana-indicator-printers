@@ -74,4 +74,3 @@ void indicator_printers_menu_set_cups_notifier (IndicatorPrintersMenu *self,
 G_END_DECLS
 
 #endif
-

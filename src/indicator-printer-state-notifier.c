@@ -330,4 +330,3 @@ indicator_printer_state_notifier_set_cups_notifier (IndicatorPrinterStateNotifie
                           G_CALLBACK (on_printer_state_changed), self);
     }
 }
-

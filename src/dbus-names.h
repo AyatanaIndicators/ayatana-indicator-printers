@@ -19,9 +19,9 @@
 #ifndef DBUS_NAMES_H
 #define DBUS_NAMES_H
 
-#define INDICATOR_PRINTERS_DBUS_NAME "com.canonical.indicator.printers"
-#define INDICATOR_PRINTERS_DBUS_OBJECT_PATH "/com/canonical/indicator/printers"
-#define INDICATOR_PRINTERS_DBUS_INTERFACE "com.canonical.indicator.printers"
+#define INDICATOR_PRINTERS_DBUS_NAME "org.ayatana.indicator.printers"
+#define INDICATOR_PRINTERS_DBUS_OBJECT_PATH "/org/ayatana/indicator/printers"
+#define INDICATOR_PRINTERS_DBUS_INTERFACE "org.ayatana.indicator.printers"
 #define INDICATOR_PRINTERS_DBUS_VERSION 1
 
 #define CUPS_DBUS_NAME "org.cups.cupsd.Notifier"
@@ -29,4 +29,3 @@
 #define CUPS_DBUS_INTERFACE "org.cups.cupsd.Notifier"
 
 #endif
-

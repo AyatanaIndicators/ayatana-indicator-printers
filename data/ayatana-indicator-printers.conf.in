@@ -1,0 +1,12 @@
+description "Ayatana Indicator Printers Service"
+
+# NOTE: Limiting only to Unity 7 right now as it's still using
+# dbusmenu.  That can be lifted after it is ported to GMenu
+
+start on ayatana-indicator-services-start and xsession SESSION=ubuntu
+stop on desktop-end or ayatana-indicator-services-end
+
+respawn
+respawn limit 2 10
+
+exec $SNAP@pkglibexecdir@/ayatana-indicator-printers-service

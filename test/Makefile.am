@@ -1,4 +1,3 @@
-
 noinst_PROGRAMS = mock-cups-notifier
 DISTCLEANFILES = mock-cups-notifier
 
@@ -27,3 +26,5 @@ mock_cups_notifier_LDADD = $(SERVICE_LIBS)
 BUILT_SOURCES = $(cups_notifier_sources)
 CLEANFILES = $(BUILT_SOURCES)
 
+DISTCLEANFILES = \
+	Makefile.in
