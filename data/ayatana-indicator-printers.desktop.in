@@ -2,7 +2,7 @@
 Type=Application
 Name=Indicator Printers
 Exec=@pkglibexecdir@/indicator-printers-service
-OnlyShowIn=Unity;
+OnlyShowIn=MATE;
 NoDisplay=true
 StartupNotify=false
 Terminal=false
