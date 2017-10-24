@@ -55,8 +55,18 @@ CUPS_LIBS+=`$CUPS_CONFIG --libs`
 SERVICE_CFLAGS="$SERVICE_CFLAGS $CUPS_CFLAGS"
 SERVICE_LIBS="$SERVICE_LIBS $CUPS_LIBS"
 
-SYSTEMD_USERDIR=`$PKG_CONFIG --variable=systemduserunitdir systemd`
-AC_SUBST(SYSTEMD_USERDIR)
+#########################
+# Check for systemd
+#########################
+PKG_CHECK_MODULES(SYSTEMD,  systemd,
+    [has_systemd=yes],
+    []
+)
+if test "x$has_systemd" = "xyes"; then
+       SYSTEMD_USERDIR=`$PKG_CONFIG --variable=systemduserunitdir systemd`
+       AC_SUBST(SYSTEMD_USERDIR)
+       AC_DEFINE(HAVE_SYSTEMD, 1, [create ayatana-indicator-printers.service for systemd])
+fi
 
 INDICATORDIR=`$PKG_CONFIG --variable=indicatordir ayatana-indicator3-0.4`
 INDICATORICONSDIR=`$PKG_CONFIG --variable=iconsdir ayatana-indicator3-0.4`

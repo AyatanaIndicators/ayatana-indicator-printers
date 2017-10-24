@@ -6,6 +6,7 @@ EXTRA_DIST=
 # the systemd unit file
 #
 
+#if defined(HAVE_SYSTEMD)
 systemddir = $(SYSTEMD_USERDIR)
 systemd_DATA = ayatana-indicator-printers.service
 systemd_in = $(systemd_DATA:.service=.service.in)
@@ -22,6 +23,7 @@ CLEANFILES += $(systemd_DATA)
 upstart_overridedir = $(datadir)/upstart/systemd-session/upstart
 upstart_override_DATA = ayatana-indicator-printers.override
 EXTRA_DIST += $(upstart_override_DATA)
+#endif
 
 #
 # the upstart job file
