@@ -34,6 +34,7 @@ AC_CONFIG_FILES([
     Makefile
     src/Makefile
     data/Makefile
+    data/upstart/Makefile
     test/Makefile
     po/Makefile.in
 ])
