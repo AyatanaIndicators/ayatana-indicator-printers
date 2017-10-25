@@ -1,16 +1,16 @@
 printersmenulibdir = $(INDICATORDIR)
-printersmenulib_LTLIBRARIES = libprintersmenu.la
-libprintersmenu_la_SOURCES = \
+printersmenulib_LTLIBRARIES = libayatana-printersmenu.la
+libayatana_printersmenu_la_SOURCES = \
 	indicator-printers.c \
 	indicator-printers.h \
 	indicator-menu-item.c \
 	indicator-menu-item.h \
 	dbus-names.h
 
-libprintersmenu_la_CPPFLAGS = $(APPLET_CFLAGS)
-libprintersmenu_la_CFLAGS = $(COVERAGE_CFLAGS)
-libprintersmenu_la_LIBADD = $(APPLET_LIBS) -lm
-libprintersmenu_la_LDFLAGS = \
+libayatana_printersmenu_la_CPPFLAGS = $(APPLET_CFLAGS)
+libayatana_printersmenu_la_CFLAGS = $(COVERAGE_CFLAGS)
+libayatana_printersmenu_la_LIBADD = $(APPLET_LIBS) -lm
+libayatana_printersmenu_la_LDFLAGS = \
 	$(COVERAGE_LDFLAGS) \
 	-module -avoid-version
 
