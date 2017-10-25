@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Indicator Printers
-Exec=@pkglibexecdir@/ayatana-indicator-printers-service
-OnlyShowIn=MATE;
-NoDisplay=true
-StartupNotify=false
-Terminal=false
-Hidden=true
