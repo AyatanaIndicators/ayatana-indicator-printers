@@ -1,4 +1,4 @@
-ayatana-indicator-printers (0.1.8-0) UNRELEASED; urgency=medium
+ayatana-indicator-printers (0.1.8-0) unstable; urgency=medium
 
   * Forked from Ubuntu's indicator-printers.
 
