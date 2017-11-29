@@ -16,14 +16,14 @@ set -x
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 
-GETTEXT_DOMAIN=$(cat CMakeLists.txt | grep 'set.*(.*GETTEXT_PACKAGE' | sed -r -e 's/.*\"([^"]+)\"\)/\1/')
+GETTEXT_DOMAIN=$(cat configure.ac | grep -E "^GETTEXT_PACKAGE=" | sed -e 's/GETTEXT_PACKAGE=//')
 
 cp po/${GETTEXT_DOMAIN}.pot po/${GETTEXT_DOMAIN}.pot~
 
 cd po/
 cat LINGUAS | while read lingua; do
 	if [ ! -e ${lingua}.po ]; then
-		 msginit --input=${GETTEXT_DOMAIN}.pot --locale=${lingua} --no-translator --output-file=$lingua.po
+		msginit --input=${GETTEXT_DOMAIN}.pot --locale=${lingua} --no-translator --output-file=$lingua.po
 	else
 		intltool-update --gettext-package ${GETTEXT_DOMAIN} $(basename ${lingua})
 	fi
