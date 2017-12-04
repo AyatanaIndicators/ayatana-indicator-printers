@@ -1,3 +1,9 @@
+ayatana-indicator-printers (0.1.8.99-0) UNRELEASED; urgency=medium
+
+  * Continue development...
+
+ -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Mon, 04 Dec 2017 10:10:02 +0100
+
 ayatana-indicator-printers (0.1.8-0) unstable; urgency=medium
 
   * Forked from Ubuntu's indicator-printers.
