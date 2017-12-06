@@ -26,7 +26,7 @@ IT_PROG_INTLTOOL([0.35.0])
 GETTEXT_PACKAGE=ayatana-indicator-printers
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [gettext package])
-AC_DEFINE_PATH(GNOMELOCALEDIR, "${datadir}/locale", [locale directory])
+AC_DEFINE_PATH(LOCALEDIR, "${datadir}/locale", [locale directory])
 AM_GLIB_GNU_GETTEXT
 
 AC_CONFIG_HEADER(config.h)
