@@ -2,7 +2,7 @@
 Type=Application
 Name=Ayatana Indicator Printers
 Exec=@pkglibexecdir@/ayatana-indicator-printers-service
-OnlyShowIn=MATE;
+OnlyShowIn=MATE;XFCE;
 NoDisplay=true
 StartupNotify=false
 Terminal=false
