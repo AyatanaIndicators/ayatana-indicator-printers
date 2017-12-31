@@ -8,74 +8,76 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2017-10-12 07:55+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-12-31 15:26+0000\n"
+"Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/ayatana-"
+"indicators/printers-applet/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
-msgstr ""
+msgstr "Skrivare"
 
 #: ../src/indicator-printers-menu.c:200
 msgid "Paused"
-msgstr ""
+msgstr "Pausad"
 
 #: ../src/indicator-printer-state-notifier.c:110
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Du har %d jobb uppköat för utskrift på denna skrivare."
+msgstr[1] "Du har %d jobb uppköade för utskrift på denna skrivare."
 
 #: ../src/indicator-printer-state-notifier.c:115
 msgid "Printing Problem"
-msgstr ""
+msgstr "Utskriftsproblem"
 
 #: ../src/indicator-printer-state-notifier.c:131
 msgid "_Settings…"
-msgstr ""
+msgstr "_Inställningar…"
 
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "Skrivaren ”%s” har lite papper."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "Skrivaren ”%s” har slut på papper."
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "Skrivaren ”%s” har lite toner."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "Skrivaren ”%s” har slut på toner."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "Ett lock är öppen på skrivaren ”%s”."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "En lucka är öppne på skrivaren ”%s”."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr ""
+msgstr "Skrivaren ”%s” kan inte användas då programvara som krävs saknas."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "Skrivaren ”%s” är för närvarande frånkopplad."
