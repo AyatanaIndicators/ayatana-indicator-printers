@@ -1,6 +1,73 @@
-2017-10-25 19:10:19 +0200 Mike Gabriel (2824a51)
+2018-02-28 22:19:54 +0100 Mike Gabriel (8e21850)
 
-	* release 0.1.8 (HEAD -> master)
+	* release 0.1.9 (HEAD -> master)
+
+2018-01-22 21:04:48 +0000 Марс Ямбар (c6ba5a0)
+
+	* Translated using Weblate (Ukrainian) (origin/master)
+
+2018-01-01 11:57:15 +0000 Anders Jonsson (0212a56)
+
+	* Translated using Weblate (Swedish)
+
+2017-12-31 15:26:15 +0000 Sebastian Rasmussen (c05cfd6)
+
+	* Translated using Weblate (Swedish)
+
+2017-12-02 08:58:15 +0000 snehal dangroshiya (7dcaa3c)
+
+	* Translated using Weblate (Gujarati)
+
+2017-12-06 23:34:21 +0100 Mike Gabriel (95d02ad)
+
+	* data/ayatana-indicator-printers.desktop.in: Add XFCE to OnlyShowIn=
+          key.
+
+2017-12-06 12:05:44 +0100 Mike Gabriel (d951203)
+
+	* Rename GNOMELOCALEDIR -> LOCALEDIR.
+
+2017-12-04 10:10:14 +0100 Mike Gabriel (61e3398)
+
+	* debian/changelog: Bump upstream to a development version.
+
+2017-11-29 13:32:34 +0100 Mike Gabriel (d68ea34)
+
+	* po/ayatana-indicator-printers.pot: Add PO template file.
+
+2017-11-29 13:32:15 +0100 Mike Gabriel (2473899)
+
+	* update-po.sh: Fix for previous commit.
+
+2017-11-29 13:24:22 +0100 Mike Gabriel (c9a4c86)
+
+	* update-po.sh: Preserve .pot file when updating *.po files.
+
+2017-11-26 21:41:28 +0000 Kristjan Räts (a8439d2)
+
+	* Translated using Weblate (Estonian)
+
+2017-11-29 12:44:39 +0100 Mike Gabriel (8c807bd)
+
+	* update-po.sh: Fix filenames of .ini(.in) and .xml(.in) files in po
+          files.
+
+2017-11-29 12:44:34 +0100 Mike Gabriel (934756c)
+
+	* update-pot.sh: Fix filenames of .ini(.in) and .xml(.in) files in po
+          template file.
+
+2017-10-26 12:27:41 +0200 Mike Gabriel (25746af)
+
+	* debian/watch: Fix upstream URL (typo in hostname).
+
+2017-10-26 12:20:09 +0200 Mike Gabriel (2e9e768)
+
+	* debian/changelog: post-relase mark 0.1.8-0 as released.
+
+2017-10-25 19:10:19 +0200 Mike Gabriel (954885d)
+
+	* release 0.1.8 (tag: 0.1.8, origin/release-builds, release-builds)
 
 2017-10-25 18:51:07 +0200 Mike Gabriel (3a1dd3e)
 
@@ -12,7 +79,7 @@
 
 2017-10-25 18:33:26 +0200 Mike Gabriel (12a88f8)
 
-	* data/upstart: Rename .desktop file. (origin/master)
+	* data/upstart: Rename .desktop file.
 
 2017-10-25 18:32:31 +0200 Mike Gabriel (2a885d6)
 

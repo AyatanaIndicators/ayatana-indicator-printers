@@ -1,4 +1,4 @@
-AC_INIT(ayatana-indicator-printers, 0.1.8)
+AC_INIT(ayatana-indicator-printers, 0.1.9)
 
 AC_PREREQ(2.53)
 AM_INIT_AUTOMAKE([])
