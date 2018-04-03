@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2018-04-03 14:37+0000\n"
+"PO-Revision-Date: 2018-04-04 04:24+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/ayatana-indicators/"
 "printers-applet/cs/>\n"
@@ -46,22 +46,22 @@ msgstr "Na_stavení…"
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "V tiskárně „"
+msgstr "V tiskárně „%s“ dochází papír."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "V tiskárně „%s“ došel papír."
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "V tiskárně „%s“ dochází toner."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "V tiskárně „%s“ došel toner."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
@@ -71,7 +71,7 @@ msgstr ""
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "U tiskárny „"
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
@@ -81,4 +81,4 @@ msgstr ""
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "Tiskárna „%s“ je nyní offline."
