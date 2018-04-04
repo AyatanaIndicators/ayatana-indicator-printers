@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2018-04-04 04:24+0000\n"
+"PO-Revision-Date: 2018-04-04 04:25+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/ayatana-indicators/"
 "printers-applet/cs/>\n"
@@ -71,12 +71,12 @@ msgstr ""
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "U tiskárny „"
+msgstr "U tiskárny „%s“ je otevřený kryt."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr ""
+msgstr "Tiskárnu „"
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
