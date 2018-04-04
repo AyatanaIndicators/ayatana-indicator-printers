@@ -32,7 +32,7 @@ msgstr "Pozastaveno"
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
 msgstr[0] "Na této tiskárně máte ve frontě %d úlohu."
-msgstr[1] ""
+msgstr[1] "Na této tiskárně máte ve frontě %d úlohy."
 msgstr[2] ""
 
 #: ../src/indicator-printer-state-notifier.c:115
