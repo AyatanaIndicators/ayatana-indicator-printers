@@ -8,22 +8,24 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2017-10-12 07:55+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-01-12 12:06+0000\n"
+"Last-Translator: Louies <louies0623@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
+"ayatana-indicators/printers-applet/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
-msgstr ""
+msgstr "印表機"
 
 #: ../src/indicator-printers-menu.c:200
 msgid "Paused"
-msgstr ""
+msgstr "暫停"
 
 #: ../src/indicator-printer-state-notifier.c:110
 #, c-format
@@ -34,48 +36,48 @@ msgstr[1] ""
 
 #: ../src/indicator-printer-state-notifier.c:115
 msgid "Printing Problem"
-msgstr ""
+msgstr "列印問題"
 
 #: ../src/indicator-printer-state-notifier.c:131
 msgid "_Settings…"
-msgstr ""
+msgstr "_設置…"
 
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "印表機 \"%s\" 的紙張不足。"
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "印表機 \"%s\" 沒有紙張。"
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "印表機 \"%s\" 碳粉不足。"
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "印表機 \"%s\" 的碳粉用完了。"
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "印表機 \"%s\" 上打開了蓋板。"
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "印表機 \"%s\" 上打開了閘門。"
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr ""
+msgstr "無法使用印表機 \"%s\"，因為缺少所需的軟體。"
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "印表機 \"%s\" 當前處於離線狀態。"
