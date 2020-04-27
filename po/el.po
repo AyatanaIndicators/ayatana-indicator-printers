@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2020-04-17 16:11+0000\n"
-"Last-Translator: george k <norhorn@gmail.com>\n"
+"PO-Revision-Date: 2020-04-28 11:11+0000\n"
+"Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/ayatana-indicators/"
 "printers-applet/el/>\n"
 "Language: el\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0.1-dev\n"
+"X-Generator: Weblate 4.0.2\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
@@ -65,21 +65,21 @@ msgstr "Ο εκτυπωτής «%s» δεν έχει καθόλου τόνερ."
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Το καπάκι του εκτυπωτή είναι ανοιχτό “%s”."
+msgstr "Το καπάκι του εκτυπωτή είναι ανοιχτό «%s»."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "Η πόρτα του εκτυπωτή είναι ανοιχτή “%s”."
+msgstr "Η πόρτα του εκτυπωτή είναι ανοιχτή «%s»."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
-"Ο εκτυπωτής “%s” δεν μπορεί να χρησιμοποιηθεί, δεν υπάρχει το απαιτούμενο "
+"Ο εκτυπωτής «%s» δεν μπορεί να χρησιμοποιηθεί, δεν υπάρχει το απαιτούμενο "
 "λογισμικό."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "Ο εκτυπωτής “%s” είναι εκτός σύνδεσης."
+msgstr "Ο εκτυπωτής «%s» είναι εκτός σύνδεσης."
