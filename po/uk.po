@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2018-09-28 19:37+0000\n"
-"Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
+"PO-Revision-Date: 2020-04-28 11:11+0000\n"
+"Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "ayatana-indicators/printers-applet/uk/>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 4.0.2\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
@@ -47,41 +47,41 @@ msgstr "_Налаштування…"
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "У принтері “%s” залишилося замало паперу."
+msgstr "У принтері «%s» залишилося замало паперу."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "У принтері “%s” закінчився папір."
+msgstr "У принтері «%s» закінчився папір."
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "У принтері “%s” бракує тонера."
+msgstr "У принтері «%s» бракує тонера."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "У принтері “%s” закінчився тонер."
+msgstr "У принтері «%s» закінчився тонер."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "На принтері “%s” відкрито кришку."
+msgstr "На принтері «%s» відкрито кришку."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "На принтері “%s” відкрито дверцята."
+msgstr "На принтері «%s» відкрито дверцята."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
-"Принтер “%s” не може бути використаний, оскільки відсутнє програмне "
+"Принтер «%s» не може бути використаний, оскільки відсутнє програмне "
 "забезпечення."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "Принтер “%s” наразі відключений."
+msgstr "Принтер «%s» наразі відключений."
