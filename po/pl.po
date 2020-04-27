@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2018-08-23 17:25+0000\n"
-"Last-Translator: WaldiS <admin@sto.ugu.pl>\n"
+"PO-Revision-Date: 2020-04-28 11:11+0000\n"
+"Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/"
 "ayatana-indicators/printers-applet/pl/>\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 4.0.2\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
@@ -47,40 +47,40 @@ msgstr "_Ustawienia…"
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Drukarka “%s” ma mało papieru."
+msgstr "Drukarka „%s” ma mało papieru."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "W drukarce “%s” skończył się papier."
+msgstr "W drukarce „%s” skończył się papier."
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "W drukarce “%s” jest mało tonera."
+msgstr "W drukarce „%s” jest mało tonera."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "W drukarce “%s” brakuje toneru."
+msgstr "W drukarce „%s” brakuje toneru."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Pokrywa drukarki jest otwarta “%s”."
+msgstr "Pokrywa drukarki jest otwarta „%s”."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "Drzwi są otwarte w drukarce “%s”."
+msgstr "Drzwi są otwarte w drukarce „%s”."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
-"Nie można użyć drukarki “%s” ponieważ brakuje wymaganego oprogramowania."
+"Nie można użyć drukarki „%s” ponieważ brakuje wymaganego oprogramowania."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "Drukarka “%s” jest obecnie wyłączona."
+msgstr "Drukarka „%s” jest obecnie wyłączona."
