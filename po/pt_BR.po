@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2019-02-20 21:17+0000\n"
-"Last-Translator: Murilo Venturoso <muriloventuroso@gmail.com>\n"
+"PO-Revision-Date: 2020-04-28 11:11+0000\n"
+"Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "ayatana-indicators/printers-applet/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 4.0.2\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
@@ -65,21 +65,20 @@ msgstr "A impressora “%s1” está sem toner."
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Uma tampa está aberta na impressora \"%s\"."
+msgstr "Uma tampa está aberta na impressora “%s”."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "Uma porta está aberta na impressora \"%s\"."
+msgstr "Uma porta está aberta na impressora “%s”."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
-"A impressora \"%s\" não pode ser usada porque o software exigido está "
-"faltando."
+"A impressora “%s” não pode ser usada porque o software exigido está faltando."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "A impressora \"%s\" está atualmente offline."
+msgstr "A impressora “%s” está atualmente offline."
