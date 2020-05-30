@@ -8,75 +8,77 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2017-10-12 07:55+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-05-31 23:41+0000\n"
+"Last-Translator: Juraj Liso <lisojuraj@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/"
+"ayatana-indicators/printers-applet/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
-msgstr ""
+msgstr "Tlačiarne"
 
 #: ../src/indicator-printers-menu.c:200
 msgid "Paused"
-msgstr ""
+msgstr "Pozastavené"
 
 #: ../src/indicator-printer-state-notifier.c:110
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Na tejto tlačiarni máte v poradí %d úlohu."
+msgstr[1] "Na tejto tlačiarni máte v poradí %d úlohy."
+msgstr[2] "Na tejto tlačiarni máte v poradí %d úloh."
 
 #: ../src/indicator-printer-state-notifier.c:115
 msgid "Printing Problem"
-msgstr ""
+msgstr "Problém s tlačou"
 
 #: ../src/indicator-printer-state-notifier.c:131
 msgid "_Settings…"
-msgstr ""
+msgstr "_Nastavenie…"
 
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "V Tlačiarni „%s“ dochádza papier."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "V Tlačiarni „%s“ došiel papier."
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "V Tlačiarni „%s“ dochádza toner."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "V Tlačiarni „%s“ došiel toner."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "Na tlačiarni „%s“ je otvorený kryt."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "Na tlačiarni „%s“ sú otvorené dvierka."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr ""
+msgstr "Tlačiareň „%s“ nie je možné použiť, pretože chýba požadovaný softvér."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "Tlačiareň „%s“ je momentálne offline."
