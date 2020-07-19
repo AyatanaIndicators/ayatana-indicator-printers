@@ -8,74 +8,76 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2017-10-12 07:55+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-07-20 20:42+0000\n"
+"Last-Translator: Tetra Homer <tetrahomer@gmail.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/"
+"ayatana-indicators/printers-applet/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
-msgstr ""
+msgstr "چاپگرها"
 
 #: ../src/indicator-printers-menu.c:200
 msgid "Paused"
-msgstr ""
+msgstr "مکث کرد"
 
 #: ../src/indicator-printer-state-notifier.c:110
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "شما برای چاپ روی این چاپگر %d صف کار دارید."
+msgstr[1] "شما برای چاپ روی این چاپگر %d صف کارها دارید."
 
 #: ../src/indicator-printer-state-notifier.c:115
 msgid "Printing Problem"
-msgstr ""
+msgstr "مشکل چاپ"
 
 #: ../src/indicator-printer-state-notifier.c:131
 msgid "_Settings…"
-msgstr ""
+msgstr "_تنظیمات…"
 
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "چاپگر “%s” روی کاغذ کم است."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "چاپگر “%s” از کاغذ خارج است."
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "چاپگر “%s” در تونر کم است."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "چاپگر “%s” از تونر خارج است."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "یک پوشش چاپگر “%s” باز است."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "یک درِ چاپگر “%s” باز است."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr ""
+msgstr "از چاپگر “%s” نمی توان استفاده کرد، زیرا نرم افزار لازم وجود ندارد."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "چاپگر “%s” در حال حاضر آفلاین است."
