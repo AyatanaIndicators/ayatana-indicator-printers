@@ -52,7 +52,7 @@ enum {
     NUM_PROPERTIES
 };
 
-GParamSpec *properties[NUM_PROPERTIES];
+static GParamSpec *properties[NUM_PROPERTIES];
 
 
 static void
