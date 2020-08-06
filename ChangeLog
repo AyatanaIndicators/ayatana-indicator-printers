@@ -1,10 +1,222 @@
-2018-02-28 22:19:54 +0100 Mike Gabriel (8e21850)
+2020-08-06 14:26:13 +0200 Mike Gabriel
 
-	* release 0.1.9 (HEAD -> master)
+	* release 0.1.10 (HEAD -> master, tag: 0.1.10)
+
+2020-08-04 16:16:41 +0900 Kentaro Hayashi (305b944)
+
+	* Fix multiple definitions linker error with GCC 10
+
+2020-07-29 09:53:57 +0000 Ács Zoltán (367286f)
+
+	* Translated using Weblate (Hungarian)
+
+2020-07-19 20:34:16 +0000 Tetra Homer (42ba82c)
+
+	* Translated using Weblate (Persian)
+
+2020-06-14 04:45:44 +0000 MarongHappy (b1f5066)
+
+	* Translated using Weblate (Korean)
+
+2020-05-30 23:03:16 +0000 Juraj Liso (3d03ec7)
+
+	* Translated using Weblate (Slovak)
+
+2020-05-21 00:08:39 +0000 wdggg (022246e)
+
+	* Translated using Weblate (Chinese (Simplified))
+
+2020-05-08 05:50:34 +0000 Abdusalam (94a9523)
+
+	* Translated using Weblate (Uyghur)
+
+2020-05-09 05:48:20 +0000 iNetRoos (0f9227f)
+
+	* Translated using Weblate (Afrikaans)
+
+2020-04-27 10:52:51 +0000 Jeannette L (e61d1e9)
+
+	* Translated using Weblate (Ukrainian)
+
+2020-04-27 10:54:27 +0000 Jeannette L (4301fe2)
+
+	* Translated using Weblate (Russian)
+
+2020-04-27 10:42:18 +0000 Jeannette L (1943c3d)
+
+	* Translated using Weblate (Romanian)
+
+2020-04-27 10:38:42 +0000 Jeannette L (642bdcc)
+
+	* Translated using Weblate (Portuguese (Brazil))
+
+2020-04-27 10:39:25 +0000 Jeannette L (90e2bf6)
+
+	* Translated using Weblate (Portuguese)
+
+2020-04-27 10:40:27 +0000 Jeannette L (21fb294)
+
+	* Translated using Weblate (Polish)
+
+2020-04-27 10:48:09 +0000 Jeannette L (20b5f87)
+
+	* Translated using Weblate (Dutch)
+
+2020-04-27 10:43:36 +0000 Jeannette L (3f0bbae)
+
+	* Translated using Weblate (Norwegian Bokmål)
+
+2020-04-27 10:49:26 +0000 Jeannette L (894da02)
+
+	* Translated using Weblate (Lithuanian)
+
+2020-04-27 10:22:10 +0000 Jeannette L (30cbb42)
+
+	* Translated using Weblate (French (Canada))
+
+2020-04-27 10:45:58 +0000 Jeannette L (fc66075)
+
+	* Translated using Weblate (Estonian)
+
+2020-04-27 10:08:26 +0000 Jeannette L (ab76879)
+
+	* Translated using Weblate (English (United Kingdom))
+
+2020-04-27 10:07:14 +0000 Jeannette L (1f9eda9)
+
+	* Translated using Weblate (English (Australia))
+
+2020-04-27 10:51:30 +0000 Jeannette L (f723bb1)
+
+	* Translated using Weblate (Greek)
+
+2020-04-23 09:15:29 +0000 Adnan1091 (54efe3e)
+
+	* Translated using Weblate (Turkish)
+
+2020-04-16 15:43:23 +0000 george k (8c39811)
+
+	* Translated using Weblate (Greek)
+
+2020-04-01 20:46:33 +0000 Davit Mayilyan (9143ce1)
+
+	* Translated using Weblate (Armenian)
+
+2020-03-29 08:23:12 +0000 Alexie Brindusescu (c079f78)
+
+	* Translated using Weblate (Romanian)
+
+2020-03-17 17:28:28 +0000 Prachi Joshi (19c6353)
+
+	* Translated using Weblate (Marathi)
+
+2020-01-12 11:35:28 +0000 Heimen Stoffels (a76110c)
+
+	* Translated using Weblate (Dutch)
+
+2020-01-02 22:28:33 +0000 Milo Ivir (0f311d8)
+
+	* Translated using Weblate (Croatian)
+
+2019-11-23 16:59:55 +0000 Niara (b73171f)
+
+	* Translated using Weblate (Russian)
+
+2019-10-09 14:33:13 +0000 OrionJK - (38ea99d)
+
+	* Translated using Weblate (Russian)
+
+2019-09-02 20:08:36 +0000 Swann Martinet (e3ad0ca)
+
+	* Translated using Weblate (French)
+
+2019-09-02 20:13:23 +0000 Swann Martinet (d7d7617)
+
+	* Translated using Weblate (Italian)
+
+2019-09-02 20:11:05 +0000 Swann Martinet (7595aaa)
+
+	* Translated using Weblate (German)
+
+2019-04-17 15:19:12 +0000 Rui Mendes (7ee104d)
+
+	* Translated using Weblate (Portuguese)
+
+2019-02-19 20:36:46 +0000 Murilo Venturoso (29ec98d)
+
+	* Translated using Weblate (Portuguese (Brazil))
+
+2019-01-11 11:57:19 +0000 Louies (b081479)
+
+	* Translated using Weblate (Chinese (Traditional))
+
+2018-12-07 06:02:38 +0000 Allan Nordhøy (33b4669)
+
+	* Translated using Weblate (Russian)
+
+2018-10-24 20:39:30 +0000 Vasiliy Hatunsev (13f6070)
+
+	* Translated using Weblate (Russian)
+
+2018-10-23 16:54:34 +0000 Iván Seoane (21fdbe3)
+
+	* Translated using Weblate (Galician)
+
+2018-09-27 18:22:54 +0000 Володимир Бриняк (8688ba8)
+
+	* Translated using Weblate (Ukrainian)
+
+2018-08-23 17:19:03 +0000 WaldiS (d27b959)
+
+	* Translated using Weblate (Polish)
+
+2018-08-05 20:48:40 +0000 Yaron Shahrabani (ccb140d)
+
+	* Translated using Weblate (Hebrew)
+
+2018-05-02 18:51:41 +0000 Adolfo Jayme Barrientos (b464793)
+
+	* Translated using Weblate (Spanish)
+
+2018-04-04 04:26:54 +0000 Pavel Borecki (9e82dbe)
+
+	* Translated using Weblate (Czech)
+
+2018-04-04 04:26:49 +0000 Pavel Borecki (025884c)
+
+	* Translated using Weblate (Czech)
+
+2018-04-04 04:26:41 +0000 Pavel Borecki (7c5cfc1)
+
+	* Translated using Weblate (Czech)
+
+2018-04-04 04:25:20 +0000 Pavel Borecki (9cdd778)
+
+	* Translated using Weblate (Czech)
+
+2018-04-04 04:24:29 +0000 Pavel Borecki (43b8163)
+
+	* Translated using Weblate (Czech)
+
+2018-04-03 14:37:47 +0000 Pavel Borecki (f2e50e5)
+
+	* Translated using Weblate (Czech)
+
+2018-04-03 14:37:03 +0000 Pavel Borecki (311cf81)
+
+	* Translated using Weblate (Czech)
+
+2018-03-01 21:53:47 +0000 Moo (0c1c298)
+
+	* Translated using Weblate (Lithuanian)
+
+2018-02-28 22:19:54 +0100 Mike Gabriel (47bed3f)
+
+	* release 0.1.9 (tag: 0.1.9)
 
 2018-01-22 21:04:48 +0000 Марс Ямбар (c6ba5a0)
 
-	* Translated using Weblate (Ukrainian) (origin/master)
+	* Translated using Weblate (Ukrainian)
 
 2018-01-01 11:57:15 +0000 Anders Jonsson (0212a56)
 
@@ -67,7 +279,7 @@
 
 2017-10-25 19:10:19 +0200 Mike Gabriel (954885d)
 
-	* release 0.1.8 (tag: 0.1.8, origin/release-builds, release-builds)
+	* release 0.1.8 (tag: 0.1.8)
 
 2017-10-25 18:51:07 +0200 Mike Gabriel (3a1dd3e)
 
@@ -178,15 +390,12 @@
 
 	* releasing package indicator-printers version
           0.1.7+17.04.20170227-0ubuntu3 (tag:
-          0.1.7+17.04.20170227-0ubuntu3,
-          refs/bzr/origin/tags/0.1.7+17.04.20170227-0ubuntu3,
-          refs/bzr/origin/heads/master)
+          0.1.7+17.04.20170227-0ubuntu3)
 
 2017-02-27 15:12:50 +0000 Bileto Bot (2c71985)
 
 	* Releasing 0.1.7+17.04.20170227-0ubuntu1 (tag:
-          0.1.7+17.04.20170227-0ubuntu1,
-          refs/bzr/origin/tags/0.1.7+17.04.20170227-0ubuntu1)
+          0.1.7+17.04.20170227-0ubuntu1)
 
 2017-02-27 15:12:14 +0000 Rodney Dawes (89b030a)
 
@@ -199,8 +408,7 @@
 2016-12-01 22:33:49 +0000 Bileto Bot (c0c08df)
 
 	* Releasing 0.1.7+17.04.20161201-0ubuntu1 (tag:
-          0.1.7+17.04.20161201-0ubuntu1,
-          refs/bzr/origin/tags/0.1.7+17.04.20161201-0ubuntu1)
+          0.1.7+17.04.20161201-0ubuntu1)
 
 2016-12-01 22:33:04 +0000 Michael Terry (746dbe8)
 
@@ -210,8 +418,7 @@
 2016-11-24 23:27:59 +0000 Bileto Bot (e7e7f11)
 
 	* Releasing 0.1.7+17.04.20161124-0ubuntu1 (tag:
-          0.1.7+17.04.20161124-0ubuntu1,
-          refs/bzr/origin/tags/0.1.7+17.04.20161124-0ubuntu1)
+          0.1.7+17.04.20161124-0ubuntu1)
 
 2016-11-24 23:27:29 +0000 Jeremy Bicha (761f01e)
 
@@ -226,8 +433,7 @@
 2016-10-26 15:06:49 +0000 Bileto Bot (b646946)
 
 	* Releasing 0.1.7+17.04.20161026-0ubuntu1 (tag:
-          0.1.7+17.04.20161026-0ubuntu1,
-          refs/bzr/origin/tags/0.1.7+17.04.20161026-0ubuntu1)
+          0.1.7+17.04.20161026-0ubuntu1)
 
 2016-10-26 15:06:22 +0000 Ted Gould (ecdda33)
 
@@ -248,8 +454,7 @@
 2015-02-20 10:27:33 +0000 CI Train Bot (bd5f410)
 
 	* Releasing 0.1.7+15.04.20150220-0ubuntu1 (tag:
-          0.1.7+15.04.20150220-0ubuntu1,
-          refs/bzr/origin/tags/0.1.7+15.04.20150220-0ubuntu1)
+          0.1.7+15.04.20150220-0ubuntu1)
 
 2015-02-20 10:27:29 +0000 Lars Uebernickel (27edb14)
 
@@ -270,8 +475,7 @@
 2014-05-27 14:06:04 +0000 CI bot (733c011)
 
 	* Releasing 0.1.7+14.10.20140527-0ubuntu1 (tag:
-          0.1.7+14.10.20140527-0ubuntu1,
-          refs/bzr/origin/tags/0.1.7+14.10.20140527-0ubuntu1)
+          0.1.7+14.10.20140527-0ubuntu1)
 
 2014-05-27 14:05:56 +0000 Lars Uebernickel (dc8fa9b)
 
@@ -285,8 +489,7 @@
 2014-03-13 22:04:56 +0000 CI bot (622b83e)
 
 	* Releasing 0.1.7+14.04.20140313-0ubuntu1 (tag:
-          0.1.7+14.04.20140313-0ubuntu1,
-          refs/bzr/origin/tags/0.1.7+14.04.20140313-0ubuntu1)
+          0.1.7+14.04.20140313-0ubuntu1)
 
 2014-03-13 22:04:45 +0000 Lars Uebernickel (283ee4f)
 
@@ -460,7 +663,7 @@
 
 2012-04-04 14:58:44 -0500 Ted Gould (23bbf5f)
 
-	* 0.1.6 (tag: 0.1.6, refs/bzr/origin/tags/0.1.6)
+	* 0.1.6 (tag: 0.1.6)
 
 2012-03-30 20:34:32 +0200 Lars Uebernickel (650e22c)
 
@@ -506,7 +709,7 @@
 
 2012-03-20 18:40:25 +0100 Lars Uebernickel (3470726)
 
-	* 0.1.5 (tag: 0.1.5, refs/bzr/origin/tags/0.1.5)
+	* 0.1.5 (tag: 0.1.5)
 
 2012-03-20 18:35:27 +0100 Lars Uebernickel (68cb8a0)
 
@@ -548,7 +751,7 @@
 
 2012-03-06 19:11:36 +0100 Lars Uebernickel (eec4fb8)
 
-	* 0.1.4 (tag: 0.1.4, refs/bzr/origin/tags/0.1.4)
+	* 0.1.4 (tag: 0.1.4)
 
 2012-03-03 11:43:18 +0100 Gabor Kelemen (e5d711f)
 
@@ -606,7 +809,7 @@
 
 2012-02-17 19:15:06 +0100 Lars Uebernickel (8e95494)
 
-	* 0.1.3 (tag: 0.1.3, refs/bzr/origin/tags/0.1.3)
+	* 0.1.3 (tag: 0.1.3)
 
 2012-02-17 19:14:02 +0100 Lars Uebernickel (72a3857)
 
@@ -614,7 +817,7 @@
 
 2012-02-17 17:48:10 +0100 Lars Uebernickel (6aa8774)
 
-	* 0.1.2 (tag: 0.1.2, refs/bzr/origin/tags/0.1.2)
+	* 0.1.2 (tag: 0.1.2)
 
 2012-02-17 17:40:07 +0100 Lars Uebernickel (0b74cac)
 
@@ -646,7 +849,7 @@
 
 2012-02-16 20:53:23 +0100 Lars Uebernickel (9a0e424)
 
-	* 0.1.1 (tag: 0.1.1, refs/bzr/origin/tags/0.1.1)
+	* 0.1.1 (tag: 0.1.1)
 
 2012-02-16 19:54:07 +0100 Lars Uebernickel (eab1b7a)
 
@@ -700,8 +903,7 @@
 
 2012-02-15 15:15:23 +0100 Lars Uebernickel (2d5e7bf)
 
-	* Include cups dbus interface xml file in the release (tag: 0.1,
-          refs/bzr/origin/tags/0.1)
+	* Include cups dbus interface xml file in the release (tag: 0.1)
 
 2012-02-15 11:40:19 +0100 Lars Uebernickel (4ead979)
 

@@ -1,3 +1,10 @@
+ayatana-indicator-printers (0.1.10-0) unstable; urgency=medium
+
+  * Upstream-provided Debian package for ayatana-indicator-printers.
+    See upstream ChangeLog for recent changes.
+
+ -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Thu, 06 Aug 2020 14:24:24 +0200
+
 ayatana-indicator-printers (0.1.9-0) unstable; urgency=medium
 
   * Upstream-provided Debian package for ayatana-indicator-printers.
