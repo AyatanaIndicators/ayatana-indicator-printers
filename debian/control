@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 Build-Depends: debhelper (>= 9),
                autotools-dev,
-               dh-autoreconf,
+               dh-autoreconf | debhelper (>= 9.20160403~),
                dpkg-dev (>= 1.16.1.1),
                mate-common,
                libglib2.0-dev (>= 2.43.2),
