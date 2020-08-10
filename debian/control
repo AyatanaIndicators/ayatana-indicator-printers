@@ -1,7 +1,7 @@
 Source: ayatana-indicator-printers
 Section: x11
 Priority: extra
-Maintainer: Mike Gabriel <mike.gabriel@das-netzwerkteam.de> 
+Maintainer: Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 Build-Depends: debhelper (>= 9),
                autotools-dev,
                dh-autoreconf,
