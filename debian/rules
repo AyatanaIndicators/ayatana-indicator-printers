@@ -10,7 +10,7 @@ LDFLAGS += -Wl,-z,defs -Wl,--as-needed
 export DPKG_GENSYMBOLS_CHECK_LEVEL = 4
 
 %:
-	dh $@ --without autoreconf
+	dh $@ --without autoreconf,systemd
 
 override_dh_auto_configure:
 	NOCONFIGURE=1 ./autogen.sh
