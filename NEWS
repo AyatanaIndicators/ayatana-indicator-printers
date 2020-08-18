@@ -1,3 +1,10 @@
+Overview of changes in ayatana-indicator-printers 0.8.0
+
+  - Version bump to bring all system indicators (and the
+    renderer libraries to the same version level).
+  - Start the indicator with the ayatana-indicators.target.
+  - Drop upstart support.
+
 Overview of changes in ayatana-indicator-printers 0.1.10
 
   - Fix multiple definitions linker error with GCC 10.

@@ -1,6 +1,60 @@
-2020-08-06 14:26:13 +0200 Mike Gabriel
+2020-08-18 11:18:55 +0200 Mike Gabriel
 
-	* release 0.1.10 (HEAD -> master, tag: 0.1.10)
+	* release 0.8.0 (HEAD -> master, tag: 0.8.0)
+
+2020-08-11 10:00:54 +0200 Robert Tari (a4071c9)
+
+	* Merge branch 'sunweaver-pr/drop-upstart-support' Attributes GH PR
+          #5:
+          https://github.com/AyatanaIndicators/ayatana-indicator-printers/pull/5
+
+2020-08-11 09:59:50 +0200 Robert Tari (48eebdb)
+
+	* Merge branch 'pr/drop-upstart-support' of
+          https://github.com/sunweaver/ayatana-indicator-printers
+          into sunweaver-pr/drop-upstart-support Attributes GH PR
+          #5:
+          https://github.com/AyatanaIndicators/ayatana-indicator-printers/pull/5
+
+2020-08-11 09:51:32 +0200 Robert Tari (b1e8aa8)
+
+	* Merge branch 'sunweaver-pr/fix-systemd' Attributes GH PR #4:
+          https://github.com/AyatanaIndicators/ayatana-indicator-printers/pull/4
+
+2020-08-10 11:54:41 +0200 Mike Gabriel (d7526ac)
+
+	* Drop all references to upstart.
+
+2020-08-10 11:31:55 +0200 Mike Gabriel (707fd98)
+
+	* debian/{rules,*.links}: Install systemd user service file into DEB
+          package.
+
+2020-08-10 11:31:19 +0200 Mike Gabriel (90d24de)
+
+	* debian/control: B-D on dh-systemd (or recent enough debhelper
+          version).
+
+2020-08-10 11:30:50 +0200 Mike Gabriel (1f1d041)
+
+	* Start indicator in systemd when ayatana-indicators.target is
+          started.
+
+2020-08-10 11:26:10 +0200 Mike Gabriel (fa891fc)
+
+	* debian/control: Improve dh-autoreconf build-dependency.
+
+2020-08-10 11:25:41 +0200 Mike Gabriel (7ff47b6)
+
+	* debian/control: White-space fix.
+
+2020-08-06 16:46:35 +0200 Mike Gabriel (b102ceb)
+
+	* debian/control: Drop B-D: python.
+
+2020-08-06 14:26:13 +0200 Mike Gabriel (9e2401f)
+
+	* release 0.1.10 (tag: 0.1.10)
 
 2020-08-04 16:16:41 +0900 Kentaro Hayashi (305b944)
 
