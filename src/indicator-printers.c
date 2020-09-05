@@ -36,16 +36,13 @@
 INDICATOR_SET_VERSION
 INDICATOR_SET_TYPE(INDICATOR_PRINTERS_TYPE)
 
-
-G_DEFINE_TYPE (IndicatorPrinters, indicator_printers, INDICATOR_OBJECT_TYPE)
-
-
 struct _IndicatorPrintersPrivate
 {
     IndicatorObjectEntry entry;
     guint name_watch;
 };
 
+G_DEFINE_TYPE_WITH_PRIVATE(IndicatorPrinters, indicator_printers, INDICATOR_OBJECT_TYPE)
 
 static void
 dispose (GObject *object)
@@ -74,8 +71,6 @@ indicator_printers_class_init (IndicatorPrintersClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
     IndicatorObjectClass *io_class = INDICATOR_OBJECT_CLASS (klass);
-
-    g_type_class_add_private (klass, sizeof (IndicatorPrintersPrivate));
 
     object_class->dispose = dispose;
 
@@ -270,9 +265,7 @@ indicator_printers_init (IndicatorPrinters *self)
     DbusmenuClient *client;
     GtkImage *image;
 
-    priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
-                                        INDICATOR_PRINTERS_TYPE,
-                                        IndicatorPrintersPrivate);
+    priv = indicator_printers_get_instance_private(self);
     self->priv = priv;
 
     priv->name_watch = g_bus_watch_name(G_BUS_TYPE_SESSION,
