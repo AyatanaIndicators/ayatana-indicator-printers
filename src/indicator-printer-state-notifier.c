@@ -107,7 +107,7 @@ show_alert_box (const gchar *printer,
     primary_text = g_strdup_printf (reason, printer);
 
     secondary_text = g_strdup_printf (ngettext(
-                   "You have %d job queued to print on this printer.", 
+                   "You have %d job queued to print on this printer.",
                    "You have %d jobs queued to print on this printer.", njobs),
                    njobs);
 
