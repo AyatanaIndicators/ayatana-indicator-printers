@@ -8,22 +8,24 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2017-10-12 07:55+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-09-07 16:36+0000\n"
+"Last-Translator: Baka Gaijin <lewdwarrior@waifu.club>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"ayatana-indicators/printers-applet/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
-msgstr ""
+msgstr "プリンター"
 
 #: ../src/indicator-printers-menu.c:200
 msgid "Paused"
-msgstr ""
+msgstr "一時停止"
 
 #: ../src/indicator-printer-state-notifier.c:110
 #, c-format
@@ -37,12 +39,12 @@ msgstr ""
 
 #: ../src/indicator-printer-state-notifier.c:131
 msgid "_Settings…"
-msgstr ""
+msgstr "_設定…"
 
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "プリンター「%s」の用紙残量が少なくなっています."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
@@ -67,7 +69,7 @@ msgstr ""
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "プリンタ「%s」のドアが開いています。"
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
@@ -77,4 +79,4 @@ msgstr ""
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "プリンタ「%s」は現在オフラインです."
