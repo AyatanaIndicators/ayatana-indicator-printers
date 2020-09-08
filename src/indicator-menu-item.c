@@ -20,10 +20,6 @@
 
 #include <math.h>
 
-
-G_DEFINE_TYPE (IndicatorMenuItem, indicator_menu_item, GTK_TYPE_MENU_ITEM)
-
-
 struct _IndicatorMenuItemPrivate
 {
     GtkImage *image;
@@ -32,6 +28,7 @@ struct _IndicatorMenuItemPrivate
     gboolean right_is_lozenge;
 };
 
+G_DEFINE_TYPE_WITH_PRIVATE(IndicatorMenuItem, indicator_menu_item, GTK_TYPE_MENU_ITEM)
 
 enum {
     PROP_0,
@@ -51,8 +48,7 @@ gtk_widget_get_font_size (GtkWidget *widget)
 {
     const PangoFontDescription *font;
 
-    font = gtk_style_context_get_font (gtk_widget_get_style_context (widget),
-                                       gtk_widget_get_state_flags (widget));
+    gtk_style_context_get(gtk_widget_get_style_context(widget), gtk_widget_get_state_flags(widget), "font", &font, NULL);
 
     return pango_font_description_get_size (font) / PANGO_SCALE;
 }
@@ -216,8 +212,6 @@ indicator_menu_item_class_init (IndicatorMenuItemClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    g_type_class_add_private (klass, sizeof (IndicatorMenuItemPrivate));
-
     object_class->get_property = indicator_menu_item_get_property;
     object_class->set_property = indicator_menu_item_set_property;
     object_class->dispose = indicator_menu_item_dispose;
@@ -263,9 +257,7 @@ indicator_menu_item_init (IndicatorMenuItem *self)
     gint spacing;
     GtkWidget *hbox;
 
-    priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
-                                        INDICATOR_TYPE_MENU_ITEM,
-                                        IndicatorMenuItemPrivate);
+    priv = indicator_menu_item_get_instance_private(self);
     self->priv = priv;
 
     gtk_widget_style_get (GTK_WIDGET (self),

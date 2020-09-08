@@ -22,7 +22,7 @@
 #include <cups/cups.h>
 #include "dbus-names.h"
 #include "config.h"
-
+#include <glib/gi18n-lib.h>
 #include "cups-notifier.h"
 #include "indicator-printers-menu.h"
 #include "indicator-printer-state-notifier.h"

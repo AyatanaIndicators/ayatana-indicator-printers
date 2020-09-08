@@ -6,11 +6,9 @@
 int main (int argc, char **argv)
 {
     GMainLoop *loop;
-    CupsNotifier *notifier;
+    CupsNotifier *notifier = NULL;
     GDBusConnection *con;
     GError *error = NULL;
-
-    g_type_init ();
 
     loop = g_main_loop_new (NULL, FALSE);
 

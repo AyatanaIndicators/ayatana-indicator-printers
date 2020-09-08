@@ -24,10 +24,6 @@
 
 #include "spawn-printer-settings.h"
 
-
-G_DEFINE_TYPE (IndicatorPrintersMenu, indicator_printers_menu, G_TYPE_OBJECT)
-
-
 struct _IndicatorPrintersMenuPrivate
 {
     DbusmenuMenuitem *root;
@@ -35,6 +31,7 @@ struct _IndicatorPrintersMenuPrivate
     CupsNotifier *cups_notifier;
 };
 
+G_DEFINE_TYPE_WITH_PRIVATE(IndicatorPrintersMenu, indicator_printers_menu, G_TYPE_OBJECT)
 
 enum {
     PROP_0,
@@ -106,8 +103,6 @@ static void
 indicator_printers_menu_class_init (IndicatorPrintersMenuClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
-
-    g_type_class_add_private (klass, sizeof (IndicatorPrintersMenuPrivate));
 
     object_class->dispose = dispose;
     object_class->get_property = get_property;
@@ -276,9 +271,7 @@ on_printer_state_changed (CupsNotifier *object,
 static void
 indicator_printers_menu_init (IndicatorPrintersMenu *self)
 {
-    self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
-                                              INDICATOR_TYPE_PRINTERS_MENU,
-                                              IndicatorPrintersMenuPrivate);
+    self->priv = indicator_printers_menu_get_instance_private(self);
 
     self->priv->root = dbusmenu_menuitem_new ();
     dbusmenu_menuitem_property_set_bool (self->priv->root, "visible", FALSE);

@@ -30,10 +30,6 @@
 
 #define RESPONSE_SHOW_SYSTEM_SETTINGS 1
 
-
-G_DEFINE_TYPE (IndicatorPrinterStateNotifier, indicator_printer_state_notifier, G_TYPE_OBJECT)
-
-
 struct _IndicatorPrinterStateNotifierPrivate
 {
     CupsNotifier *cups_notifier;
@@ -45,6 +41,7 @@ struct _IndicatorPrinterStateNotifierPrivate
     GHashTable *printer_alerts;
 };
 
+G_DEFINE_TYPE_WITH_PRIVATE(IndicatorPrinterStateNotifier, indicator_printer_state_notifier, G_TYPE_OBJECT)
 
 enum {
     PROP_0,
@@ -107,7 +104,7 @@ show_alert_box (const gchar *printer,
     primary_text = g_strdup_printf (reason, printer);
 
     secondary_text = g_strdup_printf (ngettext(
-                   "You have %d job queued to print on this printer.", 
+                   "You have %d job queued to print on this printer.",
                    "You have %d jobs queued to print on this printer.", njobs),
                    njobs);
 
@@ -127,10 +124,7 @@ show_alert_box (const gchar *printer,
     g_free (primary_text);
     g_free (secondary_text);
 
-    gtk_dialog_add_buttons (GTK_DIALOG (dialog),
-                            _("_Settings…"), RESPONSE_SHOW_SYSTEM_SETTINGS,
-                            GTK_STOCK_OK, GTK_RESPONSE_OK,
-                            NULL);
+    gtk_dialog_add_buttons(GTK_DIALOG (dialog), _("_Settings…"), RESPONSE_SHOW_SYSTEM_SETTINGS, _("_OK"), GTK_RESPONSE_OK, NULL);
     gtk_dialog_set_default_response (GTK_DIALOG (dialog),
                                      GTK_RESPONSE_OK);
     gtk_widget_show_all (dialog);
@@ -260,8 +254,6 @@ indicator_printer_state_notifier_class_init (IndicatorPrinterStateNotifierClass 
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    g_type_class_add_private (klass, sizeof (IndicatorPrinterStateNotifierPrivate));
-
     object_class->get_property = get_property;
     object_class->set_property = set_property;
     object_class->dispose = dispose;
@@ -282,9 +274,7 @@ indicator_printer_state_notifier_init (IndicatorPrinterStateNotifier *self)
 {
     IndicatorPrinterStateNotifierPrivate *priv;
 
-    priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
-                                        INDICATOR_TYPE_PRINTER_STATE_NOTIFIER,
-                                        IndicatorPrinterStateNotifierPrivate);
+    priv = indicator_printer_state_notifier_get_instance_private(self);
     self->priv = priv;
 
     priv->notified_printer_states = g_hash_table_new_full (g_str_hash,
