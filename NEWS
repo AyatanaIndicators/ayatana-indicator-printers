@@ -1,3 +1,8 @@
+Overview of changes in ayatana-indicator-printers 0.8.1
+
+  - Fix deprecations and other build warnings.
+  - Translation updates.
+
 Overview of changes in ayatana-indicator-printers 0.8.0
 
   - Version bump to bring all system indicators (and the

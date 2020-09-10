@@ -1,6 +1,30 @@
-2020-08-18 11:18:55 +0200 Mike Gabriel
+2020-09-10 21:51:20 +0200 Mike Gabriel
 
-	* release 0.8.0 (HEAD -> master, tag: 0.8.0)
+	* release 0.8.1 (HEAD -> master, tag: 0.8.1)
+
+2020-09-08 15:25:57 +0200 Mike Gabriel (a2f16e7)
+
+	* Merge branch 'tari01-pr/warnings-deprecations'
+
+2020-09-06 00:33:33 +0200 Robert Tari (7922e0d)
+
+	* Fix deprecations and build warnings
+
+2020-09-06 00:31:52 +0200 Robert Tari (9b28b85)
+
+	* Whitespace fix
+
+2020-09-06 16:26:13 +0000 Baka Gaijin (5859961)
+
+	* Translated using Weblate (Japanese)
+
+2020-09-04 10:50:58 +0000 antuketot76 (e25464a)
+
+	* Translated using Weblate (Malay)
+
+2020-08-18 11:18:55 +0200 Mike Gabriel (c1cc2f8)
+
+	* release 0.8.0 (tag: 0.8.0)
 
 2020-08-11 10:00:54 +0200 Robert Tari (a4071c9)
 
