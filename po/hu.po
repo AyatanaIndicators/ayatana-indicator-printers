@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2020-07-30 10:42+0000\n"
+"PO-Revision-Date: 2020-11-27 14:29+0000\n"
 "Last-Translator: Ács Zoltán <acszoltan111@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/"
 "ayatana-indicators/printers-applet/hu/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
@@ -25,14 +25,14 @@ msgstr "Nyomtatók"
 
 #: ../src/indicator-printers-menu.c:200
 msgid "Paused"
-msgstr ""
+msgstr "Szüneteltetve"
 
 #: ../src/indicator-printer-state-notifier.c:110
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d feladat áll sorban ehhez a nyomtatóhoz."
+msgstr[1] "%d feladat áll sorban ehhez a nyomtatóhoz."
 
 #: ../src/indicator-printer-state-notifier.c:115
 msgid "Printing Problem"
@@ -45,39 +45,39 @@ msgstr "_Beállítások…"
 #: ../src/indicator-printer-state-notifier.c:297
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "A „%s” nyomtatóban kevés a papír."
+msgstr "A \"%s\" nyomtatóban kevés a papír."
 
 #: ../src/indicator-printer-state-notifier.c:298
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "A „%s” nyomtatóból kifogyott a papír."
+msgstr "A \"%s\" nyomtatóból kifogyott a papír."
 
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "A „%s” nyomtatóban kevés a tinta."
+msgstr "A \"%s\" nyomtatóban kevés a tinta."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "A „%s” nyomtatóból kifogyott a tinta."
+msgstr "A \"%s\" nyomtatóból kifogyott a tinta."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "A „%s” nyomtató fedele nyitva van."
+msgstr "A \"%s\" nyomtató fedele nyitva van."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "A „%s” nyomtató ajtaja nyitva van."
+msgstr "A \"%s\" nyomtató ajtaja nyitva van."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr "A „%s” nyomtató nem használható, mert hiányzik a szükséges szoftver."
+msgstr "A \"%s\" nyomtató nem használható, mert hiányzik a szükséges szoftver."
 
 #: ../src/indicator-printer-state-notifier.c:304
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "A „%s” nyomtató jelenleg off-line."
+msgstr "A \"%s” nyomtató jelenleg offline."
