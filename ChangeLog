@@ -1,6 +1,94 @@
-2020-09-10 21:51:20 +0200 Mike Gabriel
+2021-01-28 17:17:13 +0100 Mike Gabriel
 
-	* release 0.8.1 (HEAD -> master, tag: 0.8.1)
+	* release 0.8.2 (HEAD -> master, tag: 0.8.2)
+
+2020-11-26 13:31:00 +0000 Ács Zoltán (995bbd5)
+
+	* Translated using Weblate (Hungarian)
+
+2020-11-01 12:26:36 +0100 Hosted Weblate (8652268)
+
+	* Update translation files
+
+2020-10-31 03:57:21 +0000 Joan CiberSheep (dbbd2de)
+
+	* Translated using Weblate (Catalan)
+
+2020-10-31 12:30:55 +0100 Weblate (6c444f0)
+
+	* Added translation using Weblate (Italian)
+
+2020-10-31 12:30:52 +0100 Weblate (d6ae371)
+
+	* Added translation using Weblate (Tamil (Sri Lanka))
+
+2020-10-31 12:30:51 +0100 Weblate (716a4b3)
+
+	* Added translation using Weblate (Dhivehi)
+
+2020-10-31 12:30:50 +0100 Weblate (0846cb6)
+
+	* Added translation using Weblate (Venetian)
+
+2020-10-31 12:30:44 +0100 Weblate (8c3c4ed)
+
+	* Added translation using Weblate (Kashubian)
+
+2020-10-31 12:30:40 +0100 Weblate (eefe888)
+
+	* Added translation using Weblate (Macedonian)
+
+2020-10-31 12:30:35 +0100 Weblate (38c8cf3)
+
+	* Added translation using Weblate (Friulian)
+
+2020-10-31 12:30:34 +0100 Weblate (f354d2d)
+
+	* Added translation using Weblate (Tatar)
+
+2020-10-27 12:26:36 +0100 Hosted Weblate (d3feba6)
+
+	* Update translation files
+
+2020-10-26 12:46:48 +0100 Weblate (cb056e5)
+
+	* Added translation using Weblate (Manx)
+
+2020-10-26 12:46:40 +0100 Weblate (2174f20)
+
+	* Added translation using Weblate (Afar)
+
+2020-10-26 12:46:38 +0100 Weblate (8cfe09d)
+
+	* Added translation using Weblate (Nyanja)
+
+2020-10-26 12:46:35 +0100 Weblate (0a036d9)
+
+	* Added translation using Weblate (Assamese)
+
+2020-10-26 12:46:33 +0100 Weblate (0431a07)
+
+	* Added translation using Weblate (Wolof)
+
+2020-10-16 09:12:01 +0000 Yota321 (1127210)
+
+	* Translated using Weblate (Bengali)
+
+2020-09-25 14:29:41 +0000 Talking Panda (021604d)
+
+	* Translated using Weblate (Turkish)
+
+2020-09-24 18:35:31 +0000 Quentin PAGÈS (69549fd)
+
+	* Translated using Weblate (Occitan)
+
+2020-09-24 18:28:19 +0000 Quentin PAGÈS (fe8b1b6)
+
+	* Translated using Weblate (Occitan)
+
+2020-09-10 21:51:20 +0200 Mike Gabriel (a4b25b3)
+
+	* release 0.8.1 (tag: 0.8.1)
 
 2020-09-08 15:25:57 +0200 Mike Gabriel (a2f16e7)
 
