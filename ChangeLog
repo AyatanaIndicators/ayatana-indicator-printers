@@ -1,1240 +1,873 @@
-2021-01-28 17:17:13 +0100 Mike Gabriel
+2021-11-17 Mike Gabriel
 
-	* release 0.8.2 (HEAD -> master, tag: 0.8.2)
+        * release 0.9.0 (HEAD -> main, tag: 0.9.0)
 
-2020-11-26 13:31:00 +0000 Ács Zoltán (995bbd5)
+2021-10-25 Robert Tari
 
-	* Translated using Weblate (Hungarian)
+        * Merge branch 'sunweaver-pr/travis-ci' (810a9c6)
 
-2020-11-01 12:26:36 +0100 Hosted Weblate (8652268)
+2021-10-25 Mike Gabriel
 
-	* Update translation files
+        * Travis CI: Initial CI build configuration. (0008407)
 
-2020-10-31 03:57:21 +0000 Joan CiberSheep (dbbd2de)
+2021-08-29 Hosted Weblate
 
-	* Translated using Weblate (Catalan)
+        * Update translation files (bac19c8)
 
-2020-10-31 12:30:55 +0100 Weblate (6c444f0)
+2021-08-29 Mike Gabriel
 
-	* Added translation using Weblate (Italian)
+        * debian/{control,compat}: Bump to level 10. (7062ca1)
 
-2020-10-31 12:30:52 +0100 Weblate (d6ae371)
+2021-08-28 Weblate
 
-	* Added translation using Weblate (Tamil (Sri Lanka))
+        * Added translation using Weblate (Kurdish (Southern)) (fdeed7b)
+        * Added translation using Weblate (Kurdish (Northern)) (9a737f8)
 
-2020-10-31 12:30:51 +0100 Weblate (716a4b3)
+2021-08-28 Mike Gabriel
 
-	* Added translation using Weblate (Dhivehi)
+        * po/: Drop zh_Hant.po: Drop duplicate file for Chinese
+          (Tranditional) and adjust LINGUAS files. (f4a0d75)
 
-2020-10-31 12:30:50 +0100 Weblate (0846cb6)
+2021-06-04 Hosted Weblate
 
-	* Added translation using Weblate (Venetian)
+        * Update translation files (026eeb4)
 
-2020-10-31 12:30:44 +0100 Weblate (8c3c4ed)
+2021-06-03 Weblate
 
-	* Added translation using Weblate (Kashubian)
+        * Added translation using Weblate (Chinese (Traditional)) (644e18a)
 
-2020-10-31 12:30:40 +0100 Weblate (eefe888)
+2021-06-03 Hosted Weblate
 
-	* Added translation using Weblate (Macedonian)
+        * Update translation files (9f709cc)
 
-2020-10-31 12:30:35 +0100 Weblate (38c8cf3)
+2021-03-30 Hosted Weblate
 
-	* Added translation using Weblate (Friulian)
+        * Update translation files (d0aad45)
 
-2020-10-31 12:30:34 +0100 Weblate (f354d2d)
+2021-03-29 Weblate
 
-	* Added translation using Weblate (Tatar)
+        * Added translation using Weblate (Chinese (Simplified)
+          (zh_LATN@pinyin)) (d3ea39e)
 
-2020-10-27 12:26:36 +0100 Hosted Weblate (d3feba6)
+2021-03-18 Reza Almanda
 
-	* Update translation files
+        * Translated using Weblate (Indonesian) (bf437f4)
 
-2020-10-26 12:46:48 +0100 Weblate (cb056e5)
+2021-01-28 Mike Gabriel
 
-	* Added translation using Weblate (Manx)
+        * release 0.8.2 (6aa44a9) (tag: 0.8.2)
 
-2020-10-26 12:46:40 +0100 Weblate (2174f20)
+2020-11-26 Ács Zoltán
 
-	* Added translation using Weblate (Afar)
+        * Translated using Weblate (Hungarian) (995bbd5)
 
-2020-10-26 12:46:38 +0100 Weblate (8cfe09d)
+2020-11-01 Hosted Weblate
 
-	* Added translation using Weblate (Nyanja)
+        * Update translation files (8652268)
 
-2020-10-26 12:46:35 +0100 Weblate (0a036d9)
+2020-10-31 Joan CiberSheep
 
-	* Added translation using Weblate (Assamese)
+        * Translated using Weblate (Catalan) (dbbd2de)
 
-2020-10-26 12:46:33 +0100 Weblate (0431a07)
+2020-10-31 Weblate
 
-	* Added translation using Weblate (Wolof)
+        * Added translation using Weblate (Italian) (6c444f0)
+        * Added translation using Weblate (Tamil (Sri Lanka)) (d6ae371)
+        * Added translation using Weblate (Dhivehi) (716a4b3)
+        * Added translation using Weblate (Venetian) (0846cb6)
+        * Added translation using Weblate (Kashubian) (8c3c4ed)
+        * Added translation using Weblate (Macedonian) (eefe888)
+        * Added translation using Weblate (Friulian) (38c8cf3)
+        * Added translation using Weblate (Tatar) (f354d2d)
 
-2020-10-16 09:12:01 +0000 Yota321 (1127210)
+2020-10-27 Hosted Weblate
 
-	* Translated using Weblate (Bengali)
+        * Update translation files (d3feba6)
 
-2020-09-25 14:29:41 +0000 Talking Panda (021604d)
+2020-10-26 Weblate
 
-	* Translated using Weblate (Turkish)
+        * Added translation using Weblate (Manx) (cb056e5)
+        * Added translation using Weblate (Afar) (2174f20)
+        * Added translation using Weblate (Nyanja) (8cfe09d)
+        * Added translation using Weblate (Assamese) (0a036d9)
+        * Added translation using Weblate (Wolof) (0431a07)
 
-2020-09-24 18:35:31 +0000 Quentin PAGÈS (69549fd)
+2020-10-16 Yota321
 
-	* Translated using Weblate (Occitan)
+        * Translated using Weblate (Bengali) (1127210)
 
-2020-09-24 18:28:19 +0000 Quentin PAGÈS (fe8b1b6)
+2020-09-25 Talking Panda
 
-	* Translated using Weblate (Occitan)
+        * Translated using Weblate (Turkish) (021604d)
 
-2020-09-10 21:51:20 +0200 Mike Gabriel (a4b25b3)
+2020-09-24 Quentin PAGÈS
 
-	* release 0.8.1 (tag: 0.8.1)
+        * Translated using Weblate (Occitan) (69549fd)
+        * Translated using Weblate (Occitan) (fe8b1b6)
 
-2020-09-08 15:25:57 +0200 Mike Gabriel (a2f16e7)
+2020-09-10 Mike Gabriel
 
-	* Merge branch 'tari01-pr/warnings-deprecations'
+        * release 0.8.1 (a4b25b3) (tag: 0.8.1)
 
-2020-09-06 00:33:33 +0200 Robert Tari (7922e0d)
+2020-09-08 Mike Gabriel
 
-	* Fix deprecations and build warnings
+        * Merge branch 'tari01-pr/warnings-deprecations' (a2f16e7)
 
-2020-09-06 00:31:52 +0200 Robert Tari (9b28b85)
+2020-09-06 Robert Tari
 
-	* Whitespace fix
+        * Fix deprecations and build warnings (7922e0d)
+        * Whitespace fix (9b28b85)
 
-2020-09-06 16:26:13 +0000 Baka Gaijin (5859961)
+2020-09-06 Baka Gaijin
 
-	* Translated using Weblate (Japanese)
+        * Translated using Weblate (Japanese) (5859961)
 
-2020-09-04 10:50:58 +0000 antuketot76 (e25464a)
+2020-09-04 antuketot76
 
-	* Translated using Weblate (Malay)
+        * Translated using Weblate (Malay) (e25464a)
 
-2020-08-18 11:18:55 +0200 Mike Gabriel (c1cc2f8)
+2020-08-18 Mike Gabriel
 
-	* release 0.8.0 (tag: 0.8.0)
+        * release 0.8.0 (c1cc2f8) (tag: 0.8.0)
 
-2020-08-11 10:00:54 +0200 Robert Tari (a4071c9)
+2020-08-11 Robert Tari
 
-	* Merge branch 'sunweaver-pr/drop-upstart-support' Attributes GH PR
+        * Merge branch 'sunweaver-pr/drop-upstart-support' Attributes GH PR
           #5:
           https://github.com/AyatanaIndicators/ayatana-indicator-printers/pull/5
-
-2020-08-11 09:59:50 +0200 Robert Tari (48eebdb)
-
-	* Merge branch 'pr/drop-upstart-support' of
+          (a4071c9)
+        * Merge branch 'pr/drop-upstart-support' of
           https://github.com/sunweaver/ayatana-indicator-printers
           into sunweaver-pr/drop-upstart-support Attributes GH PR
           #5:
           https://github.com/AyatanaIndicators/ayatana-indicator-printers/pull/5
-
-2020-08-11 09:51:32 +0200 Robert Tari (b1e8aa8)
-
-	* Merge branch 'sunweaver-pr/fix-systemd' Attributes GH PR #4:
+          (48eebdb)
+        * Merge branch 'sunweaver-pr/fix-systemd' Attributes GH PR #4:
           https://github.com/AyatanaIndicators/ayatana-indicator-printers/pull/4
+          (b1e8aa8)
 
-2020-08-10 11:54:41 +0200 Mike Gabriel (d7526ac)
+2020-08-10 Mike Gabriel
 
-	* Drop all references to upstart.
+        * Drop all references to upstart. (d7526ac)
+        * debian/{rules,*.links}: Install systemd user service file into DEB
+          package. (707fd98)
+        * debian/control: B-D on dh-systemd (or recent enough debhelper
+          version). (90d24de)
+        * Start indicator in systemd when ayatana-indicators.target is
+          started. (1f1d041)
+        * debian/control: Improve dh-autoreconf build-dependency. (fa891fc)
+        * debian/control: White-space fix. (7ff47b6)
 
-2020-08-10 11:31:55 +0200 Mike Gabriel (707fd98)
+2020-08-06 Mike Gabriel
 
-	* debian/{rules,*.links}: Install systemd user service file into DEB
-          package.
+        * debian/control: Drop B-D: python. (b102ceb)
+        * release 0.1.10 (9e2401f) (tag: 0.1.10)
 
-2020-08-10 11:31:19 +0200 Mike Gabriel (90d24de)
+2020-08-04 Kentaro Hayashi
 
-	* debian/control: B-D on dh-systemd (or recent enough debhelper
-          version).
+        * Fix multiple definitions linker error with GCC 10 (305b944)
 
-2020-08-10 11:30:50 +0200 Mike Gabriel (1f1d041)
+2020-07-29 Ács Zoltán
 
-	* Start indicator in systemd when ayatana-indicators.target is
-          started.
+        * Translated using Weblate (Hungarian) (367286f)
 
-2020-08-10 11:26:10 +0200 Mike Gabriel (fa891fc)
+2020-07-19 Tetra Homer
 
-	* debian/control: Improve dh-autoreconf build-dependency.
+        * Translated using Weblate (Persian) (42ba82c)
 
-2020-08-10 11:25:41 +0200 Mike Gabriel (7ff47b6)
+2020-06-14 MarongHappy
 
-	* debian/control: White-space fix.
+        * Translated using Weblate (Korean) (b1f5066)
 
-2020-08-06 16:46:35 +0200 Mike Gabriel (b102ceb)
+2020-05-30 Juraj Liso
 
-	* debian/control: Drop B-D: python.
+        * Translated using Weblate (Slovak) (3d03ec7)
 
-2020-08-06 14:26:13 +0200 Mike Gabriel (9e2401f)
+2020-05-21 wdggg
 
-	* release 0.1.10 (tag: 0.1.10)
+        * Translated using Weblate (Chinese (Simplified)) (022246e)
 
-2020-08-04 16:16:41 +0900 Kentaro Hayashi (305b944)
+2020-05-08 Abdusalam
 
-	* Fix multiple definitions linker error with GCC 10
+        * Translated using Weblate (Uyghur) (94a9523)
 
-2020-07-29 09:53:57 +0000 Ács Zoltán (367286f)
+2020-05-09 iNetRoos
 
-	* Translated using Weblate (Hungarian)
+        * Translated using Weblate (Afrikaans) (0f9227f)
 
-2020-07-19 20:34:16 +0000 Tetra Homer (42ba82c)
+2020-04-27 Jeannette L
 
-	* Translated using Weblate (Persian)
+        * Translated using Weblate (Ukrainian) (e61d1e9)
+        * Translated using Weblate (Russian) (4301fe2)
+        * Translated using Weblate (Romanian) (1943c3d)
+        * Translated using Weblate (Portuguese (Brazil)) (642bdcc)
+        * Translated using Weblate (Portuguese) (90e2bf6)
+        * Translated using Weblate (Polish) (21fb294)
+        * Translated using Weblate (Dutch) (20b5f87)
+        * Translated using Weblate (Norwegian Bokmål) (3f0bbae)
+        * Translated using Weblate (Lithuanian) (894da02)
+        * Translated using Weblate (French (Canada)) (30cbb42)
+        * Translated using Weblate (Estonian) (fc66075)
+        * Translated using Weblate (English (United Kingdom)) (ab76879)
+        * Translated using Weblate (English (Australia)) (1f9eda9)
+        * Translated using Weblate (Greek) (f723bb1)
 
-2020-06-14 04:45:44 +0000 MarongHappy (b1f5066)
+2020-04-23 Adnan1091
 
-	* Translated using Weblate (Korean)
+        * Translated using Weblate (Turkish) (54efe3e)
 
-2020-05-30 23:03:16 +0000 Juraj Liso (3d03ec7)
+2020-04-16 george k
 
-	* Translated using Weblate (Slovak)
+        * Translated using Weblate (Greek) (8c39811)
 
-2020-05-21 00:08:39 +0000 wdggg (022246e)
+2020-04-01 Davit Mayilyan
 
-	* Translated using Weblate (Chinese (Simplified))
+        * Translated using Weblate (Armenian) (9143ce1)
 
-2020-05-08 05:50:34 +0000 Abdusalam (94a9523)
+2020-03-29 Alexie Brindusescu
 
-	* Translated using Weblate (Uyghur)
+        * Translated using Weblate (Romanian) (c079f78)
 
-2020-05-09 05:48:20 +0000 iNetRoos (0f9227f)
+2020-03-17 Prachi Joshi
 
-	* Translated using Weblate (Afrikaans)
+        * Translated using Weblate (Marathi) (19c6353)
 
-2020-04-27 10:52:51 +0000 Jeannette L (e61d1e9)
+2020-01-12 Heimen Stoffels
 
-	* Translated using Weblate (Ukrainian)
+        * Translated using Weblate (Dutch) (a76110c)
 
-2020-04-27 10:54:27 +0000 Jeannette L (4301fe2)
+2020-01-02 Milo Ivir
 
-	* Translated using Weblate (Russian)
+        * Translated using Weblate (Croatian) (0f311d8)
 
-2020-04-27 10:42:18 +0000 Jeannette L (1943c3d)
+2019-11-23 Niara
 
-	* Translated using Weblate (Romanian)
+        * Translated using Weblate (Russian) (b73171f)
 
-2020-04-27 10:38:42 +0000 Jeannette L (642bdcc)
+2019-10-09 OrionJK -
 
-	* Translated using Weblate (Portuguese (Brazil))
+        * Translated using Weblate (Russian) (38ea99d)
 
-2020-04-27 10:39:25 +0000 Jeannette L (90e2bf6)
+2019-09-02 Swann Martinet
 
-	* Translated using Weblate (Portuguese)
+        * Translated using Weblate (French) (e3ad0ca)
+        * Translated using Weblate (Italian) (d7d7617)
+        * Translated using Weblate (German) (7595aaa)
 
-2020-04-27 10:40:27 +0000 Jeannette L (21fb294)
+2019-04-17 Rui Mendes
 
-	* Translated using Weblate (Polish)
+        * Translated using Weblate (Portuguese) (7ee104d)
 
-2020-04-27 10:48:09 +0000 Jeannette L (20b5f87)
+2019-02-19 Murilo Venturoso
 
-	* Translated using Weblate (Dutch)
+        * Translated using Weblate (Portuguese (Brazil)) (29ec98d)
 
-2020-04-27 10:43:36 +0000 Jeannette L (3f0bbae)
+2019-01-11 Louies
 
-	* Translated using Weblate (Norwegian Bokmål)
+        * Translated using Weblate (Chinese (Traditional)) (b081479)
 
-2020-04-27 10:49:26 +0000 Jeannette L (894da02)
+2018-12-07 Allan Nordhøy
 
-	* Translated using Weblate (Lithuanian)
+        * Translated using Weblate (Russian) (33b4669)
 
-2020-04-27 10:22:10 +0000 Jeannette L (30cbb42)
+2018-10-24 Vasiliy Hatunsev
 
-	* Translated using Weblate (French (Canada))
+        * Translated using Weblate (Russian) (13f6070)
 
-2020-04-27 10:45:58 +0000 Jeannette L (fc66075)
+2018-10-23 Iván Seoane
 
-	* Translated using Weblate (Estonian)
+        * Translated using Weblate (Galician) (21fdbe3)
 
-2020-04-27 10:08:26 +0000 Jeannette L (ab76879)
+2018-09-27 Володимир Бриняк
 
-	* Translated using Weblate (English (United Kingdom))
+        * Translated using Weblate (Ukrainian) (8688ba8)
 
-2020-04-27 10:07:14 +0000 Jeannette L (1f9eda9)
+2018-08-23 WaldiS
 
-	* Translated using Weblate (English (Australia))
+        * Translated using Weblate (Polish) (d27b959)
 
-2020-04-27 10:51:30 +0000 Jeannette L (f723bb1)
+2018-08-05 Yaron Shahrabani
 
-	* Translated using Weblate (Greek)
+        * Translated using Weblate (Hebrew) (ccb140d)
 
-2020-04-23 09:15:29 +0000 Adnan1091 (54efe3e)
+2018-05-02 Adolfo Jayme Barrientos
 
-	* Translated using Weblate (Turkish)
+        * Translated using Weblate (Spanish) (b464793)
 
-2020-04-16 15:43:23 +0000 george k (8c39811)
+2018-04-04 Pavel Borecki
 
-	* Translated using Weblate (Greek)
+        * Translated using Weblate (Czech) (9e82dbe)
+        * Translated using Weblate (Czech) (025884c)
+        * Translated using Weblate (Czech) (7c5cfc1)
+        * Translated using Weblate (Czech) (9cdd778)
+        * Translated using Weblate (Czech) (43b8163)
 
-2020-04-01 20:46:33 +0000 Davit Mayilyan (9143ce1)
+2018-04-03 Pavel Borecki
 
-	* Translated using Weblate (Armenian)
+        * Translated using Weblate (Czech) (f2e50e5)
+        * Translated using Weblate (Czech) (311cf81)
 
-2020-03-29 08:23:12 +0000 Alexie Brindusescu (c079f78)
+2018-03-01 Moo
 
-	* Translated using Weblate (Romanian)
+        * Translated using Weblate (Lithuanian) (0c1c298)
 
-2020-03-17 17:28:28 +0000 Prachi Joshi (19c6353)
+2018-02-28 Mike Gabriel
 
-	* Translated using Weblate (Marathi)
+        * release 0.1.9 (47bed3f) (tag: 0.1.9)
 
-2020-01-12 11:35:28 +0000 Heimen Stoffels (a76110c)
+2018-01-22 Марс Ямбар
 
-	* Translated using Weblate (Dutch)
+        * Translated using Weblate (Ukrainian) (c6ba5a0)
 
-2020-01-02 22:28:33 +0000 Milo Ivir (0f311d8)
+2018-01-01 Anders Jonsson
 
-	* Translated using Weblate (Croatian)
+        * Translated using Weblate (Swedish) (0212a56)
 
-2019-11-23 16:59:55 +0000 Niara (b73171f)
+2017-12-31 Sebastian Rasmussen
 
-	* Translated using Weblate (Russian)
+        * Translated using Weblate (Swedish) (c05cfd6)
 
-2019-10-09 14:33:13 +0000 OrionJK - (38ea99d)
+2017-12-02 snehal dangroshiya
 
-	* Translated using Weblate (Russian)
+        * Translated using Weblate (Gujarati) (7dcaa3c)
 
-2019-09-02 20:08:36 +0000 Swann Martinet (e3ad0ca)
+2017-12-06 Mike Gabriel
 
-	* Translated using Weblate (French)
+        * data/ayatana-indicator-printers.desktop.in: Add XFCE to OnlyShowIn=
+          key. (95d02ad)
+        * Rename GNOMELOCALEDIR -> LOCALEDIR. (d951203)
 
-2019-09-02 20:13:23 +0000 Swann Martinet (d7d7617)
+2017-12-04 Mike Gabriel
 
-	* Translated using Weblate (Italian)
+        * debian/changelog: Bump upstream to a development version. (61e3398)
 
-2019-09-02 20:11:05 +0000 Swann Martinet (7595aaa)
+2017-11-29 Mike Gabriel
 
-	* Translated using Weblate (German)
+        * po/ayatana-indicator-printers.pot: Add PO template file. (d68ea34)
+        * update-po.sh: Fix for previous commit. (2473899)
+        * update-po.sh: Preserve .pot file when updating *.po files.
+          (c9a4c86)
 
-2019-04-17 15:19:12 +0000 Rui Mendes (7ee104d)
+2017-11-26 Kristjan Räts
 
-	* Translated using Weblate (Portuguese)
+        * Translated using Weblate (Estonian) (a8439d2)
 
-2019-02-19 20:36:46 +0000 Murilo Venturoso (29ec98d)
+2017-11-29 Mike Gabriel
 
-	* Translated using Weblate (Portuguese (Brazil))
+        * update-po.sh: Fix filenames of .ini(.in) and .xml(.in) files in po
+          files. (8c807bd)
+        * update-pot.sh: Fix filenames of .ini(.in) and .xml(.in) files in po
+          template file. (934756c)
 
-2019-01-11 11:57:19 +0000 Louies (b081479)
+2017-10-26 Mike Gabriel
 
-	* Translated using Weblate (Chinese (Traditional))
+        * debian/watch: Fix upstream URL (typo in hostname). (25746af)
+        * debian/changelog: post-relase mark 0.1.8-0 as released. (2e9e768)
 
-2018-12-07 06:02:38 +0000 Allan Nordhøy (33b4669)
+2017-10-25 Mike Gabriel
 
-	* Translated using Weblate (Russian)
+        * release 0.1.8 (954885d) (tag: 0.1.8)
+        * data/upstart: Remove obsoleted file indicator-printers.desktop.in.
+          (3a1dd3e)
+        * data/Makefile: Remove build cruft. (8ba2fcb)
+        * data/upstart: Rename .desktop file. (12a88f8)
+        * data/upstart/Makefile.am: Fix filename of .desktop file. (2a885d6)
+        * data/{,upstart}/*.desktop.in: Fix Exec= key in .desktop files.
+          (e77cb7b)
+        * src/Makefile.am: Use our own namespace. Rename libprintersmenu.so
+          -> libayatana-printersmenu.so. (b8e3fe9)
 
-2018-10-24 20:39:30 +0000 Vasiliy Hatunsev (13f6070)
+2017-10-24 Mike Gabriel
 
-	* Translated using Weblate (Russian)
-
-2018-10-23 16:54:34 +0000 Iván Seoane (21fdbe3)
-
-	* Translated using Weblate (Galician)
-
-2018-09-27 18:22:54 +0000 Володимир Бриняк (8688ba8)
-
-	* Translated using Weblate (Ukrainian)
-
-2018-08-23 17:19:03 +0000 WaldiS (d27b959)
-
-	* Translated using Weblate (Polish)
-
-2018-08-05 20:48:40 +0000 Yaron Shahrabani (ccb140d)
-
-	* Translated using Weblate (Hebrew)
-
-2018-05-02 18:51:41 +0000 Adolfo Jayme Barrientos (b464793)
-
-	* Translated using Weblate (Spanish)
-
-2018-04-04 04:26:54 +0000 Pavel Borecki (9e82dbe)
-
-	* Translated using Weblate (Czech)
-
-2018-04-04 04:26:49 +0000 Pavel Borecki (025884c)
-
-	* Translated using Weblate (Czech)
-
-2018-04-04 04:26:41 +0000 Pavel Borecki (7c5cfc1)
-
-	* Translated using Weblate (Czech)
-
-2018-04-04 04:25:20 +0000 Pavel Borecki (9cdd778)
-
-	* Translated using Weblate (Czech)
-
-2018-04-04 04:24:29 +0000 Pavel Borecki (43b8163)
-
-	* Translated using Weblate (Czech)
-
-2018-04-03 14:37:47 +0000 Pavel Borecki (f2e50e5)
-
-	* Translated using Weblate (Czech)
-
-2018-04-03 14:37:03 +0000 Pavel Borecki (311cf81)
-
-	* Translated using Weblate (Czech)
-
-2018-03-01 21:53:47 +0000 Moo (0c1c298)
-
-	* Translated using Weblate (Lithuanian)
-
-2018-02-28 22:19:54 +0100 Mike Gabriel (47bed3f)
-
-	* release 0.1.9 (tag: 0.1.9)
-
-2018-01-22 21:04:48 +0000 Марс Ямбар (c6ba5a0)
-
-	* Translated using Weblate (Ukrainian)
-
-2018-01-01 11:57:15 +0000 Anders Jonsson (0212a56)
-
-	* Translated using Weblate (Swedish)
-
-2017-12-31 15:26:15 +0000 Sebastian Rasmussen (c05cfd6)
-
-	* Translated using Weblate (Swedish)
-
-2017-12-02 08:58:15 +0000 snehal dangroshiya (7dcaa3c)
-
-	* Translated using Weblate (Gujarati)
-
-2017-12-06 23:34:21 +0100 Mike Gabriel (95d02ad)
-
-	* data/ayatana-indicator-printers.desktop.in: Add XFCE to OnlyShowIn=
-          key.
-
-2017-12-06 12:05:44 +0100 Mike Gabriel (d951203)
-
-	* Rename GNOMELOCALEDIR -> LOCALEDIR.
-
-2017-12-04 10:10:14 +0100 Mike Gabriel (61e3398)
-
-	* debian/changelog: Bump upstream to a development version.
-
-2017-11-29 13:32:34 +0100 Mike Gabriel (d68ea34)
-
-	* po/ayatana-indicator-printers.pot: Add PO template file.
-
-2017-11-29 13:32:15 +0100 Mike Gabriel (2473899)
-
-	* update-po.sh: Fix for previous commit.
-
-2017-11-29 13:24:22 +0100 Mike Gabriel (c9a4c86)
-
-	* update-po.sh: Preserve .pot file when updating *.po files.
-
-2017-11-26 21:41:28 +0000 Kristjan Räts (a8439d2)
-
-	* Translated using Weblate (Estonian)
-
-2017-11-29 12:44:39 +0100 Mike Gabriel (8c807bd)
-
-	* update-po.sh: Fix filenames of .ini(.in) and .xml(.in) files in po
-          files.
-
-2017-11-29 12:44:34 +0100 Mike Gabriel (934756c)
-
-	* update-pot.sh: Fix filenames of .ini(.in) and .xml(.in) files in po
-          template file.
-
-2017-10-26 12:27:41 +0200 Mike Gabriel (25746af)
-
-	* debian/watch: Fix upstream URL (typo in hostname).
-
-2017-10-26 12:20:09 +0200 Mike Gabriel (2e9e768)
-
-	* debian/changelog: post-relase mark 0.1.8-0 as released.
-
-2017-10-25 19:10:19 +0200 Mike Gabriel (954885d)
-
-	* release 0.1.8 (tag: 0.1.8)
-
-2017-10-25 18:51:07 +0200 Mike Gabriel (3a1dd3e)
-
-	* data/upstart: Remove obsoleted file indicator-printers.desktop.in.
-
-2017-10-25 18:50:31 +0200 Mike Gabriel (8ba2fcb)
-
-	* data/Makefile: Remove build cruft.
-
-2017-10-25 18:33:26 +0200 Mike Gabriel (12a88f8)
-
-	* data/upstart: Rename .desktop file.
-
-2017-10-25 18:32:31 +0200 Mike Gabriel (2a885d6)
-
-	* data/upstart/Makefile.am: Fix filename of .desktop file.
-
-2017-10-25 18:31:46 +0200 Mike Gabriel (e77cb7b)
-
-	* data/{,upstart}/*.desktop.in: Fix Exec= key in .desktop files.
-
-2017-10-25 18:27:28 +0200 Mike Gabriel (b8e3fe9)
-
-	* src/Makefile.am: Use our own namespace. Rename libprintersmenu.so
-          -> libayatana-printersmenu.so.
-
-2017-10-24 22:46:44 +0200 Mike Gabriel (0c99ecb)
-
-	* XDG autostart: Adapt previous commit to Ayatana Indicators, don't
-          launch this indicator in Unity, but in MATE.
-
-2017-10-24 22:45:14 +0200 Mike Gabriel (33b9b08)
-
-	* Revert "Remove old autostart files."
-
-2017-10-24 21:12:29 +0200 Mike Gabriel (55393ea)
-
-	* update-po*.sh: Add license header.
-
-2017-10-24 20:00:38 +0200 Mike Gabriel (a2c4370)
-
-	* debian/upstream/signing-key.asc: Add upstream GPG keyring.
-
-2017-10-24 19:59:09 +0200 Mike Gabriel (dbacbf7)
-
-	* debian/{local/,ayatana-indicator-printers.install}: Drop
+        * XDG autostart: Adapt previous commit to Ayatana Indicators, don't
+          launch this indicator in Unity, but in MATE. (0c99ecb)
+        * Revert "Remove old autostart files." (33b9b08)
+        * update-po*.sh: Add license header. (55393ea)
+        * debian/upstream/signing-key.asc: Add upstream GPG keyring.
+          (a2c4370)
+        * debian/{local/,ayatana-indicator-printers.install}: Drop
           Ubuntu-specific icon artwork. Needs more consideration how
-          to handle that finally.
+          to handle that finally. (dbacbf7)
+        * data/Makefile.am: Add EOL at EOF. (5a567bc)
+        * Make systemd optional. If systemd is not available at build-time,
+          the creation of the .service file is omitted. (b2eca4e)
+        * debian/changelog: Fix project name in top stanza. (371130c)
 
-2017-10-24 19:55:49 +0200 Mike Gabriel (5a567bc)
+2017-10-16 Allan Nordhøy
 
-	* data/Makefile.am: Add EOL at EOF.
+        * Translated using Weblate (Norwegian Bokmål) (d22055b)
 
-2017-10-24 19:55:36 +0200 Mike Gabriel (b2eca4e)
+2017-10-15 Mike Gabriel
 
-	* Make systemd optional. If systemd is not available at build-time,
-          the creation of the .service file is omitted.
+        * Translated using Weblate (German) (53bc7c5)
+        * Translated using Weblate (German) (78fcb3a)
 
-2017-10-24 19:50:05 +0200 Mike Gabriel (371130c)
+2017-10-14 Allan Nordhøy
 
-	* debian/changelog: Fix project name in top stanza.
+        * Translated using Weblate (Norwegian Bokmål) (bdc4b2d)
 
-2017-10-16 11:51:39 +0000 Allan Nordhøy (d22055b)
+2017-10-12 Efstathios Iosifidis
 
-	* Translated using Weblate (Norwegian Bokmål)
+        * Translated using Weblate (Greek) (bc5e9dc)
 
-2017-10-15 19:59:30 +0000 Mike Gabriel (53bc7c5)
+2017-10-12 Viktar Vauchkevich
 
-	* Translated using Weblate (German)
+        * Translated using Weblate (Belarusian) (2398e1d)
 
-2017-10-15 19:57:04 +0000 Mike Gabriel (78fcb3a)
+2017-10-12 Matteo F. Vescovi
 
-	* Translated using Weblate (German)
+        * Translated using Weblate (Italian) (427046e)
 
-2017-10-14 01:11:45 +0000 Allan Nordhøy (bdc4b2d)
+2017-10-24 Mike Gabriel
 
-	* Translated using Weblate (Norwegian Bokmål)
+        * Fork from Ubuntu's indicator-printers. (2a0c152)
 
-2017-10-12 15:53:09 +0000 Efstathios Iosifidis (bc5e9dc)
+2017-10-12 Mike Gabriel
 
-	* Translated using Weblate (Greek)
+        * po/*: Add .pot file. (5899afa)
+        * po/: Already provide translation files for hosted Weblate.
+          (8bd98cc)
+        * update-po(|t).sh: Add gettext update scripts. (e98017b)
 
-2017-10-12 18:18:20 +0000 Viktar Vauchkevich (2398e1d)
+2017-09-06 Sebastien Bacher
 
-	* Translated using Weblate (Belarusian)
-
-2017-10-12 09:02:35 +0000 Matteo F. Vescovi (427046e)
-
-	* Translated using Weblate (Italian)
-
-2017-10-24 19:41:24 +0200 Mike Gabriel (2a0c152)
-
-	* Fork from Ubuntu's indicator-printers.
-
-2017-10-12 09:41:37 +0200 Mike Gabriel (5899afa)
-
-	* po/*: Add .pot file.
-
-2017-10-12 07:55:36 +0200 Mike Gabriel (8bd98cc)
-
-	* po/: Already provide translation files for hosted Weblate.
-
-2017-10-12 07:47:18 +0200 Mike Gabriel (e98017b)
-
-	* update-po(|t).sh: Add gettext update scripts.
-
-2017-09-06 15:49:38 +0200 Sebastien Bacher (52cfe6e)
-
-	* releasing package indicator-printers version
-          0.1.7+17.04.20170227-0ubuntu3 (tag:
+        * releasing package indicator-printers version
+          0.1.7+17.04.20170227-0ubuntu3 (52cfe6e) (tag:
           0.1.7+17.04.20170227-0ubuntu3)
 
-2017-02-27 15:12:50 +0000 Bileto Bot (2c71985)
+2017-02-27 Bileto Bot
 
-	* Releasing 0.1.7+17.04.20170227-0ubuntu1 (tag:
+        * Releasing 0.1.7+17.04.20170227-0ubuntu1 (2c71985) (tag:
           0.1.7+17.04.20170227-0ubuntu1)
 
-2017-02-27 15:12:14 +0000 Rodney Dawes (89b030a)
+2017-02-27 Rodney Dawes
 
-	* Remove old autostart files.
+        * Remove old autostart files. (89b030a)
 
-2017-02-06 12:00:13 -0500 Rodney Dawes (fcbd561)
+2017-02-06 Rodney Dawes
 
-	* Remove old autostart files.
+        * Remove old autostart files. (fcbd561)
 
-2016-12-01 22:33:49 +0000 Bileto Bot (c0c08df)
+2016-12-01 Bileto Bot
 
-	* Releasing 0.1.7+17.04.20161201-0ubuntu1 (tag:
+        * Releasing 0.1.7+17.04.20161201-0ubuntu1 (c0c08df) (tag:
           0.1.7+17.04.20161201-0ubuntu1)
 
-2016-12-01 22:33:04 +0000 Michael Terry (746dbe8)
+2016-12-01 Michael Terry
 
-	* Work inside a snap by prefixing hard coded paths with $SNAP. (LP:
-          #1629009)
+        * Work inside a snap by prefixing hard coded paths with $SNAP. (LP:
+          #1629009) (746dbe8)
 
-2016-11-24 23:27:59 +0000 Bileto Bot (e7e7f11)
+2016-11-24 Bileto Bot
 
-	* Releasing 0.1.7+17.04.20161124-0ubuntu1 (tag:
+        * Releasing 0.1.7+17.04.20161124-0ubuntu1 (e7e7f11) (tag:
           0.1.7+17.04.20161124-0ubuntu1)
 
-2016-11-24 23:27:29 +0000 Jeremy Bicha (761f01e)
+2016-11-24 Jeremy Bicha
 
-	* Recommend system-config-printer instead of obsolete
+        * Recommend system-config-printer instead of obsolete
           system-config-printer-gnome (LP: #1643129) (LP: #1643129)
+          (761f01e)
+        * Recommend system-config-printer instead of
+          system-config-printer-gnome (LP: #1643129) (5df4c25)
 
-2016-11-24 18:20:47 -0500 Jeremy Bicha (5df4c25)
+2016-10-26 Bileto Bot
 
-	* Recommend system-config-printer instead of
-          system-config-printer-gnome (LP: #1643129)
-
-2016-10-26 15:06:49 +0000 Bileto Bot (b646946)
-
-	* Releasing 0.1.7+17.04.20161026-0ubuntu1 (tag:
+        * Releasing 0.1.7+17.04.20161026-0ubuntu1 (b646946) (tag:
           0.1.7+17.04.20161026-0ubuntu1)
 
-2016-10-26 15:06:22 +0000 Ted Gould (ecdda33)
+2016-10-26 Ted Gould
 
-	* Add systemd unit
+        * Add systemd unit (ecdda33)
 
-2016-10-11 10:35:39 -0400 Michael Terry (6a322d9)
+2016-10-11 Michael Terry
 
-	* Pay attention to $SNAP prefix
+        * Pay attention to $SNAP prefix (6a322d9)
 
-2016-07-20 08:57:57 +0200 Ted Gould (866ae5a)
+2016-07-20 Ted Gould
 
-	* Adding a restart rule
+        * Adding a restart rule (866ae5a)
 
-2016-07-19 17:43:40 +0200 Ted Gould (7883966)
+2016-07-19 Ted Gould
 
-	* Adding a systemd user session unit
+        * Adding a systemd user session unit (7883966)
 
-2015-02-20 10:27:33 +0000 CI Train Bot (bd5f410)
+2015-02-20 CI Train Bot
 
-	* Releasing 0.1.7+15.04.20150220-0ubuntu1 (tag:
+        * Releasing 0.1.7+15.04.20150220-0ubuntu1 (bd5f410) (tag:
           0.1.7+15.04.20150220-0ubuntu1)
 
-2015-02-20 10:27:29 +0000 Lars Uebernickel (27edb14)
+2015-02-20 Lars Uebernickel
 
-	* Remove g_strv_contains()
+        * Remove g_strv_contains() (27edb14)
 
-2015-02-06 17:33:33 +0100 Lars Uebernickel (7df7cff)
+2015-02-06 Lars Uebernickel
 
-	* Bump glib version, this time to the correct one
+        * Bump glib version, this time to the correct one (7df7cff)
+        * Bump glib depend for g_strv_contains() (68e4adf)
+        * Remove g_strv_contains() (9cf24af)
 
-2015-02-06 15:40:37 +0100 Lars Uebernickel (68e4adf)
+2014-05-27 CI bot
 
-	* Bump glib depend for g_strv_contains()
-
-2015-02-06 15:32:11 +0100 Lars Uebernickel (9cf24af)
-
-	* Remove g_strv_contains()
-
-2014-05-27 14:06:04 +0000 CI bot (733c011)
-
-	* Releasing 0.1.7+14.10.20140527-0ubuntu1 (tag:
+        * Releasing 0.1.7+14.10.20140527-0ubuntu1 (733c011) (tag:
           0.1.7+14.10.20140527-0ubuntu1)
 
-2014-05-27 14:05:56 +0000 Lars Uebernickel (dc8fa9b)
+2014-05-27 Lars Uebernickel
 
-	* service: own bus name so that the panel can find it on the bus
-          Fixes: 1304434
+        * service: own bus name so that the panel can find it on the bus
 
-2014-05-15 13:13:15 +0200 Lars Uebernickel (4212970)
+          Fixes: 1304434 (dc8fa9b)
 
-	* service: own bus name so that the panel can find it on the bus
+2014-05-15 Lars Uebernickel
 
-2014-03-13 22:04:56 +0000 CI bot (622b83e)
+        * service: own bus name so that the panel can find it on the bus
+          (4212970)
 
-	* Releasing 0.1.7+14.04.20140313-0ubuntu1 (tag:
+2014-03-13 CI bot
+
+        * Releasing 0.1.7+14.04.20140313-0ubuntu1 (622b83e) (tag:
           0.1.7+14.04.20140313-0ubuntu1)
 
-2014-03-13 22:04:45 +0000 Lars Uebernickel (283ee4f)
+2014-03-13 Lars Uebernickel
 
-	* Change notification lease time to 24h Fixes: 1244205
+        * Change notification lease time to 24h
+          Fixes: 1244205 (283ee4f)
+        * Change notification lease time to 24h (d9956a6)
 
-2014-03-13 18:30:04 +0100 Lars Uebernickel (d9956a6)
+2014-02-25 Ted Gould
 
-	* Change notification lease time to 24h
+        * Synchronize process management across indicators. (464ad34)
 
-2014-02-25 16:27:11 +0000 Ted Gould (464ad34)
+2014-02-20 Ted Gould
 
-	* Synchronize process management across indicators.
+        * Remove the service manager (2fa7d7a)
+        * Drop the indicator service (b7a1e10)
+        * Limit to Unity 7 (329107a)
+        * Cut and paste errors (45e7973)
+        * Adding in Upstart XDG override (d75744c)
+        * Adding in XDG autostart and Upstart job files (3bcbc85)
+        * Drop the DBus service file (c3f0838)
+        * Moving the binary to the package directory (f7c8fd6)
 
-2014-02-20 16:16:42 -0600 Ted Gould (2fa7d7a)
+2014-02-13 Automatic PS uploader
 
-	* Remove the service manager
+        * Releasing 0.1.7+14.04.20140213-0ubuntu1 (revision 66 from
+          lp:indicator-printers). (4a7d357)
+        * Releasing 0.1.7+14.04.20140213-0ubuntu1, based on r66 (9f8352b)
 
-2014-02-20 14:53:24 -0600 Ted Gould (b7a1e10)
+2014-02-13 Gabor Kelemen
 
-	* Drop the indicator service
+        * Add proper i18n support. Fixes LP:1279605.
+          Fixes:
+          https://bugs.launchpad.net/bugs/1279605. (beef368)
+        * Add proper i18n support. Fixes LP:1279605 (2e3c872)
 
-2014-02-20 10:59:28 -0600 Ted Gould (329107a)
+2013-03-01 Automatic PS uploader
 
-	* Limit to Unity 7
+        * Releasing 0.1.7daily13.03.01-0ubuntu1 to ubuntu. (6938c6e)
+        * Releasing 0.1.7daily13.03.01-0ubuntu1, based on r64 (da6947e)
 
-2014-02-20 10:08:19 -0600 Ted Gould (45e7973)
+2012-11-22 Didier Roche
 
-	* Cut and paste errors
+        * Add bootstrap. (71552d4)
+        * Automatic snapshot from revision 63 (bootstrap) (9d5b400)
 
-2014-02-20 10:06:20 -0600 Ted Gould (d75744c)
+2012-11-22 Lars Uebernickel
 
-	* Adding in Upstart XDG override
+        * Inline package. (d9ad4f9)
 
-2014-02-20 10:04:19 -0600 Ted Gould (3bcbc85)
+2012-11-20 Mathieu Trudel-Lapierre
 
-	* Adding in XDG autostart and Upstart job files
+        * Override dh_auto_configure to properly pass --disable-static to
+          configure. (62c4763)
+        * Add python to Build-Depends for gdbus-codegen. (53e2890)
 
-2014-02-20 09:46:00 -0600 Ted Gould (c3f0838)
+2012-11-19 Mathieu Trudel-Lapierre
 
-	* Drop the DBus service file
-
-2014-02-20 09:42:15 -0600 Ted Gould (f7c8fd6)
-
-	* Moving the binary to the package directory
-
-2014-02-13 21:19:09 +0000 Automatic PS uploader (4a7d357)
-
-	* Releasing 0.1.7+14.04.20140213-0ubuntu1 (revision 66 from
-          lp:indicator-printers).
-
-2014-02-13 18:06:03 +0000 Automatic PS uploader (9f8352b)
-
-	* Releasing 0.1.7+14.04.20140213-0ubuntu1, based on r66
-
-2014-02-13 13:27:40 +0000 Gabor Kelemen (beef368)
-
-	* Add proper i18n support. Fixes LP:1279605. Fixes:
-          https://bugs.launchpad.net/bugs/1279605.
-
-2014-02-13 02:49:14 +0100 Gabor Kelemen (2e3c872)
-
-	* Add proper i18n support. Fixes LP:1279605
-
-2013-03-01 14:49:16 +0000 Automatic PS uploader (6938c6e)
-
-	* Releasing 0.1.7daily13.03.01-0ubuntu1 to ubuntu.
-
-2013-03-01 02:01:35 +0000 Automatic PS uploader (da6947e)
-
-	* Releasing 0.1.7daily13.03.01-0ubuntu1, based on r64
-
-2012-11-22 14:40:45 +0000 Didier Roche (71552d4)
-
-	* Add bootstrap.
-
-2012-11-22 12:48:40 +0100 Didier Roche (9d5b400)
-
-	* Automatic snapshot from revision 63 (bootstrap)
-
-2012-11-22 10:54:50 +0000 Lars Uebernickel (d9ad4f9)
-
-	* Inline package.
-
-2012-11-20 10:32:37 -0500 Mathieu Trudel-Lapierre (62c4763)
-
-	* Override dh_auto_configure to properly pass --disable-static to
-          configure.
-
-2012-11-20 10:26:51 -0500 Mathieu Trudel-Lapierre (53e2890)
-
-	* Add python to Build-Depends for gdbus-codegen.
-
-2012-11-19 21:21:50 -0500 Mathieu Trudel-Lapierre (925eff8)
-
-	* Update Vcs-Bzr, Vcs-Browser and add a notice to uploaders.
-
-2012-11-19 12:33:19 -0500 Mathieu Trudel-Lapierre (4f5faf2)
-
-	*   - Drop Build-Depends on cdbs.   - Add a Build-Depends on
-          gnome-common.
-
-2012-11-19 11:49:23 -0500 Mathieu Trudel-Lapierre (da26673)
-
-	* Bump version number for using with bzr-builddeb in split mode.
-
-2012-11-19 11:48:54 -0500 Mathieu Trudel-Lapierre (3159ad8)
-
-	* debian/compat: bump compat level to 9.
-
-2012-11-19 11:47:05 -0500 Mathieu Trudel-Lapierre (2ffb1e3)
-
-	* * debian/rules:   - Migrate from cdbs to using the dh sequencer.  
+        * Update Vcs-Bzr, Vcs-Browser and add a notice to uploaders.
+          (925eff8)
+        *   - Drop Build-Depends on cdbs.   - Add a Build-Depends on
+          gnome-common. (4f5faf2)
+        * Bump version number for using with bzr-builddeb in split mode.
+          (da26673)
+        * debian/compat: bump compat level to 9. (3159ad8)
+        * debian/rules:   - Migrate from cdbs to using the dh sequencer.
           - Override dh_autoreconf to call autogen.sh.   - Add and
-          export DPKG_GENSYMBOLS_CHECK_LEVEL = 4.
-
-2012-11-19 11:36:55 -0500 Mathieu Trudel-Lapierre (23912f9)
-
-	* * debian/control:   - Bump debhelper Build-Depends to (>= 9).   -
+          export DPKG_GENSYMBOLS_CHECK_LEVEL = 4. (2ffb1e3)
+        * debian/control:   - Bump debhelper Build-Depends to (>= 9).   -
           Update style to be consistent with other indicators.
+          (23912f9)
+        * Specify that bzr-builddeb should use split mode to build the
+          package (7268d16)
+        * Import debian/ from lp:~ubuntu-desktop/indicator-printers/ubuntu.
+          (58a2f61)
 
-2012-11-19 11:31:33 -0500 Mathieu Trudel-Lapierre (7268d16)
+2012-09-07 Didier Roche
 
-	* Specify that bzr-builddeb should use split mode to build the
-          package
-
-2012-11-19 11:28:49 -0500 Mathieu Trudel-Lapierre (58a2f61)
-
-	* Import debian/ from lp:~ubuntu-desktop/indicator-printers/ubuntu.
-
-2012-09-07 17:07:39 +0200 Didier Roche (aceae7a)
-
-	* releasing version 0.1.6-0ubuntu3
-
-2012-09-07 17:03:59 +0200 Didier Roche (730d0a8)
-
-	* * Cherry-pick a fix in trunk for FTBFS (cups changed its API):   -
+        * releasing version 0.1.6-0ubuntu3 (aceae7a)
+        * Cherry-pick a fix in trunk for FTBFS (cups changed its API):   -
           Don't access CUPS' ipp_attribute_t directly. Thanks Larsu
+          (730d0a8)
 
-2012-09-07 16:55:16 +0200 Lars Uebernickel (fe48eac)
+2012-09-07 Lars Uebernickel
 
-	* Don't access CUPS' ipp_attribute_t directly
+        * Don't access CUPS' ipp_attribute_t directly (fe48eac)
 
-2012-09-07 16:30:23 +0200 Didier Roche (c187461)
+2012-09-07 Didier Roche
 
-	* releasing version 0.1.6-0ubuntu2
+        * releasing version 0.1.6-0ubuntu2 (c187461)
 
-2012-08-31 20:07:05 -0400 Jeremy Bicha (a0b958c)
+2012-08-31 Jeremy Bicha
 
-	* * debian/control:   - Don't recommend Unity; indicators work in
+        * debian/control:   - Don't recommend Unity; indicators work in
           GNOME Classic session     without Unity being installed
+          (a0b958c)
 
-2012-04-05 12:49:02 +0200 Sebastien Bacher (beefe17)
+2012-04-05 Sebastien Bacher
 
-	* releasing version 0.1.6-0ubuntu1
+        * releasing version 0.1.6-0ubuntu1 (beefe17)
 
-2012-04-04 15:06:01 -0500 Ted Gould (78ca051)
+2012-04-04 Ted Gould
 
-	* releasing version 0.1.6-0ubuntu1~ppa1
+        * releasing version 0.1.6-0ubuntu1~ppa1 (78ca051)
+        * New upstream release.   * Add test coverage build targets
+          (d5699dd)
+        * Import upstream version 0.1.6 (826ae44)
+        * Sync with Ubuntu Desktop (2339ba5)
+        * 0.1.6 (23bbf5f) (tag: 0.1.6)
 
-2012-04-04 15:05:17 -0500 Ted Gould (d5699dd)
+2012-03-30 Lars Uebernickel
 
-	* * New upstream release.   * Add test coverage build targets
+        * Merge gcov tooling branch. Thanks Allan! (650e22c)
 
-2012-04-04 15:04:54 -0500 Ted Gould (826ae44)
+2012-03-27 Allan LeSage
 
-	* Import upstream version 0.1.6
+        * Added gcov coverage tooling. (d582c05)
 
-2012-04-04 15:04:09 -0500 Ted Gould (2339ba5)
+2012-03-20 Sebastien Bacher
 
-	* Sync with Ubuntu Desktop
+        * releasing version 0.1.5-0ubuntu1 (5e2669a)
+        * Merging shared upstream rev into target branch. (58d61b9)
+        * Prepared upstream tree for merging into target branch. (a73069a)
+        * Merging shared upstream rev into target branch. (fcdcb6d)
+        * Prepared upstream tree for merging into target branch. (12c947b)
 
-2012-04-04 14:58:44 -0500 Ted Gould (23bbf5f)
+2012-03-20 Lars Uebernickel
 
-	* 0.1.6 (tag: 0.1.6)
-
-2012-03-30 20:34:32 +0200 Lars Uebernickel (650e22c)
-
-	* Merge gcov tooling branch. Thanks Allan!
-
-2012-03-27 17:12:02 -0500 Allan LeSage (d582c05)
-
-	* Added gcov coverage tooling.
-
-2012-03-20 19:51:17 +0100 Sebastien Bacher (5e2669a)
-
-	* releasing version 0.1.5-0ubuntu1
-
-2012-03-20 19:51:05 +0100 Sebastien Bacher (58d61b9)
-
-	* Merging shared upstream rev into target branch.
-
-2012-03-20 19:51:05 +0100 Sebastien Bacher (a73069a)
-
-	* Prepared upstream tree for merging into target branch.
-
-2012-03-20 19:50:35 +0100 Sebastien Bacher (fcdcb6d)
-
-	* Merging shared upstream rev into target branch.
-
-2012-03-20 19:50:34 +0100 Sebastien Bacher (12c947b)
-
-	* Prepared upstream tree for merging into target branch.
-
-2012-03-20 18:50:46 +0100 Lars Uebernickel (98b4a07)
-
-	* releasing version 0.1.5-0ubuntu1
-
-2012-03-20 18:50:29 +0100 Lars Uebernickel (776d81c)
-
-	* * New upstream release.   - translate accessible description (LP:
+        * releasing version 0.1.5-0ubuntu1 (98b4a07)
+        * New upstream release.   - translate accessible description (LP:
           #957522)   - set lease durations on cups subscriptions
-          (LP: #959195)   - draw number of jobs as lozenge
+          (LP: #959195)   - draw number of jobs as lozenge (776d81c)
+        * Import upstream version 0.1.5 (b36c109)
+        * 0.1.5 (3470726) (tag: 0.1.5)
+        * Listen to indicator-right-is-lozenge property changes (68cb8a0)
+        * Set lease durations on cups subscription and renew periodically
+          (5a35b69)
 
-2012-03-20 18:47:21 +0100 Lars Uebernickel (b36c109)
+2012-03-16 Charles Kerr
 
-	* Import upstream version 0.1.5
+        * merge lp:~kelemeng/indicator-printers/bug957522 to fix Bug #957522
+          (05f0ede)
 
-2012-03-20 18:40:25 +0100 Lars Uebernickel (3470726)
+2012-03-17 Gabor Kelemen
 
-	* 0.1.5 (tag: 0.1.5)
+        * Change i18n header to gi18n-lib.h to translate the accessible
+          description. LP: #957522 (53c5d2c)
 
-2012-03-20 18:35:27 +0100 Lars Uebernickel (68cb8a0)
+2012-03-06 Sebastien Bacher
 
-	* Listen to indicator-right-is-lozenge property changes
+        * releasing version 0.1.4-0ubuntu1 (3cbf422)
 
-2012-03-20 18:28:05 +0100 Lars Uebernickel (5a35b69)
+2012-03-06 Lars Uebernickel
 
-	* Set lease durations on cups subscription and renew periodically
+        * releasing version 0.1.4-0ubuntu1 (fefe2d1)
+        * New upstream release.   - fix small i18n problems, thanks Gabor!
+          (LP: #945547) (37ac5a3)
+        * Import upstream version 0.1.4 (85fc36c)
 
-2012-03-16 18:32:42 -0500 Charles Kerr (05f0ede)
+2012-03-06 Sebastien Bacher
 
-	* merge lp:~kelemeng/indicator-printers/bug957522 to fix Bug #957522
+        * Import upstream version 0.1.4 (9556125)
 
-2012-03-17 00:09:47 +0100 Gabor Kelemen (53c5d2c)
+2012-03-06 Lars Uebernickel
 
-	* Change i18n header to gi18n-lib.h to translate the accessible
-          description. LP: #957522
+        * 0.1.4 (eec4fb8) (tag: 0.1.4)
 
-2012-03-06 22:24:54 +0100 Sebastien Bacher (3cbf422)
+2012-03-03 Gabor Kelemen
 
-	* releasing version 0.1.4-0ubuntu1
+        * Correct the use of plurals (e5d711f)
+        * Mark strings for translation (ffa10b2)
 
-2012-03-06 22:21:19 +0100 Lars Uebernickel (fefe2d1)
+2012-02-23 Sebastien Bacher
 
-	* releasing version 0.1.4-0ubuntu1
+        * releasing version 0.1.3-0ubuntu2 (30c26e1)
 
-2012-03-06 22:20:47 +0100 Lars Uebernickel (37ac5a3)
+2012-02-23 Lars Uebernickel
 
-	* * New upstream release.   - fix small i18n problems, thanks Gabor! 
-          (LP: #945547)
+        * releasing version 0.1.3-0ubuntu2 (173fa68)
+        * Add symbolic printer icons by Daniel Planas Armangue (LP: #840151)
+          (beb4236)
 
-2012-03-06 22:16:06 +0100 Lars Uebernickel (85fc36c)
+2012-02-17 Sebastien Bacher
 
-	* Import upstream version 0.1.4
+        * releasing version 0.1.3-0ubuntu1 (6397db5)
+        * Merging shared upstream rev into target branch. (824225b)
+        * Prepared upstream tree for merging into target branch. (fedc01b)
+        * Merging shared upstream rev into target branch. (1b9981e)
+        * Prepared upstream tree for merging into target branch. (04bae51)
 
-2012-03-06 22:09:51 +0100 Sebastien Bacher (9556125)
+2012-02-17 Lars Uebernickel
 
-	* Import upstream version 0.1.4
-
-2012-03-06 19:11:36 +0100 Lars Uebernickel (eec4fb8)
-
-	* 0.1.4 (tag: 0.1.4)
-
-2012-03-03 11:43:18 +0100 Gabor Kelemen (e5d711f)
-
-	* Correct the use of plurals
-
-2012-03-03 11:40:46 +0100 Gabor Kelemen (ffa10b2)
-
-	* Mark strings for translation
-
-2012-02-23 16:09:53 +0100 Sebastien Bacher (30c26e1)
-
-	* releasing version 0.1.3-0ubuntu2
-
-2012-02-23 15:57:39 +0100 Lars Uebernickel (173fa68)
-
-	* releasing version 0.1.3-0ubuntu2
-
-2012-02-23 15:57:13 +0100 Lars Uebernickel (beb4236)
-
-	* Add symbolic printer icons by Daniel Planas Armangue (LP: #840151)
-
-2012-02-17 21:19:11 +0100 Sebastien Bacher (6397db5)
-
-	* releasing version 0.1.3-0ubuntu1
-
-2012-02-17 21:17:39 +0100 Sebastien Bacher (824225b)
-
-	* Merging shared upstream rev into target branch.
-
-2012-02-17 21:17:39 +0100 Sebastien Bacher (fedc01b)
-
-	* Prepared upstream tree for merging into target branch.
-
-2012-02-17 21:16:15 +0100 Sebastien Bacher (1b9981e)
-
-	* Merging shared upstream rev into target branch.
-
-2012-02-17 21:16:15 +0100 Sebastien Bacher (04bae51)
-
-	* Prepared upstream tree for merging into target branch.
-
-2012-02-17 19:30:37 +0100 Lars Uebernickel (5ddfe0d)
-
-	* releasing version 0.1.3-0ubuntu1
-
-2012-02-17 19:28:39 +0100 Lars Uebernickel (05c47c8)
-
-	* * New upstream release.   - generate dbus service file with the
+        * releasing version 0.1.3-0ubuntu1 (5ddfe0d)
+        * New upstream release.   - generate dbus service file with the
           correct path   - use IndicatorServiceManager to manage the
-          lifecycle of the service
+          lifecycle of the service (05c47c8)
+        * Import upstream version 0.1.3 (66cdfa1)
+        * 0.1.3 (8e95494) (tag: 0.1.3)
+        * Create an IndicatorServiceManager in libprintersmenu.so (72a3857)
+        * 0.1.2 (6aa8774) (tag: 0.1.2)
+        * Distribute data/indicator-printers.service.in instead of the
+          locally generated one (0b74cac)
 
-2012-02-17 19:24:51 +0100 Lars Uebernickel (66cdfa1)
+2012-02-16 Sebastien Bacher
 
-	* Import upstream version 0.1.3
+        * releasing version 0.1.1-0ubuntu1 (cd4ca90)
 
-2012-02-17 19:15:06 +0100 Lars Uebernickel (8e95494)
+2012-02-16 Lars Uebernickel
 
-	* 0.1.3 (tag: 0.1.3)
-
-2012-02-17 19:14:02 +0100 Lars Uebernickel (72a3857)
-
-	* Create an IndicatorServiceManager in libprintersmenu.so
-
-2012-02-17 17:48:10 +0100 Lars Uebernickel (6aa8774)
-
-	* 0.1.2 (tag: 0.1.2)
-
-2012-02-17 17:40:07 +0100 Lars Uebernickel (0b74cac)
-
-	* Distribute data/indicator-printers.service.in instead of the
-          locally generated one
-
-2012-02-16 21:34:57 +0100 Sebastien Bacher (cd4ca90)
-
-	* releasing version 0.1.1-0ubuntu1
-
-2012-02-16 21:24:07 +0100 Lars Uebernickel (f35cbc8)
-
-	* releasing version 0.1.1-0ubuntu1
-
-2012-02-16 21:18:56 +0100 Lars Uebernickel (ba27629)
-
-	* * New upstream release.   - prepare for i18n   - make sure CUPS'
+        * releasing version 0.1.1-0ubuntu1 (f35cbc8)
+        * New upstream release.   - prepare for i18n   - make sure CUPS'
           dbus notification is on while the service is running   -
-          fix build system to enable out-of-tree builds *
+          fix build system to enable out-of-tree build.
           debian/control   - bump libindicator dependency 0.3.91
+          (ba27629)
+        * Import upstream version 0.1.1 (8ce897a)
 
-2012-02-16 21:06:36 +0100 Lars Uebernickel (8ce897a)
+2012-02-16 Sebastien Bacher
 
-	* Import upstream version 0.1.1
+        * Import upstream version 0.1.1 (6962983)
 
-2012-02-16 21:05:52 +0100 Sebastien Bacher (6962983)
+2012-02-16 Lars Uebernickel
 
-	* Import upstream version 0.1.1
+        * 0.1.1 (9a0e424) (tag: 0.1.1)
+        * Add --enable-localinstall to make `make distcheck` work (lifted
+          from indicator-messages) (eab1b7a)
+        * Don't distribute generated sources and delete them on `make clean`
+          (5b0b1ba)
+        * Also generate cups-notifier in the text directory (5f29b2a)
+        * Make sure CUPS' dbus notification is on while the service is
+          running (e767301)
+        * Mark strings translatable (da8f229)
 
-2012-02-16 20:53:23 +0100 Lars Uebernickel (9a0e424)
+2012-02-16 Sebastien Bacher
 
-	* 0.1.1 (tag: 0.1.1)
+        * set up vcs url (1204ca2)
+        * releasing version 0.1-0ubuntu2 (f8c54c0)
+        * Set up vcs in merge-upstream mode with 0.1 (7dbf3c7)
+        * Import upstream version 0.1 (4a11dd4)
+        * tweak version for import (5a37f7a)
 
-2012-02-16 19:54:07 +0100 Lars Uebernickel (eab1b7a)
+2012-02-16 Lars Uebernickel
 
-	* Add --enable-localinstall to make `make distcheck` work (lifted
-          from indicator-messages)
+        * Prepare for i18n (b18f3f8)
 
-2012-02-16 19:45:24 +0100 Lars Uebernickel (5b0b1ba)
+2012-02-16 Sebastien Bacher
 
-	* Don't distribute generated sources and delete them on `make clean`
+        * including the debian directory (ad0ea3e)
 
-2012-02-16 19:28:10 +0100 Lars Uebernickel (5f29b2a)
+2012-02-15 Lars Uebernickel
 
-	* Also generate cups-notifier in the text directory
+        * Include cups dbus interface xml file in the release (2d5e7bf) (tag:
+          0.1)
+        * Call system-config-printer instead of g-c-c's printer panel
+          (4ead979)
 
-2012-02-16 18:33:05 +0100 Lars Uebernickel (e767301)
+2012-02-14 Lars Uebernickel
 
-	* Make sure CUPS' dbus notification is on while the service is
-          running
+        * test/Makefile.am: pull generated files from build dir to enable
+          out-of-tree builds (32708ca)
+        * Add .service file for dbus-activation (cd9e5e1)
+        * Don't install test program (faa5982)
+        * Add dbus-names.h to the source lists of applet and service
+          (cc33352)
+        * test: use correct directory for generated files (4d7d494)
+        * Link applet against libm for floor() (fd61d64)
 
-2012-02-16 17:36:05 +0100 Lars Uebernickel (da8f229)
+2012-02-12 Lars Uebernickel
 
-	* Mark strings translatable
+        * Fix lozenge drawing (center text, 2 char min-width, right-align)
+          (1c5bab2)
+        * Update the whole printer list when any job is finished (3478a4f)
+        * Show printer settings when "Settings..." is clicked on an alert
+          dialog (918a2b8)
+        * Add missing license headers (b2f0906)
+        * Only show print indicator when there are print jobs (c3b56f7)
 
-2012-02-16 17:32:41 +0100 Sebastien Bacher (1204ca2)
+2012-02-09 Lars Uebernickel
 
-	* set up vcs url
+        * Don't show errors from non-existing printers (a796e6d)
+        * Remove non-existing file indicator-printers-service.h from Makefile
+          (28e4c27)
+        * Add mock cups notifier (only sends one message for now) (7cfac76)
+        * Show alert boxes when something's wrong with the printer (768e63b)
 
-2012-02-16 17:29:37 +0100 Sebastien Bacher (f8c54c0)
+2012-02-06 Lars Uebernickel
 
-	* releasing version 0.1-0ubuntu2
+        * indicator-printers: remove debug output (4875684)
+        * Use g_spawn_command_line_async to launch g-c-c (c1c9dd8)
 
-2012-02-16 17:28:02 +0100 Sebastien Bacher (7dbf3c7)
+2012-02-03 Lars Uebernickel
 
-	* Set up vcs in merge-upstream mode with 0.1
+        * Move g-c-c invocation out of indicator-printers-menu (75df9f6)
+        * indicator-printers-menu: ref cups_notifier (0b0215a)
+        * Enable silent make rules output (8991f40)
+        * Use priv member instead of calling g_type_instance_get_private
+          repeatedly (001cd99)
+        * Use libdbusmenu-gtk3's new include paths (77e7554)
 
-2012-02-16 17:27:00 +0100 Sebastien Bacher (4a11dd4)
+2012-02-02 Lars Uebernickel
 
-	* Import upstream version 0.1
+        * Move cups notifier object out of indicator-printers-menu (767aae6)
+        * Sync visibility of menu items with corresponding dbusmenuitem
+          (ad22412)
+        * Set menu label to the printer's name (accidentally removed in last
+          commit) (d0183f3)
+        * Listen to cups dbus messages to update menu when jobs are added /
+          done (0d7de7c)
 
-2012-02-16 17:26:42 +0100 Sebastien Bacher (5a37f7a)
+2012-01-26 Lars Uebernickel
 
-	* tweak version for import
+        * Initialize the menu with job list from cups when starting the
+          service (bf2ef61)
 
-2012-02-16 17:25:33 +0100 Lars Uebernickel (b18f3f8)
+2012-01-20 Lars Uebernickel
 
-	* Prepare for i18n
+        * Call g-c-c with the right parameter to open the printer panel
+          (0834e6f)
+        * indicator-printers-menu: fix disposing the root item (42429bd)
 
-2012-02-16 17:23:19 +0100 Sebastien Bacher (ad0ea3e)
+2012-01-15 Lars Uebernickel
 
-	* including the debian directory
+        * indicator-menu-item: add get functions for label and right text
+          (8b8ef8b)
 
-2012-02-15 15:15:23 +0100 Lars Uebernickel (2d5e7bf)
+2012-01-14 Lars Uebernickel
 
-	* Include cups dbus interface xml file in the release (tag: 0.1)
+        * indicator-menu-item: add get / set and notify signal for
+          right_is_lozenge (3540dc7)
+        * Add the possibility to set an icon on indicator-menu-item (1e56f31)
+        * indicator-printers: properly ref widget pointers (1b671f1)
+        * Optionally draw the right label as a lozenge (62d044c)
+        * Use a custom menu item which shows printer status on the right
+          (9025561)
 
-2012-02-15 11:40:19 +0100 Lars Uebernickel (4ead979)
+2012-01-12 Lars Uebernickel
 
-	* Call system-config-printer instead of g-c-c's printer panel
+        * indicator-printers-menu: don't set printer property on the menuitem
+          (7657cf8)
+        * Move menu related code into a separate class (eda55d2)
+        * Use get_entries instead of the get_* functions (72ec836)
 
-2012-02-14 21:58:22 +0100 Lars Uebernickel (32708ca)
+2012-01-11 Lars Uebernickel
 
-	* test/Makefile.am: pull generated files from build dir to enable
-          out-of-tree builds
-
-2012-02-14 16:55:38 +0100 Lars Uebernickel (cd9e5e1)
-
-	* Add .service file for dbus-activation
-
-2012-02-14 16:53:22 +0100 Lars Uebernickel (faa5982)
-
-	* Don't install test program
-
-2012-02-14 16:36:38 +0100 Lars Uebernickel (cc33352)
-
-	* Add dbus-names.h to the source lists of applet and service
-
-2012-02-14 16:19:16 +0100 Lars Uebernickel (4d7d494)
-
-	* test: use correct directory for generated files
-
-2012-02-14 16:09:31 +0100 Lars Uebernickel (fd61d64)
-
-	* Link applet against libm for floor()
-
-2012-02-12 16:10:07 +0100 Lars Uebernickel (1c5bab2)
-
-	* Fix lozenge drawing (center text, 2 char min-width, right-align)
-
-2012-02-12 15:16:29 +0100 Lars Uebernickel (3478a4f)
-
-	* Update the whole printer list when any job is finished
-
-2012-02-12 14:58:57 +0100 Lars Uebernickel (918a2b8)
-
-	* Show printer settings when "Settings..." is clicked on an alert
-          dialog
-
-2012-02-12 14:20:44 +0100 Lars Uebernickel (b2f0906)
-
-	* Add missing license headers
-
-2012-02-12 14:11:27 +0100 Lars Uebernickel (c3b56f7)
-
-	* Only show print indicator when there are print jobs
-
-2012-02-09 22:27:06 +0100 Lars Uebernickel (a796e6d)
-
-	* Don't show errors from non-existing printers
-
-2012-02-09 18:21:57 +0100 Lars Uebernickel (28e4c27)
-
-	* Remove non-existing file indicator-printers-service.h from Makefile
-
-2012-02-09 18:19:57 +0100 Lars Uebernickel (7cfac76)
-
-	* Add mock cups notifier (only sends one message for now)
-
-2012-02-09 17:33:06 +0100 Lars Uebernickel (768e63b)
-
-	* Show alert boxes when something's wrong with the printer
-
-2012-02-06 17:40:03 +0100 Lars Uebernickel (4875684)
-
-	* indicator-printers: remove debug output
-
-2012-02-06 15:38:27 +0100 Lars Uebernickel (c1c9dd8)
-
-	* Use g_spawn_command_line_async to launch g-c-c
-
-2012-02-03 16:07:18 +0100 Lars Uebernickel (75df9f6)
-
-	* Move g-c-c invocation out of indicator-printers-menu
-
-2012-02-03 14:53:25 +0100 Lars Uebernickel (0b0215a)
-
-	* indicator-printers-menu: ref cups_notifier
-
-2012-02-03 14:49:10 +0100 Lars Uebernickel (8991f40)
-
-	* Enable silent make rules output
-
-2012-02-03 14:39:34 +0100 Lars Uebernickel (001cd99)
-
-	* Use priv member instead of calling g_type_instance_get_private
-          repeatedly
-
-2012-02-03 11:42:55 +0100 Lars Uebernickel (77e7554)
-
-	* Use libdbusmenu-gtk3's new include paths
-
-2012-02-02 18:15:55 +0100 Lars Uebernickel (767aae6)
-
-	* Move cups notifier object out of indicator-printers-menu
-
-2012-02-02 17:21:02 +0100 Lars Uebernickel (ad22412)
-
-	* Sync visibility of menu items with corresponding dbusmenuitem
-
-2012-02-02 16:33:45 +0100 Lars Uebernickel (d0183f3)
-
-	* Set menu label to the printer's name (accidentally removed in last
-          commit)
-
-2012-02-02 15:49:11 +0100 Lars Uebernickel (0d7de7c)
-
-	* Listen to cups dbus messages to update menu when jobs are added /
-          done
-
-2012-01-26 19:44:53 +0100 Lars Uebernickel (bf2ef61)
-
-	* Initialize the menu with job list from cups when starting the
-          service
-
-2012-01-20 10:18:58 +0100 Lars Uebernickel (0834e6f)
-
-	* Call g-c-c with the right parameter to open the printer panel
-
-2012-01-20 10:16:47 +0100 Lars Uebernickel (42429bd)
-
-	* indicator-printers-menu: fix disposing the root item
-
-2012-01-15 00:02:41 +0100 Lars Uebernickel (8b8ef8b)
-
-	* indicator-menu-item: add get functions for label and right text
-
-2012-01-14 23:59:20 +0100 Lars Uebernickel (3540dc7)
-
-	* indicator-menu-item: add get / set and notify signal for
-          right_is_lozenge
-
-2012-01-14 23:51:10 +0100 Lars Uebernickel (1e56f31)
-
-	* Add the possibility to set an icon on indicator-menu-item
-
-2012-01-14 14:15:31 +0100 Lars Uebernickel (1b671f1)
-
-	* indicator-printers: properly ref widget pointers
-
-2012-01-14 13:55:36 +0100 Lars Uebernickel (62d044c)
-
-	* Optionally draw the right label as a lozenge
-
-2012-01-14 06:47:32 +0100 Lars Uebernickel (9025561)
-
-	* Use a custom menu item which shows printer status on the right
-
-2012-01-12 17:19:41 +0100 Lars Uebernickel (7657cf8)
-
-	* indicator-printers-menu: don't set printer property on the menuitem
-
-2012-01-12 17:04:30 +0100 Lars Uebernickel (eda55d2)
-
-	* Move menu related code into a separate class
-
-2012-01-12 13:07:13 +0100 Lars Uebernickel (72ec836)
-
-	* Use get_entries instead of the get_* functions
-
-2012-01-11 15:29:38 +0100 Lars Uebernickel (4bfc151)
-
-	* Initial import
-
+        * Initial import (4bfc151)
