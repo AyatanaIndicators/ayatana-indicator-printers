@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-12 07:55+0200\n"
-"PO-Revision-Date: 2021-11-21 01:50+0000\n"
+"PO-Revision-Date: 2021-11-22 22:35+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/"
 "ayatana-indicators/printers-applet/eo/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9.1\n"
+"X-Generator: Weblate 4.10-dev\n"
 
 #: ../src/indicator-printers.c:298
 msgid "Printers"
@@ -31,8 +31,8 @@ msgstr "Paŭzinta"
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Restas %d presotaĵo por ĉi tiu presilo."
+msgstr[1] "Restas %d presotaĵoj por ĉi tiu presilo."
 
 #: ../src/indicator-printer-state-notifier.c:115
 msgid "Printing Problem"
@@ -55,22 +55,22 @@ msgstr "Papero mankas je la presilo «%s»."
 #: ../src/indicator-printer-state-notifier.c:299
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "La presilo «%s» havas nesufiĉe da inkpulvoro."
 
 #: ../src/indicator-printer-state-notifier.c:300
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "Inkpulvoro mankas je la presilo «%s»."
 
 #: ../src/indicator-printer-state-notifier.c:301
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "Kovrilo de la presilo «%s» estas malfermita."
 
 #: ../src/indicator-printer-state-notifier.c:302
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "Pordo de la presilo «%s» estas malfermita."
 
 #: ../src/indicator-printer-state-notifier.c:303
 #, c-format
