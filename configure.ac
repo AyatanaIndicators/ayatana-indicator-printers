@@ -50,8 +50,8 @@ if test "x$CUPS_CONFIG" = "xno"; then
     AC_MSG_ERROR([could not find cups-config])
 fi
 AC_CHECK_HEADER(cups/cups.h,,AC_MSG_ERROR([could not find cups.h]))
-CUPS_CFLAGS+=`$CUPS_CONFIG --cflags`
-CUPS_LIBS+=`$CUPS_CONFIG --libs`
+CUPS_CFLAGS=`$CUPS_CONFIG --cflags`
+CUPS_LIBS=`$CUPS_CONFIG --libs`
 SERVICE_CFLAGS="$SERVICE_CFLAGS $CUPS_CFLAGS"
 SERVICE_LIBS="$SERVICE_LIBS $CUPS_LIBS"
 
