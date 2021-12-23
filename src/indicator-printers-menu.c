@@ -215,10 +215,13 @@ update_all_printer_menuitems (IndicatorPrintersMenu *self)
 
     ndests = cupsGetDests (&dests);
     for (i = 0; i < ndests; i++) {
-        int state = atoi (cupsGetOption ("printer-state",
-                                         dests[i].num_options,
-                                         dests[i].options));
-        update_printer_menuitem (self, dests[i].name, state);
+        const char *option = cupsGetOption ("printer-state",
+                                            dests[i].num_options,
+                                            dests[i].options);
+        if (option != NULL) {
+            int state = atoi (option);
+            update_printer_menuitem (self, dests[i].name, state);
+        }
     }
     cupsFreeDests (ndests, dests);
 }
