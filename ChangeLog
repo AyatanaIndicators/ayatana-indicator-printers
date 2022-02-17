@@ -1,6 +1,51 @@
+2022-02-17 Mike Gabriel
+
+        * release 22.2.0 (HEAD -> main, tag: 22.2.0)
+
+2022-02-08 Mike Gabriel
+
+        * Merge branch 'fossfreedom-main' (0cd3d2c)
+
+2021-12-23 David Mohammed
+
+        * Check if valid cupsoption before processing - closes #12 (6f54901)
+
+2022-02-08 Mike Gabriel
+
+        * Merge branch 'fossfreedom-patch-1' (264f7af)
+
+2021-12-20 David Mohammed
+
+        * Add budgie-desktop support (898307d)
+
+2022-02-08 Robert Tari
+
+        * .travis.yml: Run CI builds on Travis CI's Ubuntu focal base system
+          (0c26e5c)
+
+2021-12-08 Mike Gabriel
+
+        * Merge branch 'z3ntu-bashism' (9ad3ae4)
+
+2021-12-07 Luca Weiss
+
+        * Remove bash-ism from configure.ac (b4e36f4)
+
+2021-11-21 phlostically
+
+        * Translated using Weblate (Esperanto) (5af7477)
+
+2021-11-20 phlostically
+
+        * Translated using Weblate (Esperanto) (193a122)
+
+2021-11-18 phlostically
+
+        * Translated using Weblate (Esperanto) (31e5e29)
+
 2021-11-17 Mike Gabriel
 
-        * release 0.9.0 (HEAD -> main, tag: 0.9.0)
+        * release 0.9.0 (5c1756c) (tag: 0.9.0)
 
 2021-10-25 Robert Tari
 
