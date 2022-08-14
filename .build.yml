@@ -3,32 +3,35 @@
 ##########################################################
 requires:
   archlinux:
-    # Useful URL: https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=ayatana-indicator-session
+    # Useful URL: https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=ayatana-indicator-printers
     - clang
     - gcc
     - git
     - make
     - startup-notification
     - which
-#    - cmake
-#    - cmake-extras
-    - mate-common
+    - cmake
+    - cmake-extras
     - intltool
-    - ayatana-indicator3
-    - gobject-introspection
+    - mate-common
     - glib2
+    - gtk3
+    - libdbusmenu-glib
+    - libdbusmenu-gtk3
+    - libayatana-indicator
+    - libcups
     - systemd
+    - cups
 
   debian:
-    # Useful URL: https://salsa.debian.org/debian-ayatana-team/ayatana-session
-    - autopoint
+    # Useful URL: https://salsa.debian.org/debian-ayatana-team/ayatana-printers
     - clang
     - clang-tools
     - g++
     - cppcheck
     - git
-#    - cmake
-#    - cmake-extras
+    - cmake
+    - cmake-extras
     - mate-common
     - intltool
     - libglib2.0-dev
@@ -40,13 +43,12 @@ requires:
     - dbus
 
   ubuntu:
-    - autopoint
     - clang
     - clang-tools
     - g++
     - git
-#    - cmake
-#    - cmake-extras
+    - cmake
+    - cmake-extras
     - mate-common
     - intltool
     - libglib2.0-dev
@@ -74,45 +76,16 @@ variables:
     -enable-checker alpha.core.FixedAddr
     -enable-checker security.insecureAPI.strcpy"'
 
-### the printers indicator requires a very old version of libayatana-indicator, so no need to
-### build it from source here. Leaving the ruleset here, nonetheless.
-
-#before_scripts:
-#  - cd ${START_DIR}
-#  - if [ ! -d ayatana-ido-build ]; then
-#  -     git clone --depth 1  https://github.com/AyatanaIndicators/ayatana-ido.git ayatana-ido-build
-#  - fi
-#  - cd ayatana-ido-build
-#  - cmake . -DCMAKE_INSTALL_PREFIX=/usr
-#  - make
-#  - make install
-#  - cd -
-#  - rm -Rf ayatana-ido-build/
-#  -
-#  - cd ${START_DIR}
-#  - if [ ! -d libayatana-indicator-build ]; then
-#  -     git clone --depth 1  https://github.com/AyatanaIndicators/libayatana-indicator.git libayatana-indicator-build
-#  - fi
-#  - cd libayatana-indicator-build
-#  - cmake . -DCMAKE_INSTALL_PREFIX=/usr
-#  - make
-#  - make install
-#  - cd -
-#  - rm -Rf libayatana-indicator-build/
-#
 build_scripts:
   - if [ ${DISTRO_NAME} == "debian" ];then
   -     cppcheck --enable=warning,style,performance,portability,information,missingInclude .
   - fi
   -
-  - if [ -e ./autogen.sh ]; then
-  -     NOCONFIGURE=1 ./autogen.sh
-  -     scan-build $CHECKERS ./configure --prefix=/usr --enable-gtk-doc --enable-compile-warnings=maximum
-  - elif [ -e ./CMakeLists.txt ]; then
+  - if [ -e ./CMakeLists.txt ]; then
   -     if [ ${DISTRO_NAME} == "debian" ] || [ ${DISTRO_NAME} == "ubuntu" ]; then
-  -         scan-build $CHECKERS cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_VERBOSE_MAKEFILE=ON -DENABLE_TESTS=ON
+  -         scan-build $CHECKERS cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_VERBOSE_MAKEFILE=ON -DENABLE_WERROR=ON -DENABLE_TESTS=ON
   -     else
-  -         scan-build $CHECKERS cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_VERBOSE_MAKEFILE=ON
+  -         scan-build $CHECKERS cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_VERBOSE_MAKEFILE=ON -DENABLE_WERROR=ON
   -     fi
   - else
   -     exit 1
@@ -131,12 +104,10 @@ build_scripts:
   -     fi
   -     scan-build $CHECKERS --keep-cc -o html-report make
   - fi
-#  -
-#  - XVFB_RUN="$(which xvfb-run || true)"
-#  - if [ ${DISTRO_NAME} == "debian" ] || [ ${DISTRO_NAME} == "ubuntu" ];then
-#  -     if [ -e ./autogen.sh ]; then
-#  -         ${XVFB_RUN} make check
-#  -     elif [ -e ./CMakeLists.txt ]; then
-#  -         ${XVFB_RUN} env CTEST_OUTPUT_ON_FAILURE=1 make test
-#  -     fi
-#  - fi
+  -
+  - XVFB_RUN="$(which xvfb-run || true)"
+  - if [ ${DISTRO_NAME} == "debian" ] || [ ${DISTRO_NAME} == "ubuntu" ];then
+  -     if [ -e ./CMakeLists.txt ]; then
+  -         ${XVFB_RUN} env CTEST_OUTPUT_ON_FAILURE=1 make test
+  -     fi
+  - fi
