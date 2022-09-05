@@ -22,17 +22,17 @@ cp po/${GETTEXT_DOMAIN}.pot po/${GETTEXT_DOMAIN}.pot~
 
 cd po/
 cat LINGUAS | while read lingua; do
-    if [ ! -e ${lingua}.po ]; then
-         msginit --input=${GETTEXT_DOMAIN}.pot --locale=${lingua} --no-translator --output-file=$lingua.po
-    else
-        intltool-update --gettext-package ${GETTEXT_DOMAIN} $(basename ${lingua})
-    fi
+	if [ ! -e ${lingua}.po ]; then
+		msginit --input=${GETTEXT_DOMAIN}.pot --locale=${lingua} --no-translator --output-file=$lingua.po
+	else
+		intltool-update --gettext-package ${GETTEXT_DOMAIN} $(basename ${lingua})
+	fi
 
-    sed -e 's/\.xml\.in\.h:/.xml.in:/g' \
-        -e 's/\.ini\.in\.h:/.ini.in:/g' \
-        -e 's/\.xml\.h:/.xml:/g'        \
-        -e 's/\.ini\.h:/.ini:/g'        \
-        -i ${lingua}.po
+	sed -e 's/\.xml\.in\.h:/.xml.in:/g'	\
+	    -e 's/\.ini\.in\.h:/.ini.in:/g'	\
+	    -e 's/\.xml\.h:/.xml:/g'		\
+	    -e 's/\.ini\.h:/.ini:/g'		\
+	    -i ${lingua}.po
 
 done
 cd - 1>/dev/null
