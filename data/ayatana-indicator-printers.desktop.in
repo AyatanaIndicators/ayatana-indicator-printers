@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Ayatana Indicator Printers
-Exec=@pkglibexecdir@/ayatana-indicator-printers-service
+Exec=@CMAKE_INSTALL_FULL_LIBEXECDIR@/ayatana-indicator-printers/ayatana-indicator-printers-service
 OnlyShowIn=MATE;XFCE;Budgie
 NoDisplay=true
 StartupNotify=false

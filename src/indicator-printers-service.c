@@ -1,7 +1,9 @@
 /*
  * Copyright 2012 Canonical Ltd.
+ * Copyright 2022 Robert Tari
  *
  * Authors: Lars Uebernickel <lars.uebernickel@canonical.com>
+ *          Robert Tari <robert@tari.in>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 3, as published
@@ -21,7 +23,6 @@
 #include <gtk/gtk.h>
 #include <cups/cups.h>
 #include "dbus-names.h"
-#include "config.h"
 #include <glib/gi18n-lib.h>
 #include "cups-notifier.h"
 #include "indicator-printers-menu.h"

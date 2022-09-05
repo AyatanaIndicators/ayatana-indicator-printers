@@ -1,7 +1,9 @@
 /*
  * Copyright 2012 Canonical Ltd.
+ * Copyright 2022 Robert Tari
  *
  * Authors: Lars Uebernickel <lars.uebernickel@canonical.com>
+ *          Robert Tari <robert@tari.in>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 3, as published
@@ -15,8 +17,6 @@
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-#include "config.h"
 
 #include "indicator-printers.h"
 #include "indicator-menu-item.h"
