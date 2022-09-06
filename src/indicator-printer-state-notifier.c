@@ -1,7 +1,9 @@
 /*
  * Copyright 2012 Canonical Ltd.
+ * Copyright 2022 Robert Tari
  *
  * Authors: Lars Uebernickel <lars.uebernickel@canonical.com>
+ *          Robert Tari <robert@tari.in>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 3, as published
@@ -17,18 +19,14 @@
  */
 
 #include "indicator-printer-state-notifier.h"
-
+#include <ayatana/common/utils.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
 #include <cups/cups.h>
 #include <string.h>
 #include <stdarg.h>
 
 #include "cups-notifier.h"
 #include "spawn-printer-settings.h"
-
-
-#define RESPONSE_SHOW_SYSTEM_SETTINGS 1
 
 struct _IndicatorPrinterStateNotifierPrivate
 {
@@ -95,12 +93,9 @@ show_alert_box (const gchar *printer,
                 const gchar *reason,
                 int njobs)
 {
-    GtkWidget *dialog;
-    GtkWidget *image;
     gchar *primary_text;
     gchar *secondary_text;
 
-    image = gtk_image_new_from_icon_name ("printer", GTK_ICON_SIZE_DIALOG);
     primary_text = g_strdup_printf (reason, printer);
 
     secondary_text = g_strdup_printf (ngettext(
@@ -108,31 +103,14 @@ show_alert_box (const gchar *printer,
                    "You have %d jobs queued to print on this printer.", njobs),
                    njobs);
 
-    dialog = g_object_new (GTK_TYPE_MESSAGE_DIALOG,
-                           "title", _("Printing Problem"),
-                           "icon-name", "printer",
-                           "image", image,
-                           "text", primary_text,
-                           "secondary-text", secondary_text,
-                           "urgency-hint", TRUE,
-                           "focus-on-map", FALSE,
-                           "window-position", GTK_WIN_POS_CENTER,
-                           "skip-taskbar-hint", FALSE,
-                           "deletable", FALSE,
-                           NULL);
-
+    gchar *sText = g_strdup_printf("<b>%s</b>\n\n%s", primary_text, secondary_text);
     g_free (primary_text);
     g_free (secondary_text);
 
-    gtk_dialog_add_buttons(GTK_DIALOG (dialog), _("_Settings…"), RESPONSE_SHOW_SYSTEM_SETTINGS, _("_OK"), GTK_RESPONSE_OK, NULL);
-    gtk_dialog_set_default_response (GTK_DIALOG (dialog),
-                                     GTK_RESPONSE_OK);
-    gtk_widget_show_all (dialog);
+    ayatana_common_utils_zenity_warning ("printer", _("Printing Problem"), sText);
+    g_free (sText);
 
-    if (gtk_dialog_run (GTK_DIALOG (dialog)) == RESPONSE_SHOW_SYSTEM_SETTINGS)
-        spawn_printer_settings ();
-
-    gtk_widget_destroy (dialog);
+    spawn_printer_settings ();
 }
 
 
