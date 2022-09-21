@@ -1,0 +1,11 @@
+[Indicator Service]
+Name=ayatana-indicator-printers
+ObjectPath=/org/ayatana/indicator/printers
+Position=100
+
+[phone]
+ObjectPath=/org/ayatana/indicator/printers/phone
+Position=25
+
+[desktop]
+ObjectPath=/org/ayatana/indicator/printers/desktop

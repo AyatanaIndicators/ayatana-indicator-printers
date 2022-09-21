@@ -10,3 +10,6 @@ endif ()
 # ayatana-indicator-printers.desktop
 configure_file ("${CMAKE_CURRENT_SOURCE_DIR}/ayatana-indicator-printers.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/ayatana-indicator-printers.desktop" @ONLY)
 install (FILES "${CMAKE_CURRENT_BINARY_DIR}/ayatana-indicator-printers.desktop" DESTINATION "/etc/xdg/autostart")
+
+# org.ayatana.indicator.printers
+install (FILES "${CMAKE_CURRENT_SOURCE_DIR}/org.ayatana.indicator.printers" DESTINATION "${CMAKE_INSTALL_FULL_DATAROOTDIR}/ayatana/indicators")
