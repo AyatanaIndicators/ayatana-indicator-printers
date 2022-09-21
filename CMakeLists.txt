@@ -61,7 +61,7 @@ if (ENABLE_TESTS)
     add_subdirectory (test)
     if (ENABLE_COVERAGE)
         find_package (CoverageReport)
-        ENABLE_COVERAGE_REPORT (TARGETS "ayatanaindicatorprinterssservice" "ayatana-indicator-printers-service" TESTS "mock-cups-notifier" FILTER /usr/include ${CMAKE_BINARY_DIR}/*)
+        ENABLE_COVERAGE_REPORT (TARGETS "ayatanaindicatorprintersservice" "ayatana-indicator-printers-service" TESTS "mock-cups-notifier" FILTER /usr/include ${CMAKE_BINARY_DIR}/*)
     endif ()
 endif ()
 
