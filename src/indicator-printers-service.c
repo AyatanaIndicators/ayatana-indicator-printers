@@ -233,6 +233,7 @@ static GVariant *createHeaderState (IndicatorPrintersService *self)
 
     g_variant_builder_init (&b, G_VARIANT_TYPE ("a{sv}"));
     g_variant_builder_add (&b, "{sv}", "title", g_variant_new_string (_("Printers")));
+    g_variant_builder_add (&b, "{sv}", "tooltip", g_variant_new_string (_("Show print jobs and queues")));
     g_variant_builder_add (&b, "{sv}", "visible", g_variant_new_boolean (TRUE));
 
     if (self->pPrivate->bVisible)
