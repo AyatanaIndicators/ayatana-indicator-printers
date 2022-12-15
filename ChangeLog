@@ -1,6 +1,65 @@
+2022-12-15 Mike Gabriel
+
+        * release 22.9.0 (HEAD -> main, tag: 22.9.0)
+
+2022-09-22 Robert Tari
+
+        * Merge branch 'sunweaver-pr/tooltip-support' (025c06a)
+
+2022-09-22 Mike Gabriel
+
+        * src/indicator-printers-service.c: Add tooltip support. (bcd0658)
+
+2022-09-21 Mike Gabriel
+
+        * Merge branch 'tari01-pr/indicator-ng' (ce5fa07)
+        * CMake: Typo fix in target name. (0c689d5)
+
+2022-09-06 Robert Tari
+
+        * .build.yml: Update build dependencies (f22f67c)
+        * debian/control: Update build dependencies (0c644b5)
+        * Rewrite to indicator-ng: Remove unused source files (3caee4c)
+        * Rewrite to indicator-ng: Add service configuration file (fdd0455)
+        * Rewrite to indicator-ng: Code and build changes (d32524e)
+
+2022-09-05 Mike Gabriel
+
+        * update-po{,t}.sh: White-space changes (use same script as on other
+          ayatana-indicator-* projects). (4e646da)
+        * Merge branch 'tari01-pr/move-to-cmake' (e953439)
+
+2022-08-14 Robert Tari
+
+        * Drop all references to config.h (9e5b57c)
+        * Drop Automake files (f487079)
+        * debian/*: Change to using CMake (e03433a)
+        * .build.yml: Use CMake build (8b90bcc)
+        * Update translation scripts (de319a7)
+        * Use CMake variables in configurable files (7d9327a)
+        * Add CMakeLists.txt files (be468e9)
+        * config.h: Add dummy file (8963b20)
+        * Whitespace fix (b0e1be9)
+
+2022-02-28 Mike Gabriel
+
+        * Merge branch 'tari01-pr/cleanup-compile-flags' (0ef8ce7)
+
+2022-02-23 Robert Tari
+
+        * .build.yml: Remove extra compilation flags (8173711)
+
+2022-02-28 Mike Gabriel
+
+        * Merge branch 'gits0000-patch-1' (3929de4)
+
+2022-02-26 gits0000
+
+        * Update AUTHORS (7db50cc)
+
 2022-02-17 Mike Gabriel
 
-        * release 22.2.0 (HEAD -> main, tag: 22.2.0)
+        * release 22.2.0 (4c2b65a) (tag: 22.2.0)
 
 2022-02-08 Mike Gabriel
 
