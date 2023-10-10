@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-12 07:55+0200\n"
+"POT-Creation-Date: 2023-10-11 00:00+0200\n"
 "PO-Revision-Date: 2018-08-05 20:52+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://hosted.weblate.org/projects/"
-"ayatana-indicators/printers-applet/he/>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/ayatana-"
+"indicators/printers-applet/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,15 +20,20 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Weblate 3.1.1\n"
 
-#: ../src/indicator-printers.c:298
+#: ../src/indicator-printers-service.c:235
+#: ../src/indicator-printers-service.c:242
 msgid "Printers"
 msgstr "מדפסות"
 
-#: ../src/indicator-printers-menu.c:200
+#: ../src/indicator-printers-service.c:236
+msgid "Show print jobs and queues"
+msgstr ""
+
+#: ../src/indicator-printers-service.c:326
 msgid "Paused"
 msgstr "מושהית"
 
-#: ../src/indicator-printer-state-notifier.c:110
+#: ../src/indicator-printer-state-notifier.c:102
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
@@ -37,50 +42,49 @@ msgstr[1] "יש לך 2 משימות שממתינות להדפסה במדפסת �
 msgstr[2] "יש לך %d משימות שממתינות להדפסה במדפסת זו."
 msgstr[3] "יש לך %d משימות שממתינות להדפסה במדפסת זו."
 
-#: ../src/indicator-printer-state-notifier.c:115
+#: ../src/indicator-printer-state-notifier.c:110
 msgid "Printing Problem"
 msgstr "בעיית הדפסה"
 
-#: ../src/indicator-printer-state-notifier.c:131
-msgid "_Settings…"
-msgstr "ה_גדרות…"
-
-#: ../src/indicator-printer-state-notifier.c:297
+#: ../src/indicator-printer-state-notifier.c:265
 #, c-format
 msgid "The printer “%s” is low on paper."
 msgstr "הדפים במדפסת „%s” עומדים להיגמר."
 
-#: ../src/indicator-printer-state-notifier.c:298
+#: ../src/indicator-printer-state-notifier.c:266
 #, c-format
 msgid "The printer “%s” is out of paper."
 msgstr "במדפסת „%s” נגמר הנייר."
 
-#: ../src/indicator-printer-state-notifier.c:299
+#: ../src/indicator-printer-state-notifier.c:267
 #, c-format
 msgid "The printer “%s” is low on toner."
 msgstr "כרית הדיו במדפסת „%s” עומדת להסתיים."
 
-#: ../src/indicator-printer-state-notifier.c:300
+#: ../src/indicator-printer-state-notifier.c:268
 #, c-format
 msgid "The printer “%s” is out of toner."
 msgstr "כרית הדיו במדפסת „%s” הסתיימה."
 
-#: ../src/indicator-printer-state-notifier.c:301
+#: ../src/indicator-printer-state-notifier.c:269
 #, c-format
 msgid "A cover is open on the printer “%s”."
 msgstr "המכסה של המדפסת „%s” פתוח."
 
-#: ../src/indicator-printer-state-notifier.c:302
+#: ../src/indicator-printer-state-notifier.c:270
 #, c-format
 msgid "A door is open on the printer “%s”."
 msgstr "דלת פתוחה במדפסת „%s”."
 
-#: ../src/indicator-printer-state-notifier.c:303
+#: ../src/indicator-printer-state-notifier.c:271
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr "לא ניתן להשתמש במדפסת „%s” כיוון שתכניות נחוצות חסרות."
 
-#: ../src/indicator-printer-state-notifier.c:304
+#: ../src/indicator-printer-state-notifier.c:272
 #, c-format
 msgid "The printer “%s” is currently off-line."
 msgstr "המדפסת „%s” אינה מקוונת."
+
+#~ msgid "_Settings…"
+#~ msgstr "ה_גדרות…"

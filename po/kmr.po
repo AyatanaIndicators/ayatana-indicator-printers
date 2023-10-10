@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-29 12:44+0100\n"
+"POT-Creation-Date: 2023-10-11 00:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,65 +17,66 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../src/indicator-printers.c:298
+#: ../src/indicator-printers-service.c:235
+#: ../src/indicator-printers-service.c:242
 msgid "Printers"
 msgstr ""
 
-#: ../src/indicator-printers-menu.c:200
+#: ../src/indicator-printers-service.c:236
+msgid "Show print jobs and queues"
+msgstr ""
+
+#: ../src/indicator-printers-service.c:326
 msgid "Paused"
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:110
+#: ../src/indicator-printer-state-notifier.c:102
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/indicator-printer-state-notifier.c:115
+#: ../src/indicator-printer-state-notifier.c:110
 msgid "Printing Problem"
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:131
-msgid "_Settings…"
-msgstr ""
-
-#: ../src/indicator-printer-state-notifier.c:297
+#: ../src/indicator-printer-state-notifier.c:265
 #, c-format
 msgid "The printer “%s” is low on paper."
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:298
+#: ../src/indicator-printer-state-notifier.c:266
 #, c-format
 msgid "The printer “%s” is out of paper."
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:299
+#: ../src/indicator-printer-state-notifier.c:267
 #, c-format
 msgid "The printer “%s” is low on toner."
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:300
+#: ../src/indicator-printer-state-notifier.c:268
 #, c-format
 msgid "The printer “%s” is out of toner."
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:301
+#: ../src/indicator-printer-state-notifier.c:269
 #, c-format
 msgid "A cover is open on the printer “%s”."
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:302
+#: ../src/indicator-printer-state-notifier.c:270
 #, c-format
 msgid "A door is open on the printer “%s”."
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:303
+#: ../src/indicator-printer-state-notifier.c:271
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
 
-#: ../src/indicator-printer-state-notifier.c:304
+#: ../src/indicator-printer-state-notifier.c:272
 #, c-format
 msgid "The printer “%s” is currently off-line."
 msgstr ""

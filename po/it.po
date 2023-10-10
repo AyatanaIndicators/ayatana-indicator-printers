@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-12 07:55+0200\n"
+"POT-Creation-Date: 2023-10-11 00:00+0200\n"
 "PO-Revision-Date: 2019-09-03 20:24+0000\n"
 "Last-Translator: Swann Martinet <swann.ranskassa@laposte.net>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/"
-"ayatana-indicators/printers-applet/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/ayatana-"
+"indicators/printers-applet/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,67 +19,71 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9-dev\n"
 
-#: ../src/indicator-printers.c:298
+#: ../src/indicator-printers-service.c:235
+#: ../src/indicator-printers-service.c:242
 msgid "Printers"
 msgstr "Stampanti"
 
-#: ../src/indicator-printers-menu.c:200
+#: ../src/indicator-printers-service.c:236
+msgid "Show print jobs and queues"
+msgstr ""
+
+#: ../src/indicator-printers-service.c:326
 msgid "Paused"
 msgstr "In pausa"
 
-#: ../src/indicator-printer-state-notifier.c:110
+#: ../src/indicator-printer-state-notifier.c:102
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
 msgstr[0] "%d stampa accodata in stampa su questa stampante."
 msgstr[1] "%d stampe accodate in stampa su questa stampante."
 
-#: ../src/indicator-printer-state-notifier.c:115
+#: ../src/indicator-printer-state-notifier.c:110
 msgid "Printing Problem"
 msgstr "Problema di stampa"
 
-#: ../src/indicator-printer-state-notifier.c:131
-msgid "_Settings…"
-msgstr "_Impostazioni…"
-
-#: ../src/indicator-printer-state-notifier.c:297
+#: ../src/indicator-printer-state-notifier.c:265
 #, c-format
 msgid "The printer “%s” is low on paper."
 msgstr "La stampante «%s» sta esaurendo la carta."
 
-#: ../src/indicator-printer-state-notifier.c:298
+#: ../src/indicator-printer-state-notifier.c:266
 #, c-format
 msgid "The printer “%s” is out of paper."
 msgstr "La stampante «%s» ha esaurito la carta."
 
-#: ../src/indicator-printer-state-notifier.c:299
+#: ../src/indicator-printer-state-notifier.c:267
 #, c-format
 msgid "The printer “%s” is low on toner."
 msgstr "La stampante «%s» sta esaurendo il toner."
 
-#: ../src/indicator-printer-state-notifier.c:300
+#: ../src/indicator-printer-state-notifier.c:268
 #, c-format
 msgid "The printer “%s” is out of toner."
 msgstr "La stampante «%s» ha esaurito il toner."
 
-#: ../src/indicator-printer-state-notifier.c:301
+#: ../src/indicator-printer-state-notifier.c:269
 #, c-format
 msgid "A cover is open on the printer “%s”."
 msgstr "Coperchio della stampante «%s» aperto."
 
-#: ../src/indicator-printer-state-notifier.c:302
+#: ../src/indicator-printer-state-notifier.c:270
 #, c-format
 msgid "A door is open on the printer “%s”."
 msgstr "Sportello della stampante «%s» aperto."
 
-#: ../src/indicator-printer-state-notifier.c:303
+#: ../src/indicator-printer-state-notifier.c:271
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
 "La stampante «%s» non può essere utilizzata in quanto manca il software "
 "necessario."
 
-#: ../src/indicator-printer-state-notifier.c:304
+#: ../src/indicator-printer-state-notifier.c:272
 #, c-format
 msgid "The printer “%s” is currently off-line."
 msgstr "La stampante «%s» è attualmente non disponibile."
+
+#~ msgid "_Settings…"
+#~ msgstr "_Impostazioni…"

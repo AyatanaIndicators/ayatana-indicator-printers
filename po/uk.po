@@ -7,28 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-12 07:55+0200\n"
+"POT-Creation-Date: 2023-10-11 00:01+0200\n"
 "PO-Revision-Date: 2020-04-28 11:11+0000\n"
 "Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
-"ayatana-indicators/printers-applet/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/ayatana-"
+"indicators/printers-applet/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.0.2\n"
 
-#: ../src/indicator-printers.c:298
+#: ../src/indicator-printers-service.c:235
+#: ../src/indicator-printers-service.c:242
 msgid "Printers"
 msgstr "Принтери"
 
-#: ../src/indicator-printers-menu.c:200
+#: ../src/indicator-printers-service.c:236
+msgid "Show print jobs and queues"
+msgstr ""
+
+#: ../src/indicator-printers-service.c:326
 msgid "Paused"
 msgstr "Призупинено"
 
-#: ../src/indicator-printer-state-notifier.c:110
+#: ../src/indicator-printer-state-notifier.c:102
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
@@ -36,52 +41,51 @@ msgstr[0] "У вас є %d завдання в черзі для друку на
 msgstr[1] "У вас є %d завдання в черзі для друку на цьому принтері."
 msgstr[2] "У вас є %d завдань в черзі для друку на цьому принтері."
 
-#: ../src/indicator-printer-state-notifier.c:115
+#: ../src/indicator-printer-state-notifier.c:110
 msgid "Printing Problem"
 msgstr "Проблеми з друкуванням"
 
-#: ../src/indicator-printer-state-notifier.c:131
-msgid "_Settings…"
-msgstr "_Налаштування…"
-
-#: ../src/indicator-printer-state-notifier.c:297
+#: ../src/indicator-printer-state-notifier.c:265
 #, c-format
 msgid "The printer “%s” is low on paper."
 msgstr "У принтері «%s» залишилося замало паперу."
 
-#: ../src/indicator-printer-state-notifier.c:298
+#: ../src/indicator-printer-state-notifier.c:266
 #, c-format
 msgid "The printer “%s” is out of paper."
 msgstr "У принтері «%s» закінчився папір."
 
-#: ../src/indicator-printer-state-notifier.c:299
+#: ../src/indicator-printer-state-notifier.c:267
 #, c-format
 msgid "The printer “%s” is low on toner."
 msgstr "У принтері «%s» бракує тонера."
 
-#: ../src/indicator-printer-state-notifier.c:300
+#: ../src/indicator-printer-state-notifier.c:268
 #, c-format
 msgid "The printer “%s” is out of toner."
 msgstr "У принтері «%s» закінчився тонер."
 
-#: ../src/indicator-printer-state-notifier.c:301
+#: ../src/indicator-printer-state-notifier.c:269
 #, c-format
 msgid "A cover is open on the printer “%s”."
 msgstr "На принтері «%s» відкрито кришку."
 
-#: ../src/indicator-printer-state-notifier.c:302
+#: ../src/indicator-printer-state-notifier.c:270
 #, c-format
 msgid "A door is open on the printer “%s”."
 msgstr "На принтері «%s» відкрито дверцята."
 
-#: ../src/indicator-printer-state-notifier.c:303
+#: ../src/indicator-printer-state-notifier.c:271
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
 "Принтер «%s» не може бути використаний, оскільки відсутнє програмне "
 "забезпечення."
 
-#: ../src/indicator-printer-state-notifier.c:304
+#: ../src/indicator-printer-state-notifier.c:272
 #, c-format
 msgid "The printer “%s” is currently off-line."
 msgstr "Принтер «%s» наразі відключений."
+
+#~ msgid "_Settings…"
+#~ msgstr "_Налаштування…"
