@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 00:01+0200\n"
-"PO-Revision-Date: 2018-01-24 12:31+0000\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/ayatana-"
-"indicators/printers-applet/sv/>\n"
+"PO-Revision-Date: 2023-11-09 14:33+0000\n"
+"Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"ayatana-indicators/printers-applet/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: ../src/indicator-printers-service.c:235
 #: ../src/indicator-printers-service.c:242
@@ -26,7 +26,7 @@ msgstr "Skrivare"
 
 #: ../src/indicator-printers-service.c:236
 msgid "Show print jobs and queues"
-msgstr ""
+msgstr "Visa utskriftsjobb och köer"
 
 #: ../src/indicator-printers-service.c:326
 msgid "Paused"
