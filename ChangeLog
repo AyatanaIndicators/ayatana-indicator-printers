@@ -1,6 +1,44 @@
+2023-12-26 Mike Gabriel
+
+        * release 23.10.1 (HEAD -> main, tag: 23.10.1)
+        * d/changelog: fix missing entry for 23.10.0 (b3f2a87)
+
+2023-11-08 bittin1ddc447d824349b2
+
+        * Translated using Weblate (Swedish) (e53a359)
+
+2023-11-08 Ivo Xavier
+
+        * Translated using Weblate (Portuguese) (10f4533)
+
+2023-10-24 Moo
+
+        * Translated using Weblate (Lithuanian) (8c7592d)
+
+2023-10-20 Jozef Mlich
+
+        * Translated using Weblate (Czech) (2f8103f)
+
+2023-10-14 Quentin PAGÈS
+
+        * Translated using Weblate (Occitan) (6c73c6b)
+
+2023-10-15 Allan Nordhøy
+
+        * Translated using Weblate (Norwegian Bokmål) (cf9f180)
+
+2023-10-14 Yaron Shahrabani
+
+        * Translated using Weblate (Hebrew) (ea5d20f)
+
+2023-10-14 gallegonovato
+
+        * Translated using Weblate (Spanish) (be817bc)
+
 2023-10-13 Mike Gabriel
 
-        * release 23.10.0 (HEAD -> main, tag: 23.10.0)
+        * Translated using Weblate (German) (853b72a)
+        * release 23.10.0 (052644f) (tag: 23.10.0)
 
 2023-10-11 Serhii Horichenko
 
