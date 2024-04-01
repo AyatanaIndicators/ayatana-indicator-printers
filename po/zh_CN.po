@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 00:01+0200\n"
-"PO-Revision-Date: 2020-05-22 00:41+0000\n"
-"Last-Translator: wdggg <wdggg7@gmail.com>\n"
+"PO-Revision-Date: 2024-04-01 22:37+0000\n"
+"Last-Translator: 复予 <clonewith@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "ayatana-indicators/printers-applet/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ../src/indicator-printers-service.c:235
 #: ../src/indicator-printers-service.c:242
@@ -26,7 +26,7 @@ msgstr "打印机"
 
 #: ../src/indicator-printers-service.c:236
 msgid "Show print jobs and queues"
-msgstr ""
+msgstr "显示打印任务与队列"
 
 #: ../src/indicator-printers-service.c:326
 msgid "Paused"
@@ -36,7 +36,7 @@ msgstr "暂停"
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] "你还有%d个任务在此打印机上等候打印."
+msgstr[0] "您还有 %d 个任务在此打印机上等待打印。"
 
 #: ../src/indicator-printer-state-notifier.c:110
 msgid "Printing Problem"
@@ -45,42 +45,42 @@ msgstr "打印时出现问题"
 #: ../src/indicator-printer-state-notifier.c:265
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "打印机 \"%s\" 的纸快用完了."
+msgstr "打印机 \"%s\" 的纸即将用尽。"
 
 #: ../src/indicator-printer-state-notifier.c:266
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "打印机 \"%s\" 没纸了."
+msgstr "打印机 \"%s\" 缺纸。"
 
 #: ../src/indicator-printer-state-notifier.c:267
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "打印机 \"%s\" 的碳粉快要用完了."
+msgstr "打印机 \"%s\" 的碳粉将要耗尽。"
 
 #: ../src/indicator-printer-state-notifier.c:268
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "打印机 \"%s\" 的碳粉已耗尽."
+msgstr "打印机 \"%s\" 的碳粉已耗尽。"
 
 #: ../src/indicator-printer-state-notifier.c:269
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "打印机 \"%s\" 的机盖没盖紧."
+msgstr "打印机 \"%s\" 的机盖没盖紧。"
 
 #: ../src/indicator-printer-state-notifier.c:270
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "打印机 \"%s\" 的门未关闭."
+msgstr "打印机 \"%s\" 的门未关闭。"
 
 #: ../src/indicator-printer-state-notifier.c:271
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr "无法使用此打印机 \"%s\", 因为缺少其运行所需要的驱动或软件."
+msgstr "无法使用打印机 \"%s\"，因为缺少其运行所需要的驱动或软件。"
 
 #: ../src/indicator-printer-state-notifier.c:272
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "此打印机 \"%s\" 目前处于离线状态."
+msgstr "打印机 \"%s\" 目前离线。"
 
 #~ msgid "_Settings…"
 #~ msgstr "_设置…"
