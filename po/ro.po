@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 00:01+0200\n"
-"PO-Revision-Date: 2020-04-28 11:11+0000\n"
-"Last-Translator: Jeannette L <j.lavoie@net-c.ca>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/ayatana-"
-"indicators/printers-applet/ro/>\n"
+"PO-Revision-Date: 2024-09-29 00:16+0000\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/"
+"ayatana-indicators/printers-applet/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.0.2\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: ../src/indicator-printers-service.c:235
 #: ../src/indicator-printers-service.c:242
@@ -27,43 +27,49 @@ msgstr "Imprimante"
 
 #: ../src/indicator-printers-service.c:236
 msgid "Show print jobs and queues"
-msgstr ""
+msgstr "Afișează lucrările de imprimare și cozile de așteptare"
 
 #: ../src/indicator-printers-service.c:326
 msgid "Paused"
-msgstr "Pus pe pauza"
+msgstr "Imprimantă pusă în pauză"
 
 #: ../src/indicator-printer-state-notifier.c:102
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] "Aveti o %d imprimare in asteptare la aceasta imprimanta."
-msgstr[1] "Aveti %d imprimari in asteptare la aceasta imprimanta."
-msgstr[2] "Aveti %d imprimari in asteptare la aceasta imprimanta."
+msgstr[0] ""
+"Aveți %d lucrare în coada de așteptare pentru imprimare la această "
+"imprimantă."
+msgstr[1] ""
+"Aveți %d lucrări în coada de așteptare pentru imprimare la această "
+"imprimantă."
+msgstr[2] ""
+"Aveți %d de lucrări în coada de așteptare pentru imprimare la această "
+"imprimantă."
 
 #: ../src/indicator-printer-state-notifier.c:110
 msgid "Printing Problem"
-msgstr "Problema la imprimare"
+msgstr "Problemă la imprimare"
 
 #: ../src/indicator-printer-state-notifier.c:265
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Imprimanta „%s” mai are putina hartie."
+msgstr "Imprimanta „%s” mai are puțină hârtie."
 
 #: ../src/indicator-printer-state-notifier.c:266
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "Imprimanta „%s” nu mai are hartie."
+msgstr "Imprimanta „%s” nu mai are hârtie."
 
 #: ../src/indicator-printer-state-notifier.c:267
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "Imprimanta „%s” mai are doar putin cartus."
+msgstr "Imprimanta „%s” mai are doar puțină cerneală în cartuș/toner."
 
 #: ../src/indicator-printer-state-notifier.c:268
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "Imprimanta „%s” nu mai are cartus."
+msgstr "Imprimanta „%s” nu mai are cerneală în cartuș/toner."
 
 #: ../src/indicator-printer-state-notifier.c:269
 #, c-format
@@ -73,18 +79,18 @@ msgstr "Capacul imprimantei „%s” este deschis."
 #: ../src/indicator-printer-state-notifier.c:270
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "O usa a imprimantei „%s” este deschisa."
+msgstr "O ușă a imprimantei „%s” este deschisă."
 
 #: ../src/indicator-printer-state-notifier.c:271
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
-"Imprimanta „%s” nu poate fi utilizata deoarece un sofware necesar lipseste."
+"Imprimanta „%s” nu poate fi utilizată deoarece un sofware necesar lipsește."
 
 #: ../src/indicator-printer-state-notifier.c:272
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "Imprimanta „%s” este pentru moment offline."
+msgstr "Imprimanta „%s” este pentru moment deconectată din rețea."
 
 #~ msgid "_Settings…"
 #~ msgstr "_Setari…"
