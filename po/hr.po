@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-11 00:00+0200\n"
-"PO-Revision-Date: 2020-01-03 23:21+0000\n"
+"PO-Revision-Date: 2025-09-15 20:01+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
-"Language-Team: Croatian <https://hosted.weblate.org/projects/ayatana-"
-"indicators/printers-applet/hr/>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"ayatana-indicators/printers-applet/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: ../src/indicator-printers-service.c:235
 #: ../src/indicator-printers-service.c:242
@@ -27,7 +27,7 @@ msgstr "Pisači"
 
 #: ../src/indicator-printers-service.c:236
 msgid "Show print jobs and queues"
-msgstr ""
+msgstr "Prikaži zadatke pisača i zadatke na čekanju"
 
 #: ../src/indicator-printers-service.c:326
 msgid "Paused"
