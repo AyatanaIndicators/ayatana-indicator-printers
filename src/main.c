@@ -35,7 +35,7 @@ int main (int argc G_GNUC_UNUSED, char **argv G_GNUC_UNUSED)
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
 
-    IndicatorPrintersService *pService = indicator_printers_service_new (NULL);
+    IndicatorPrintersService *pService = indicator_printers_service_new ();
     GMainLoop *pLoop = g_main_loop_new (NULL, FALSE);
     g_signal_connect (pService, "name-lost", G_CALLBACK (onNameLost), pLoop);
     g_main_loop_run (pLoop);
