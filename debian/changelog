@@ -1,3 +1,10 @@
+ayatana-indicator-printers (23.10.2) unstable; urgency=medium
+
+  * Upstream-provided Debian package for ayatana-indicator-printers. See
+    upstream ChangeLog for recent changes.
+
+ -- UBports developers <developers@ubports.com>  Thu, 11 Jun 2026 22:31:00 +0200
+
 ayatana-indicator-printers (23.10.1-0) unstable; urgency=medium
 
   * Upstream-provided Debian package for ayatana-indicator-printers.

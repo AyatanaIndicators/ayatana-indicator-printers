@@ -1,6 +1,58 @@
+2026-06-11 Mike Gabriel
+
+        * Release 23.10.2 (HEAD -> main, tag: 23.10.2)
+
+2026-03-18 Andi Chandler
+
+        * Translated using Weblate (English (United Kingdom)) (9fae93e)
+
+2026-03-15 BackSpec
+
+        * Translated using Weblate (Japanese) (4b0d016)
+
+2026-01-27 BoneNI
+
+        * Translated using Weblate (Lao) (15ee9f4)
+
+2025-09-29 Temuri Doghonadze
+
+        * Translated using Weblate (Georgian) (a405146)
+
+2025-09-14 Milo Ivir
+
+        * Translated using Weblate (Croatian) (3f6cdb4)
+
+2025-05-07 Priit Jõerüüt
+
+        * Translated using Weblate (Estonian) (57537cf)
+
+2025-04-27 தமிழ்நேரம்
+
+        * Translated using Weblate (Tamil) (740a7a7)
+
+2024-11-08 தமிழ்நேரம்
+
+        * Translated using Weblate (Tamil) (1fb9647)
+
+2024-09-27 Remus-Gabriel Chelu
+
+        * Translated using Weblate (Romanian) (1fccd7b)
+
+2024-04-01 复予
+
+        * Translated using Weblate (Chinese (Simplified)) (e3987fe)
+
+2024-03-22 Steve
+
+        * Translated using Weblate (French) (33a159f)
+
+2024-03-14 이정희
+
+        * Translated using Weblate (Korean) (cdfee2f)
+
 2023-12-26 Mike Gabriel
 
-        * release 23.10.1 (HEAD -> main, tag: 23.10.1)
+        * release 23.10.1 (998637b) (tag: 23.10.1)
         * d/changelog: fix missing entry for 23.10.0 (b3f2a87)
 
 2023-11-08 bittin1ddc447d824349b2
