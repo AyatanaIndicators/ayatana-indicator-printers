@@ -1,6 +1,22 @@
+2026-06-13 Mike Gabriel
+
+        * Release 26.6.0 (HEAD -> main, tag: 26.6.0)
+
+2026-06-13 Lorenzo Torracchi
+
+        * Translated using Weblate (Italian) (1930edd)
+
 2026-06-11 Mike Gabriel
 
-        * Release 23.10.2 (HEAD -> main, tag: 23.10.2)
+        * Merge branch 'z3ntu-gcc15' (f9030f3)
+
+2025-09-17 Leon White
+
+        * Fix build with GCC 15 (49685a1)
+
+2026-06-11 Mike Gabriel
+
+        * Release 23.10.2 (9f76927) (tag: 23.10.2)
 
 2026-03-18 Andi Chandler
 
